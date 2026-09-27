@@ -41,7 +41,6 @@ export const site = {
     { label: 'Twitter', href: 'https://twitter.com/uniqueeducatio2', icon: 'twitter' },
   ],
   founderLinkedIn: 'https://in.linkedin.com/in/shalini-menon',
-  credit: { label: 'AK Dezigns', href: 'https://akdezigns.com/' },
 } as const;
 
 export type SocialIcon = (typeof site.socials)[number]['icon'];

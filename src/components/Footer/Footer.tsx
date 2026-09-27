@@ -116,12 +116,6 @@ export function Footer() {
       <div className="container">
         <div className={s.bottom}>
           <p>Copyright 2020 {site.name}. All rights reserved.</p>
-          <p>
-            SEO managed by{' '}
-            <a href={site.credit.href} target="_blank" rel="noopener noreferrer" className={s.bottomLink}>
-              {site.credit.label}
-            </a>
-          </p>
         </div>
       </div>
     </footer>

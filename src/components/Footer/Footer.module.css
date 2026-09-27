@@ -246,13 +246,3 @@
   font-size: var(--fs-xs);
   color: var(--on-dark-subtle);
 }
-
-.bottomLink {
-  color: var(--on-dark-muted);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.bottomLink:hover {
-  color: var(--on-dark);
-}
