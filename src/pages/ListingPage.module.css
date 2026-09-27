@@ -1,0 +1,134 @@
+.featured {
+  max-width: 100%;
+}
+
+.featured > article {
+  display: grid;
+  gap: 0 48px;
+}
+
+@media (min-width: 900px) {
+  .featured > article {
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    grid-template-rows: auto auto auto 1fr;
+    align-items: start;
+  }
+
+  .featured > article > :first-child {
+    grid-row: 1 / -1;
+  }
+
+  .featured h3 {
+    font-size: var(--fs-h2-compact);
+    line-height: 1.15;
+    letter-spacing: var(--tracking-h2);
+  }
+}
+
+.grid {
+  display: grid;
+  gap: 40px 24px;
+  margin-top: clamp(40px, 2rem + 3vw, 64px);
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.more {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 56px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line-strong);
+  font-size: var(--fs-small);
+  color: var(--text-subtle);
+}
+
+/* News list */
+
+.list {
+  border-top: 1px solid var(--rule);
+}
+
+.row {
+  position: relative;
+  display: grid;
+  gap: 8px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+@media (min-width: 900px) {
+  .row {
+    grid-template-columns: 180px minmax(0, 1fr) auto;
+    gap: 32px;
+    align-items: baseline;
+  }
+}
+
+.date {
+  font-size: var(--fs-xs);
+  color: var(--fg-subtle);
+  font-variant-numeric: tabular-nums;
+}
+
+.rowTitle {
+  font-size: 1.125rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+}
+
+.rowLink::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.rowExcerpt {
+  margin-top: 6px;
+  font-size: var(--fs-small);
+  line-height: 1.6;
+  color: var(--fg-muted);
+}
+
+.rowIcon {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .rowIcon {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--rule);
+    transition:
+      background-color var(--dur) var(--ease),
+      color var(--dur) var(--ease),
+      transform var(--dur-slow) var(--ease);
+  }
+
+  .row:hover .rowIcon {
+    background: var(--ink);
+    color: var(--on-dark);
+    transform: rotate(45deg);
+  }
+}
+
+.row:hover .rowTitle {
+  color: var(--brand);
+}
