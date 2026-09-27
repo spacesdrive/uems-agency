@@ -1,6 +1,7 @@
 import { Button } from '../../components/Button';
 import { HeroBackdrop } from '../../components/HeroBackdrop';
 import { Icon } from '../../components/Icon';
+import { Img } from '../../components/Img';
 import { hero } from '../../data/home';
 import { site } from '../../data/site';
 import { cx } from '../../lib/cx';
@@ -22,13 +23,21 @@ export function HomeHero() {
             <a href={site.reviews.listUrl} target="_blank" rel="noopener noreferrer" className={s.badge}>
               <Icon name="star" size={18} className={s.star} />
               <span className={s.badgeText}>{site.reviews.rating} on Google</span>
-              <span className={s.badgeChip}>{site.reviews.count} reviews</span>
               <span className="visually-hidden"> (opens in a new tab)</span>
             </a>
           </div>
         </div>
 
         <div className={s.meta}>
+          <div className={s.photo}>
+            <Img
+              name={hero.image.name}
+              alt={hero.image.alt}
+              priority
+              sizes="(min-width: 1100px) 500px, (min-width: 640px) 480px, 90vw"
+              className={s.photoImg}
+            />
+          </div>
           <dl className={s.facts}>
             {hero.facts.map((f) => (
               <div key={f.label} className={s.fact}>

@@ -2,14 +2,13 @@ import { enquirySection, partnerSection } from '../shared';
 import type { CardItem, ContentPageData } from '../types';
 
 const destinations: CardItem[] = [
+  { title: 'USA', image: { name: 'city-usa', alt: 'Statue of Liberty, New York' }, action: { label: 'Study in USA', to: '/study-in-usa' } },
+  { title: 'UK', image: { name: 'city-uk', alt: 'Big Ben and the Houses of Parliament, London' }, action: { label: 'Study in UK', to: '/study-in-uk-ireland' } },
   { title: 'Australia', image: { name: 'city-australia', alt: 'Sydney Opera House and harbour' }, action: { label: 'Study in Australia', to: '/study-in-australia' } },
   { title: 'Canada', image: { name: 'city-canada', alt: 'Toronto skyline with the CN Tower' }, action: { label: 'Study in Canada', to: '/studyincanada' } },
-  { title: 'UK / Ireland', image: { name: 'city-uk', alt: 'Big Ben and the Houses of Parliament, London' }, action: { label: 'Study in UK & Ireland', to: '/study-in-uk-ireland' } },
-  { title: 'USA', image: { name: 'city-usa', alt: 'Statue of Liberty, New York' }, action: { label: 'Study in USA', to: '/study-in-usa' } },
-  { title: 'Asia', image: { name: 'city-asia', alt: 'Marina Bay, Singapore' }, action: { label: 'Study in Asia', to: '/study-in-asia' } },
-  { title: 'New Zealand', image: { name: 'city-nz', alt: 'Auckland waterfront, New Zealand' }, action: { label: 'Study in New Zealand', to: '/study-in-new-zealand' } },
-  { title: 'UAE', image: { name: 'city-uae', alt: 'Dubai waterfront architecture' }, action: { label: 'Study in UAE', to: '/study-in-uae' } },
-  { title: 'Europe', image: { name: 'city-europe', alt: 'Modern European waterfront architecture' }, action: { label: 'Study in Europe', to: '/study-in-europe' } },
+  { title: 'Singapore & other Asian countries', image: { name: 'city-asia', alt: 'Marina Bay, Singapore' }, action: { label: 'Study in Asia', to: '/study-in-asia' } },
+  { title: 'Dubai', image: { name: 'city-uae', alt: 'Dubai waterfront architecture' }, action: { label: 'Study in Dubai', to: '/study-in-uae' } },
+  { title: 'Ireland, Germany & other European countries', image: { name: 'city-europe', alt: 'Modern European waterfront architecture' }, action: { label: 'Study in Europe', to: '/study-in-europe' } },
 ];
 
 const page: ContentPageData = {
@@ -17,16 +16,16 @@ const page: ContentPageData = {
   meta: {
     title: 'Best Study Abroad Consultants in Mumbai',
     description:
-      'Study abroad consultants UEMS Ventures offer guides to studying in Australia, Canada, the UK & Ireland, USA, Asia, New Zealand, UAE and Europe, with complete application assistance.',
+      'Study abroad consultants UEMS Ventures guide students from India and around the world to the USA, UK, Australia, Canada, Singapore and Asia, Dubai, Ireland, Germany and Europe.',
   },
   hero: {
     eyebrow: 'Best study abroad consultants',
     title: 'Study abroad consultants for abroad studies',
     lead: [
-      'You have come to the right place for study abroad consultants. Here you will find guides to study in different countries, also giving you a chance to connect with us for a one-on-one consultation. UEMS offers complete application assistance for courses in many countries.',
+      'You have come to the right place for study abroad consultants. Whether you are applying from India or from anywhere else in the world, we help you reach top universities across borders. Here you will find guides to study in different countries, and a chance to connect with us for a one-on-one consultation.',
     ],
     actions: [
-      { label: 'Enquire now', to: '#enquire' },
+      { label: 'Inquire now', to: '#enquire' },
       { label: 'Talk to Mumbai expert', to: '/contact-us', variant: 'outline' },
     ],
     image: { name: 'sa-hero', alt: 'Graduate in cap and gown pointing towards a city skyline' },
@@ -93,7 +92,7 @@ const page: ContentPageData = {
           title: 'Many countries welcome international students',
           text: 'Talk to us — each country has its own advantage, and UEMS helps you find the right country and the right course for you.',
           actions: [
-            { label: 'Enquire now', to: '/contact-us' },
+            { label: 'Inquire now', to: '#enquire' },
             { label: 'Read about student experiences', to: '/#reviews' },
           ],
         },

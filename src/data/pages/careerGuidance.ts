@@ -94,6 +94,15 @@ const page: ContentPageData = {
       ],
     },
     {
+      id: 'free-counselling',
+      label: 'Global Profile Accelerator',
+      title: 'Register for free career counselling',
+      intro:
+        'Career counselling leads into our Global Profile Accelerator, where expert mentors help you choose your study and career path and build a stronger study abroad application.',
+      layout: 'aside',
+      blocks: [{ type: 'registration' }],
+    },
+    {
       label: 'First step',
       title: 'Ready to take the first step?',
       tone: 'dark',

@@ -3,6 +3,7 @@ import { Button } from '../components/Button';
 import { EnquiryForm } from '../components/EnquiryForm';
 import { Icon } from '../components/Icon';
 import { Img } from '../components/Img';
+import { RegistrationForm } from '../components/RegistrationForm';
 import { RichText } from '../components/RichText';
 import { cx } from '../lib/cx';
 import { CardGrid } from './CardGrid';
@@ -246,5 +247,8 @@ export function BlockRenderer({ block }: { block: Block }) {
 
     case 'enquiry':
       return <EnquiryForm preset={block.preset} />;
+
+    case 'registration':
+      return <RegistrationForm />;
   }
 }

@@ -25,22 +25,24 @@ export function ContactSection({ index }: { index?: number }) {
           </Reveal>
 
           <Reveal className={s.details} delay={80}>
-            <div className={s.detail}>
-              <span className={s.detailIcon}>
-                <Icon name="map-pin" size={18} />
-              </span>
-              <div>
-                <h3 className="t-label">Address</h3>
-                <address>
-                  {site.address.map((line) => (
-                    <span key={line}>{line}</span>
-                  ))}
-                </address>
-                <a href={site.mapUrl} target="_blank" rel="noopener noreferrer" className="inline-link">
-                  Open in Google Maps<span className="visually-hidden"> (opens in a new tab)</span>
-                </a>
+            {site.offices.map((office) => (
+              <div key={office.label} className={s.detail}>
+                <span className={s.detailIcon}>
+                  <Icon name="map-pin" size={18} />
+                </span>
+                <div>
+                  <h3 className="t-label">{office.label}</h3>
+                  <address>
+                    {office.lines.map((line) => (
+                      <span key={line}>{line}</span>
+                    ))}
+                  </address>
+                  <a href={office.mapUrl} target="_blank" rel="noopener noreferrer" className="inline-link">
+                    Open in Google Maps<span className="visually-hidden"> (opens in a new tab)</span>
+                  </a>
+                </div>
               </div>
-            </div>
+            ))}
             <div className={s.detail}>
               <span className={s.detailIcon}>
                 <Icon name="phone" size={18} />

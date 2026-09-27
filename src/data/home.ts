@@ -1,32 +1,32 @@
 import type { ImageName } from './images';
-import { site } from './site';
 import type { Fact, ImageRef, Stat } from './types';
 
 export const homeMeta = {
   title: 'Expert Study Abroad & Migration Consultancy | UEMS Ventures',
   description:
-    'Trust UEMS Ventures for expert study abroad, IELTS and migration consultancy. Study in Australia, USA, UK, Canada & NZ with our guidance. Call +91 9833808612.',
+    'UEMS Ventures helps students from India and around the world reach top universities abroad, with career counselling, our Global Profile Accelerator programme and end-to-end study abroad support.',
 };
 
 export const hero = {
   eyebrow: 'Study abroad & migration',
   title: 'We help you chart your destiny abroad.',
-  lead: 'UEMS Ventures is your expert partner for studying abroad and seamless migration. From university selection to visa success — we guide every step of your journey to a brighter future.',
+  lead: 'Wherever you are in the world, not just India, UEMS Ventures helps you study across borders. Career counselling finds your direction, our Global Profile Accelerator builds your profile with expert mentors, and our study abroad team takes you from application to arrival.',
+  image: { name: 'home-hero', alt: 'Smiling student holding notebooks in front of world landmarks and flags of study destinations' } satisfies ImageRef,
   facts: [
-    { value: '5K+', label: 'Students launched their future through us' },
+    { value: '3000+', label: 'Students guided abroad' },
     { value: '98%', label: 'Success' },
     { value: '24hr', label: 'Free consult response' },
   ] satisfies Fact[],
-  destinations: ['US', 'UK', 'CA', 'AU', 'DE'],
+  destinations: ['US', 'UK', 'AU', 'CA', 'SG', 'AE', 'EU'],
 };
 
 export const whyUems = {
   label: 'Study abroad & immigration experts',
   title: 'Why choose UEMS? Your trusted partner for study abroad and immigration services.',
-  text: 'With over 15 years of expertise, UEMS Ventures is your trusted partner for study abroad and immigration services. We provide comprehensive guidance to chart your destiny abroad.',
+  text: 'With over 15 years of expertise and offices in Mumbai and Sydney, UEMS Ventures guides students from India and across borders to universities worldwide. We provide comprehensive guidance to chart your destiny abroad.',
   facts: [
     { value: '15+ countries', label: 'Global network' },
-    { value: '5,200+', label: 'Students trust us' },
+    { value: '3000+', label: 'Students trust us' },
   ] satisfies Fact[],
   images: {
     small: { name: 'founder', alt: 'UEMS founder Shalini Menon reviewing a student file in the office' },
@@ -44,27 +44,48 @@ export interface Service {
 
 export const services: readonly Service[] = [
   {
-    title: 'EVAL – Path to Career Clarity',
-    text: 'Explore a logical way to discover your ideal career path. Our proprietary assessment analyzes your aptitude, interests, and personality to recommend the best courses and countries for your future.',
-    cta: 'Find my clarity',
-    to: site.evalUrl,
+    title: 'Career Counselling',
+    text: 'Discover your ideal career path. Our EVAL assessment maps your aptitude, interests and personality, and our counsellors turn the results into the right courses and countries for you.',
+    cta: 'Explore career guidance',
+    to: '/career-guidance',
     image: { name: 'svc-eval', alt: 'Student presenting a career assessment result on a tablet' },
   },
   {
     title: 'Study Abroad',
-    text: 'Explore the world of global educational opportunities. We guide you through university selection, applications, scholarships, and the entire admission process for top destinations worldwide.',
+    text: 'Whether you apply from India or anywhere else, we guide you through university selection, applications, scholarships, visas and pre-departure for the USA, UK, Australia, Canada, Asia, Dubai and Europe.',
     cta: 'More info',
     to: '/study-abroad-consultants',
     image: { name: 'svc-study', alt: 'Student with luggage at an international airport' },
   },
   {
     title: 'Migration',
-    text: 'Chart your path to settling abroad with confidence. From skilled worker programs to family sponsorship, our licensed consultants navigate the immigration process with you every step.',
+    text: 'Chart your path to settling abroad with confidence. Our MARA-registered team in Sydney and licensed consultants navigate skilled and family migration with you every step.',
     cta: 'More info',
     to: '/migration',
     image: { name: 'svc-migration', alt: 'Family walking through an international airport terminal' },
   },
 ];
+
+export const accelerator = {
+  label: 'Global Profile Accelerator',
+  title: 'Build your study abroad application with expert mentors',
+  intro:
+    'Our focus is helping students reach top universities around the world. The Global Profile Accelerator (GPA) connects career counselling with a mentored plan for your profile, so you choose the right study and career path, and apply with a stronger application.',
+  steps: [
+    {
+      title: 'Career counselling',
+      text: 'Psychometric assessment and one-on-one sessions to find the courses and careers that fit you.',
+    },
+    {
+      title: 'Global Profile Accelerator',
+      text: 'Mentors plan your academics, projects, activities and essays to build a standout profile.',
+    },
+    {
+      title: 'Study abroad',
+      text: 'Shortlisting, applications, scholarships, visas and pre-departure, handled end to end.',
+    },
+  ],
+};
 
 export const approach = {
   label: 'Study abroad & migration experts',
@@ -92,7 +113,7 @@ export interface Destination {
   readonly tuition: string;
   readonly to: string;
   readonly cta: string;
-  readonly image?: ImageName;
+  readonly image: ImageName;
 }
 
 export const destinations = {
@@ -148,6 +169,7 @@ export const destinations = {
       tuition: '€10k – 25k / yr',
       to: '/study-in-uk-ireland',
       cta: 'Study in UK & Ireland',
+      image: 'dest-ireland',
     },
     {
       id: 'germany',
@@ -258,7 +280,7 @@ export const founder = {
   ],
   facts: [
     { value: '20+', label: 'Years exp.' },
-    { value: '500+', label: 'Clients' },
+    { value: '3000+', label: 'Clients' },
   ] satisfies Fact[],
   image: { name: 'founder', alt: 'Shalini Menon, Founder & CEO of UEMS Ventures' } satisfies ImageRef,
 };

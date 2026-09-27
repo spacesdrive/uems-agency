@@ -20,12 +20,23 @@ export const site = {
   email: 'info@uemsventures.com',
   address: ['416 Marathon Max', 'LBS Marg', 'Mulund West', 'Mumbai – 400080'],
   mapUrl: 'https://www.google.com/maps/search/UEMS+Ventures+Mulund+West+Mumbai/',
+  offices: [
+    {
+      label: 'India office',
+      lines: ['416 Marathon Max', 'LBS Marg', 'Mulund West', 'Mumbai – 400080'],
+      mapUrl: 'https://www.google.com/maps/search/UEMS+Ventures+Mulund+West+Mumbai/',
+    },
+    {
+      label: 'Sydney office',
+      lines: ['526/368 Sussex Street', 'Sydney NSW 2000', 'Australia'],
+      mapUrl: 'https://www.google.com/maps/search/?api=1&query=368+Sussex+Street+Sydney+NSW+2000',
+    },
+  ],
   appointmentUrl: 'https://www.picktime.com/43b6a5f6-94a8-4835-a4e3-288436e74f02',
   whatsappUrl: 'https://wa.me/919833808612',
   evalUrl: 'https://www.evaltest.com/',
   reviews: {
     rating: '4.9',
-    count: 63,
     listUrl: 'https://www.google.com/maps/search/UEMS+Ventures+Mulund+West+Mumbai/',
     // The original site's "write a review" link used a placeholder place ID; this opens the real listing search.
     writeUrl: 'https://www.google.com/search?q=UEMS+Ventures+Mulund+West+Mumbai+reviews',
@@ -53,15 +64,13 @@ export const primaryNav: readonly NavItem[] = [
     to: '/study-abroad-consultants',
     children: [
       { label: 'Study Abroad overview', to: '/study-abroad-consultants' },
+      { label: 'USA', to: '/study-in-usa' },
+      { label: 'UK', to: '/study-in-uk-ireland' },
       { label: 'Australia', to: '/study-in-australia' },
       { label: 'Canada', to: '/studyincanada' },
-      { label: 'UK / Ireland', to: '/study-in-uk-ireland' },
-      { label: 'USA', to: '/study-in-usa' },
-      { label: 'Asia', to: '/study-in-asia' },
-      { label: 'New Zealand', to: '/study-in-new-zealand' },
-      { label: 'UAE', to: '/study-in-uae' },
-      { label: 'Europe', to: '/study-in-europe' },
-      { label: 'Student Needs', to: '/student-needs' },
+      { label: 'Singapore & Asia', to: '/study-in-asia' },
+      { label: 'Dubai', to: '/study-in-uae' },
+      { label: 'Ireland, Germany & Europe', to: '/study-in-europe' },
     ],
   },
   {
@@ -77,6 +86,7 @@ export const primaryNav: readonly NavItem[] = [
     to: '/career-guidance',
     children: [
       { label: 'Career Guidance overview', to: '/career-guidance' },
+      { label: 'Global Profile Accelerator', to: '/#global-profile-accelerator' },
       { label: 'Programs', to: '/programs' },
       { label: 'Career Clarity Tests', to: '/career-clarity-tests' },
       { label: 'Career Talk', to: '/career-talk' },
@@ -85,7 +95,19 @@ export const primaryNav: readonly NavItem[] = [
       { label: 'Test Career Counselling', to: '/test-career-counselling' },
     ],
   },
-  { label: 'Test Prep', to: '/test-preparation-for-international-students' },
+  {
+    label: 'Services',
+    to: '/services',
+    children: [
+      { label: 'All services', to: '/services' },
+      { label: 'Financial assistance', to: '/services#financial-assistance' },
+      { label: 'Accommodation', to: '/services#accommodation' },
+      { label: 'Visa lodgement', to: '/services#visa-lodgement' },
+      { label: 'Pre-departure counselling', to: '/services#pre-departure' },
+      { label: 'Health insurance', to: '/services#health-insurance' },
+      { label: 'External exam preparation', to: '/test-preparation-for-international-students' },
+    ],
+  },
   {
     label: 'Blogs',
     to: '/blogs',
@@ -107,18 +129,19 @@ export const footerNav = {
     { label: 'Contact Us', to: '/contact-us' },
   ],
   services: [
-    { label: 'Career Guidance', to: '/career-guidance' },
     { label: 'Study Abroad', to: '/study-abroad-consultants' },
-    { label: 'IELTS', to: '/ielts' },
+    { label: 'Career Guidance', to: '/career-guidance' },
     { label: 'Migration', to: '/migration' },
-    { label: 'Student Needs', to: '/student-needs' },
+    { label: 'Student services', to: '/services' },
+    { label: 'External exam preparation', to: '/test-preparation-for-international-students' },
+    { label: 'IELTS', to: '/ielts' },
   ],
 } as const satisfies Record<string, readonly NavLinkItem[]>;
 
 /** Options offered by every UEMS enquiry form. */
 export const enquiryOptions = {
   heardFrom: ['Google', 'Social Media', 'Newspaper', 'Friends/Relatives', 'Others'],
-  queryAbout: ['Study Abroad', 'Migration', 'Career Counseling', 'External Exam (Coaching)'],
+  queryAbout: ['Study Abroad', 'Migration', 'Career Counseling', 'Global Profile Accelerator', 'External Exam (Coaching)'],
 } as const;
 
 /** Extra choice shown by specialised enquiry forms. */
@@ -132,3 +155,11 @@ export const enquiryPresets = {
 } as const;
 
 export type EnquiryPreset = keyof typeof enquiryPresets;
+
+/** Options for the free counselling / Global Profile Accelerator registration. */
+export const registrationOptions = {
+  role: ['Student', 'Parent'],
+  interest: ['Career counselling', 'Study abroad', 'Global Profile Accelerator'],
+  curriculum: ['CBSE', 'ICSE / ISC', 'IB', 'Cambridge (IGCSE / A Level)', 'State board', 'American (AP / High School Diploma)', 'Other'],
+  grade: ['Grade 8', 'Grade 9', 'Grade 10', 'Grade 11', 'Grade 12', 'Undergraduate', 'Graduate / working professional'],
+} as const;

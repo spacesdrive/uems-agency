@@ -87,7 +87,8 @@ export type Block =
       readonly text?: string;
       readonly actions: readonly LinkAction[];
     }
-  | { readonly type: 'enquiry'; readonly preset?: EnquiryPreset };
+  | { readonly type: 'enquiry'; readonly preset?: EnquiryPreset }
+  | { readonly type: 'registration' };
 
 export type SectionTone = 'light' | 'muted' | 'dark';
 

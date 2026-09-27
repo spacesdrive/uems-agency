@@ -5,7 +5,7 @@ const page: ContentPageData = {
   meta: {
     title: 'About Us – 15+ Years of Expertise',
     description:
-      'UEMS Ventures has a clear “You First” policy. Meet our Mumbai and Sydney teams and associates, and learn about our goals, mission, vision and 15 years of placing students abroad.',
+      'UEMS Ventures has a clear “You First” policy. Meet our Mumbai and Sydney teams and associates, and learn how we have guided 3000+ students to universities around the world.',
   },
   hero: {
     eyebrow: 'About us',
@@ -127,9 +127,6 @@ const page: ContentPageData = {
             { name: 'Dr. Kuldip Nandra', role: 'CEO', image: 'person-kuldip' },
             { name: 'Shefali Nandra', role: 'Solicitor & MARA Agent (MARN 1464717)', image: 'person-shefali' },
             { name: 'Rinku Sharma', role: 'Solicitor / Legal Team', image: 'person-rinku' },
-            { name: 'Indu', role: 'Manager – Student Admissions', image: 'person-indu' },
-            { name: 'Geetu', role: 'Accounts Administrator', image: 'person-geetu' },
-            { name: 'Chakrapani B', role: 'Manager Marketing', image: 'person-chakrapani' },
           ],
         },
       ],
@@ -141,27 +138,7 @@ const page: ContentPageData = {
         {
           type: 'people',
           items: [
-            { name: 'Sumi Joy', role: 'IELTS Trainer / Communication Coach', image: 'person-sumi' },
-            {
-              name: 'Ketki Bhasin',
-              role: 'Associate Punjab Region',
-              image: 'person-ketki',
-              bio: [
-                'Graduate from Punjab University, with a diploma program in Aviation, Hospitality & Travel Management. Has been an International Cabin Crew for 7 years with Royal Jordanian Airlines.',
-              ],
-            },
-            { name: 'Mr. Prajesh Trotsky', role: 'NT Edusys', image: 'person-prajesh' },
             { name: 'Manjusha Bhaskarwar', role: 'Career Counselor', image: 'person-manjusha' },
-            {
-              name: 'Santosh Birajdar',
-              role: 'Associate',
-              image: 'person-santosh',
-              phone: '9820033734',
-              bio: [
-                'BE from Sardar Patel College of Engineering and MBA in Marketing from MET Mumbai. In the teaching field for more than 35 years, of which 23 years have been in IB.',
-                'The first ever tutor to teach IB in Podar School and take tuitions of Dhirubhai Ambani and Ecole Mondiale students for HL maths. Now full time into SAT maths tutoring and management of Santy Tutorials, which caters to both online and offline students.',
-              ],
-            },
             {
               name: 'Binal Soni',
               role: 'Edu Compass – Founder & Counsellor',
@@ -173,7 +150,6 @@ const page: ContentPageData = {
                 '7+ years of experience, guided 1500+ individuals across the globe including students and professionals. Visiting Career Counselor at Mithibai College.',
               ],
             },
-            { name: 'Rajkumar Sharma', role: 'Principal DPS Gajraula', image: 'person-rajkumar', phone: '9991114479' },
           ],
         },
       ],

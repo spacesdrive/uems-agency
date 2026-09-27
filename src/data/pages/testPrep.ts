@@ -4,12 +4,12 @@ import type { ContentPageData } from '../types';
 const page: ContentPageData = {
   path: '/test-preparation-for-international-students',
   meta: {
-    title: 'Test Prep for International Students – GMAT, GRE, IELTS, PTE, SAT & TOEFL',
+    title: 'External Exam Preparation – GMAT, GRE, IELTS, PTE, SAT & TOEFL',
     description:
-      'Online coaching with UEMS Ventures for GMAT, GRE, SAT, IELTS, PTE and TOEFL — exam formats, score validity and fees at a glance, plus answers to common questions.',
+      'Online coaching with UEMS Ventures for GMAT, GRE, SAT, IELTS, PTE and TOEFL — exam formats and score validity at a glance, plus answers to common questions.',
   },
   hero: {
-    eyebrow: 'Test preparation for studying abroad',
+    eyebrow: 'Services · External exam preparation',
     title: 'Get the coaching you need to ace your external exam',
     lead: [
       'Welcome to our online coaching platform. Our expert instructors will guide you through test preparation for studying abroad. With a focus on the GRE, GMAT, IELTS, PTE, SAT, ACT, and TOEFL, we’ll optimize your performance.',
@@ -74,18 +74,18 @@ const page: ContentPageData = {
     {
       label: 'At a glance',
       title: 'External exams at a glance',
-      intro: 'Everything you need to know about external exams, in one place. Connect with us to find out the latest fees for each of these exams.',
+      intro: 'Everything you need to know about external exams, in one place.',
       blocks: [
         {
           type: 'table',
-          columns: ['Exam', 'Format', 'Levels', 'Score validity', 'Exam fees (INR)'],
+          columns: ['Exam', 'Format', 'Levels', 'Score validity'],
           rows: [
-            ['Graduate Record Exam (GRE)', 'Verbal Reasoning, Quantitative Reasoning, and Analytical Writing', 'Postgraduate', '5 years', '22,550 (General Test), 14,550 (Subject Test)'],
-            ['Graduate Management Admission Test (GMAT)', 'Quantitative Reasoning, Verbal Reasoning, and Analytical Writing', 'Postgraduate', '5 years', '23,000 – 25,000'],
-            ['Scholastic Aptitude Test (SAT)', 'Reading, Writing and Language, and Math', 'Undergraduate', '5 years', '11,000 – 12,000'],
-            ['International English Language Testing System (IELTS)', 'Listening, Reading, Writing, and Speaking', 'Undergraduate and Postgraduate', '2 years', '18,000'],
-            ['Pearson Test of English (PTE)', 'Listening, Reading, Writing, and Speaking', 'Undergraduate and Postgraduate', '2 years', '17,000'],
-            ['Test of English as a Foreign Language (TOEFL)', 'Reading, Listening, Speaking, and Writing', 'Undergraduate and Postgraduate', '2 years', '18,000'],
+            ['Graduate Record Exam (GRE)', 'Verbal Reasoning, Quantitative Reasoning, and Analytical Writing', 'Postgraduate', '5 years'],
+            ['Graduate Management Admission Test (GMAT)', 'Quantitative Reasoning, Verbal Reasoning, and Analytical Writing', 'Postgraduate', '5 years'],
+            ['Scholastic Aptitude Test (SAT)', 'Reading, Writing and Language, and Math', 'Undergraduate', '5 years'],
+            ['International English Language Testing System (IELTS)', 'Listening, Reading, Writing, and Speaking', 'Undergraduate and Postgraduate', '2 years'],
+            ['Pearson Test of English (PTE)', 'Listening, Reading, Writing, and Speaking', 'Undergraduate and Postgraduate', '2 years'],
+            ['Test of English as a Foreign Language (TOEFL)', 'Reading, Listening, Speaking, and Writing', 'Undergraduate and Postgraduate', '2 years'],
           ],
         },
       ],

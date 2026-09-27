@@ -1,6 +1,7 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { site } from '../../src/data/site';
 import type { Enquiry } from '../../src/lib/enquiry';
+import { buildRegistrationMailto } from '../../src/lib/enquiry';
 
 const enquiry: Enquiry = {
   name: 'Asha Rao',
@@ -93,5 +94,27 @@ describe('submitEnquiry', () => {
     const { submitEnquiry } = await loadEnquiry();
 
     await expect(submitEnquiry(enquiry)).rejects.toThrow('Failed to fetch');
+  });
+});
+
+describe('buildRegistrationMailto', () => {
+  it('addresses UEMS with every filled registration field', () => {
+    const url = buildRegistrationMailto({
+      role: 'Parent',
+      location: 'Dubai, UAE',
+      applicantName: 'Asha Rao',
+      school: 'Greenfield School',
+      curriculum: 'IB',
+      grade: 'Grade 11',
+      completionYear: '2028',
+      phone: '+971 50 123 4567',
+      interest: 'Global Profile Accelerator',
+    });
+    expect(url.startsWith('mailto:info@uemsventures.com?')).toBe(true);
+    const body = decodeURIComponent(url.split('body=')[1] ?? '');
+    expect(body).toContain('I am a: Parent');
+    expect(body).toContain('City / Country: Dubai, UAE');
+    expect(body).toContain('Year of completion: 2028');
+    expect(decodeURIComponent(url)).toContain('Free counselling registration – Asha Rao');
   });
 });

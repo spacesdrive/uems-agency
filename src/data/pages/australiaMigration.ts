@@ -6,7 +6,7 @@ const page: ContentPageData = {
   meta: {
     title: 'Australia Immigration Specialist in Mumbai – Migrate to Australia',
     description:
-      'Migrate to Australia with UEMS Ventures: MARA agents with 20+ years’ combined experience, skilled visas (189, 190, 491) and business visas (subclass 188).',
+      'Migrate to Australia with UEMS Ventures: MARA agents with 20+ years’ combined experience, and skilled visas (189, 190 and 491).',
   },
   hero: {
     eyebrow: 'Migrate to Australia',
@@ -16,7 +16,7 @@ const page: ContentPageData = {
       'Australia is a developed country with a strong economy, attracting many people from around the world to settle there every year. Australia welcomes immigrants as it requires skilled labour in many sectors.',
     ],
     actions: [
-      { label: 'Enquire now', to: '#enquire' },
+      { label: 'Inquire now', to: '#enquire' },
       { label: 'Migration overview', to: '/migration', variant: 'outline' },
     ],
     image: { name: 'aumig-hero', alt: 'Smiling student in a classroom' },
@@ -105,30 +105,14 @@ const page: ContentPageData = {
       ],
     },
     {
-      label: 'Business visas',
-      title: 'Business visas',
+      label: 'Profile assessment',
+      title: 'Not sure which visa fits?',
       blocks: [
-        {
-          type: 'cards',
-          columns: 2,
-          items: [
-            {
-              eyebrow: 'Subclass 188',
-              title: 'Business Innovation and Investment (Provisional) Visa',
-              text: 'For anyone with business skills who wishes to operate a new or an existing business in Australia. This visa is nominated and sponsored by a government agency.',
-            },
-            {
-              eyebrow: 'Subclass 188',
-              title: 'Investor Stream',
-              text: 'For anyone who can invest up to AUD $1.5 million in a business or an investment activity in an Australian state.',
-            },
-          ],
-        },
         {
           type: 'callout',
           title: 'Get your profile assessed thoroughly',
           text: 'Contact UEMS to understand if you qualify and which visa type is the best fit for your background — then follow through with complete guidance on the application process.',
-          actions: [{ label: 'Enquire now', to: '/contact-us' }],
+          actions: [{ label: 'Inquire now', to: '#enquire' }],
         },
       ],
     },

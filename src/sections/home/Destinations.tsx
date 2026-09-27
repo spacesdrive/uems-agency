@@ -78,13 +78,7 @@ export function Destinations({ index }: { index: number }) {
 
         <div role="tabpanel" id={panelId} aria-labelledby={`${baseId}-tab-${current.id}`} className={s.panel}>
           <div key={current.id} className={s.media}>
-            {current.image ? (
-              <Img name={current.image} alt={`${current.name} — study destination`} sizes="(min-width: 1024px) 55vw, 100vw" />
-            ) : (
-              <div className={s.fallback} aria-hidden="true">
-                <span>{current.code}</span>
-              </div>
-            )}
+            <Img name={current.image} alt={`${current.name} — study destination`} sizes="(min-width: 1024px) 55vw, 100vw" />
             <span className={s.mediaTag}>
               <span className={s.mediaCode}>{current.code}</span>
               {current.name}

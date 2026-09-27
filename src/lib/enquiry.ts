@@ -45,3 +45,52 @@ export function buildMailto(data: Enquiry): string {
   const subject = `Website enquiry${data.queryAbout ? ` – ${data.queryAbout}` : ''}`;
   return `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
 }
+
+/** Free counselling / Global Profile Accelerator registration. */
+export interface Registration {
+  role: string;
+  location: string;
+  applicantName: string;
+  school: string;
+  curriculum: string;
+  grade: string;
+  completionYear: string;
+  phone: string;
+  interest: string;
+}
+
+const registrationLabels: Record<keyof Registration, string> = {
+  role: 'I am a',
+  location: 'City / Country',
+  applicantName: 'Applicant name',
+  school: 'School name',
+  curriculum: 'Curriculum',
+  grade: 'Grade',
+  completionYear: 'Year of completion',
+  phone: 'Phone number',
+  interest: 'Interested in',
+};
+
+/** Sends a registration like an enquiry: JSON POST to the endpoint, or a pre-filled email. */
+export async function submitRegistration(data: Registration): Promise<EnquiryResult> {
+  if (endpoint) {
+    const res = await fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({ form: 'free-counselling-registration', ...data }),
+    });
+    if (!res.ok) throw new Error(`Registration failed with status ${res.status}`);
+    return 'sent';
+  }
+
+  window.location.href = buildRegistrationMailto(data);
+  return 'mail-client';
+}
+
+export function buildRegistrationMailto(data: Registration): string {
+  const lines = (Object.keys(registrationLabels) as (keyof Registration)[])
+    .filter((key) => data[key])
+    .map((key) => `${registrationLabels[key]}: ${data[key]}`);
+  const subject = `Free counselling registration – ${data.applicantName}`;
+  return `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
+}

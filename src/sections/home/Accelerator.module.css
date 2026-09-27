@@ -1,0 +1,96 @@
+.grid {
+  display: grid;
+  gap: clamp(40px, 2rem + 3vw, 64px);
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    align-items: start;
+    gap: clamp(48px, 5vw, 96px);
+  }
+
+  .aside {
+    position: sticky;
+    top: calc(var(--header-h) + 24px);
+  }
+}
+
+.steps {
+  display: grid;
+  gap: 0;
+  margin-top: clamp(32px, 1.5rem + 2vw, 48px);
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  gap: 16px;
+  padding-bottom: 28px;
+}
+
+.step:last-child {
+  padding-bottom: 0;
+}
+
+/* Connector line between the numbered markers. */
+.step:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 21px;
+  top: 44px;
+  bottom: 0;
+  width: 2px;
+  background: var(--line-strong);
+}
+
+.num {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-pill);
+  background: var(--ink);
+  color: var(--on-dark);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.step:nth-child(2) .num {
+  background: var(--accent);
+  color: var(--ink);
+}
+
+.stepTitle {
+  padding-top: 10px;
+  font-size: var(--fs-h3);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.stepText {
+  margin-top: 6px;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+.formCol {
+  display: grid;
+  gap: 20px;
+  min-width: 0;
+}
+
+.formTitle {
+  font-size: var(--fs-h3);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.formText {
+  margin-top: 6px;
+  color: var(--text-muted);
+}

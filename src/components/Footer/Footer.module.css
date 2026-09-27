@@ -246,3 +246,10 @@
   font-size: var(--fs-xs);
   color: var(--on-dark-subtle);
 }
+
+.officeLabel {
+  display: block;
+  margin-bottom: 2px;
+  font-weight: 500;
+  color: var(--on-dark);
+}

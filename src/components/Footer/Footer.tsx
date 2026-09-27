@@ -34,7 +34,7 @@ export function Footer() {
           />
           <div className={s.ctaSide}>
             <p className={s.ctaText}>Let our experts map out the perfect country and course based on your profile.</p>
-            <Button to="/contact-us" label="Book free counselling" />
+            <Button to="/#free-counselling" label="Book free counselling" />
             <a href={`mailto:${site.email}`} className={s.ctaMail}>
               {site.email}
             </a>
@@ -85,10 +85,15 @@ export function Footer() {
           <div className={s.col}>
             <h3 className="t-label">Contact</h3>
             <address className={s.address}>
-              <a href={site.mapUrl} target="_blank" rel="noopener noreferrer" className={s.link}>
-                {site.address.join(', ')}
-                <span className="visually-hidden"> (opens map in a new tab)</span>
-              </a>
+              {site.offices.map((office) => (
+                <a key={office.label} href={office.mapUrl} target="_blank" rel="noopener noreferrer" className={s.link}>
+                  <span>
+                    <strong className={s.officeLabel}>{office.label}</strong>
+                    {office.lines.join(', ')}
+                  </span>
+                  <span className="visually-hidden"> (opens map in a new tab)</span>
+                </a>
+              ))}
               {site.phones.map((p) => (
                 <a key={p.href} href={p.href} className={s.link}>
                   {p.display}

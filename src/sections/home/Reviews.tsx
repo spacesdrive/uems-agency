@@ -26,8 +26,9 @@ export function Reviews({ index }: { index: number }) {
         <Reveal>
           <SectionHeading
             index={index}
-            label="Google reviews"
-            title={`Rated ${site.reviews.rating} across ${site.reviews.count} Google reviews`}
+            label="Testimonials"
+            title="Real journeys, real results"
+            intro={`Rated ${site.reviews.rating} on Google by students and parents we have guided.`}
             id="reviews-title"
             size="compact"
           />
@@ -71,7 +72,7 @@ export function Reviews({ index }: { index: number }) {
       </ul>
 
       <div className={s.actions}>
-        <Button to={site.reviews.listUrl} label={`View all ${site.reviews.count} reviews on Google`} variant="dark" />
+        <Button to={site.reviews.listUrl} label="View all reviews on Google" variant="dark" />
         <Button to={site.reviews.writeUrl} label="Write a review" variant="outline" />
       </div>
     </Section>

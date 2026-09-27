@@ -136,8 +136,8 @@ export function Header() {
           </ul>
 
           <div className={s.actions}>
-            <SmartLink to="/career-clarity-tests" className={s.clarity}>
-              Get career clarity
+            <SmartLink to="/#free-counselling" className={s.clarity}>
+              Free counselling
             </SmartLink>
             <Button to={site.appointmentUrl} label="Book appointment" variant="dark" size="sm" className={s.cta} />
             <button
