@@ -1,0 +1,152 @@
+.button {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 8px 8px 8px 22px;
+  border-radius: var(--radius-pill);
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition:
+    background-color var(--dur) var(--ease),
+    color var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.button:focus-visible {
+  outline-offset: 3px;
+}
+
+.button:disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.block {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.window {
+  display: block;
+  height: 20px;
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--dur-slow) var(--ease);
+}
+
+.line {
+  display: block;
+  height: 20px;
+  line-height: 20px;
+}
+
+.circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: background-color var(--dur) var(--ease);
+}
+
+.arrow {
+  transition: transform var(--dur-slow) var(--ease);
+}
+
+@media (hover: hover) {
+  .button:hover .track {
+    transform: translateY(-50%);
+  }
+
+  .button:hover .arrow {
+    transform: rotate(-45deg);
+  }
+}
+
+.button:focus-visible .track {
+  transform: translateY(-50%);
+}
+
+.button:focus-visible .arrow {
+  transform: rotate(-45deg);
+}
+
+/* Variants */
+
+.accent {
+  background: var(--accent);
+  color: var(--ink);
+}
+
+.accent .circle {
+  background: var(--ink);
+  color: var(--accent);
+}
+
+.accent:hover {
+  background: var(--accent-hover);
+}
+
+.dark {
+  background: var(--ink);
+  color: var(--on-dark);
+}
+
+.dark .circle {
+  background: var(--on-dark);
+  color: var(--ink);
+}
+
+.dark:hover {
+  background: var(--ink-soft);
+}
+
+.light {
+  background: var(--on-dark);
+  color: var(--ink);
+}
+
+.light .circle {
+  background: var(--ink);
+  color: var(--on-dark);
+}
+
+.light:hover {
+  background: #eef0f3;
+}
+
+.outline {
+  background: transparent;
+  color: var(--ink);
+  box-shadow: inset 0 0 0 1px var(--line-strong);
+}
+
+.outline .circle {
+  background: var(--ink);
+  color: var(--on-dark);
+}
+
+.outline:hover {
+  box-shadow: inset 0 0 0 1px var(--ink);
+}
+
+.sm {
+  padding: 6px 6px 6px 18px;
+  font-size: 0.8125rem;
+}
+
+.sm .circle {
+  width: 26px;
+  height: 26px;
+}

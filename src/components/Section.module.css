@@ -1,0 +1,37 @@
+.section {
+  padding-block: var(--section-y);
+}
+
+.tight {
+  padding-block: calc(var(--section-y) * 0.6);
+}
+
+/* Tone variables consumed by blocks and cards */
+.light,
+.muted {
+  --fg-muted: var(--text-muted);
+  --fg-subtle: var(--text-subtle);
+  --rule: var(--line);
+}
+
+.light {
+  background: var(--surface);
+  --card-bg: var(--surface-muted);
+  --card-line: transparent;
+}
+
+.muted {
+  background: var(--surface-muted);
+  --card-bg: var(--surface);
+  --card-line: var(--line);
+}
+
+.dark {
+  background: var(--ink);
+  color: var(--on-dark);
+  --fg-muted: var(--on-dark-muted);
+  --fg-subtle: var(--on-dark-subtle);
+  --rule: var(--line-dark);
+  --card-bg: rgb(255 255 255 / 0.05);
+  --card-line: var(--line-dark);
+}
