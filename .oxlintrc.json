@@ -1,0 +1,46 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "react", "jsx-a11y", "import", "unicorn", "oxc", "promise", "vitest"],
+  "env": { "browser": true, "es2024": true },
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+    "perf": "warn"
+  },
+  "rules": {
+    "react/rules-of-hooks": "error",
+    "react/exhaustive-deps": "warn",
+    "react/jsx-key": "error",
+    "react/no-danger": "warn",
+    "react/react-in-jsx-scope": "off",
+    // Content lists are static data that never reorder, so index keys are stable.
+    "react/no-array-index-key": "off",
+    "jsx-a11y/alt-text": "error",
+    "jsx-a11y/anchor-is-valid": "error",
+    "jsx-a11y/aria-props": "error",
+    "jsx-a11y/aria-role": "error",
+    "jsx-a11y/role-has-required-aria-props": "error",
+    "jsx-a11y/label-has-associated-control": "error",
+    "jsx-a11y/no-autofocus": "warn",
+    // Styled lists keep an explicit role="list": Safari/VoiceOver drops list semantics with list-style: none.
+    "jsx-a11y/no-redundant-roles": "off",
+    // role="img" on icon groups and role="status" live regions are intentional.
+    "jsx-a11y/prefer-tag-over-role": "off",
+    "import/no-unassigned-import": ["warn", { "allow": ["**/*.css"] }],
+    "typescript/no-explicit-any": "error",
+    "typescript/consistent-type-imports": "error",
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+    "eqeqeq": ["error", "smart"],
+    "no-var": "error",
+    "prefer-const": "error"
+  },
+  "overrides": [
+    {
+      "files": ["scripts/**", "*.config.ts", "src/entry-server.tsx"],
+      "env": { "node": true },
+      // Build scripts render routes one at a time on purpose (bounded memory, deterministic output).
+      "rules": { "no-console": "off", "no-await-in-loop": "off" }
+    }
+  ],
+  "ignorePatterns": ["dist", "dist-ssr", "coverage", "node_modules"]
+}
