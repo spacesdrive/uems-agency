@@ -1,0 +1,37 @@
+# Dependencies and build output
+node_modules
+dist
+dist-ssr
+coverage
+*.tsbuildinfo
+
+# Environment and local overrides (never commit real values; .env.example is the template)
+.env
+.env.*
+!.env.example
+*.local
+
+# Credentials and keys
+.cloudflare-keys
+.cloudflare*
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+.dev.vars
+.dev.vars.*
+secrets.*
+credentials*.json
+
+# Cloudflare / Wrangler local state
+.wrangler
+
+# Logs and editor/OS noise
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea
