@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useId, useRef, useState, type PointerEvent } from 'react';
+import { useCallback, useEffect, useId, useRef, useState, type PointerEvent, type SetStateAction } from 'react';
 import { useLocation } from 'react-router';
 import { primaryNav, site, type NavItem } from '../../data/site';
 import { cx } from '../../lib/cx';
@@ -22,6 +22,13 @@ export function Header() {
   const headerRef = useRef<HTMLElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const hoverTimer = useRef<number | undefined>(undefined);
+
+  // Explicit opens/closes (click, Escape, outside click) cancel a pending hover change,
+  // so a hover timer can never reopen a dropdown the user just closed.
+  const chooseItem = useCallback((next: SetStateAction<string | null>) => {
+    window.clearTimeout(hoverTimer.current);
+    setOpenItem(next);
+  }, []);
   const [menuPath, setMenuPath] = useState(pathname);
 
   // Close menus whenever the route changes (adjusted during render, not in an effect).
@@ -67,10 +74,10 @@ export function Header() {
         setMenuOpen(false);
         menuButtonRef.current?.focus();
       }
-      setOpenItem(null);
+      chooseItem(null);
     };
     const onClick = (e: MouseEvent) => {
-      if (!headerRef.current?.contains(e.target as Node)) setOpenItem(null);
+      if (!headerRef.current?.contains(e.target as Node)) chooseItem(null);
     };
     document.addEventListener('keydown', onKey);
     document.addEventListener('click', onClick);
@@ -78,7 +85,7 @@ export function Header() {
       document.removeEventListener('keydown', onKey);
       document.removeEventListener('click', onClick);
     };
-  }, [menuOpen, openItem]);
+  }, [menuOpen, openItem, chooseItem]);
 
   const hoverOpen = useCallback((label: string | null, e: PointerEvent) => {
     if (e.pointerType !== 'mouse') return;
@@ -114,8 +121,8 @@ export function Header() {
                     item={item}
                     active={isSectionActive(item, pathname)}
                     open={openItem === item.label}
-                    onToggle={() => setOpenItem((cur) => (cur === item.label ? null : item.label))}
-                    onClose={() => setOpenItem(null)}
+                    onToggle={() => chooseItem((cur) => (cur === item.label ? null : item.label))}
+                    onClose={() => chooseItem(null)}
                     onHover={hoverOpen}
                   />
                 ) : (
