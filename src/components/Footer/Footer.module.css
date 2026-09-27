@@ -1,0 +1,258 @@
+.footer {
+  position: relative;
+  overflow: hidden;
+  background: var(--ink);
+  color: var(--on-dark);
+}
+
+/* CTA */
+
+.cta {
+  display: grid;
+  gap: 32px;
+  padding-block: clamp(72px, 4rem + 4vw, 120px) clamp(56px, 3rem + 3vw, 88px);
+  border-bottom: 1px solid var(--line-dark);
+}
+
+@media (min-width: 900px) {
+  .cta {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+  }
+}
+
+.br {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .br {
+    display: inline;
+  }
+}
+
+.ctaSide {
+  display: grid;
+  justify-items: start;
+  gap: 16px;
+  max-width: 340px;
+}
+
+@media (min-width: 900px) {
+  .ctaSide {
+    justify-items: end;
+    text-align: right;
+  }
+}
+
+.ctaText {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--on-dark-muted);
+}
+
+.ctaMail {
+  font-size: 0.8125rem;
+  color: var(--on-dark-muted);
+  transition: color var(--dur) var(--ease);
+}
+
+.ctaMail:hover {
+  color: var(--on-dark);
+}
+
+/* Grid */
+
+.grid {
+  display: grid;
+  gap: 40px;
+  padding-block: 56px;
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: 1.4fr 1fr 1fr 1.1fr;
+    gap: 32px;
+  }
+}
+
+.brandCol {
+  display: grid;
+  align-content: start;
+  gap: 16px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.brandMark {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--on-dark);
+}
+
+.brandImg {
+  width: 20px;
+  height: auto;
+}
+
+.summary {
+  max-width: 320px;
+  font-size: var(--fs-small);
+  line-height: 1.6;
+  color: var(--on-dark-subtle);
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  padding: 6px 12px;
+  border: 1px solid rgb(255 255 255 / 0.15);
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-xs);
+  color: var(--on-dark-muted);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.col {
+  display: grid;
+  align-content: start;
+  gap: 18px;
+}
+
+.col :global(.t-label) {
+  color: var(--on-dark-subtle);
+}
+
+.col ul {
+  display: grid;
+  gap: 10px;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--fs-small);
+  font-style: normal;
+  line-height: 1.5;
+  color: var(--on-dark-muted);
+  transition: color var(--dur) var(--ease);
+}
+
+.link:hover {
+  color: var(--on-dark);
+}
+
+.linkIcon {
+  width: 0;
+  flex-shrink: 0;
+  opacity: 0;
+  transition:
+    width var(--dur) var(--ease),
+    margin var(--dur) var(--ease),
+    opacity var(--dur) var(--ease);
+}
+
+.link:hover .linkIcon,
+.link:focus-visible .linkIcon {
+  width: 13px;
+  margin-right: 4px;
+  opacity: 1;
+}
+
+.address {
+  display: grid;
+  gap: 10px;
+  font-style: normal;
+}
+
+.col .socials {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.social {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgb(255 255 255 / 0.15);
+  color: var(--on-dark-muted);
+  transition:
+    background-color var(--dur) var(--ease),
+    color var(--dur) var(--ease),
+    border-color var(--dur) var(--ease);
+}
+
+.social:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--ink);
+}
+
+/* Watermark */
+
+.watermark {
+  padding-inline: var(--gutter);
+  max-width: var(--container);
+  margin-inline: auto;
+  font-size: min(24vw, 360px);
+  line-height: 0.8;
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  color: rgb(255 255 255 / 0.06);
+  user-select: none;
+  border-top: 1px solid var(--line-dark);
+  padding-top: 40px;
+}
+
+/* Decorative wordmark lives in generated content so it isn't treated as text. */
+.watermark::before {
+  content: 'UEMS';
+  display: block;
+}
+
+.bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px 24px;
+  padding-block: 28px calc(28px + env(safe-area-inset-bottom));
+  font-size: var(--fs-xs);
+  color: var(--on-dark-subtle);
+}
+
+.bottomLink {
+  color: var(--on-dark-muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.bottomLink:hover {
+  color: var(--on-dark);
+}

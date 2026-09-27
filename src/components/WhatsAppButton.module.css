@@ -1,0 +1,46 @@
+.button {
+  position: fixed;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(16px, env(safe-area-inset-bottom));
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  height: 52px;
+  padding: 0 15px;
+  border-radius: var(--radius-pill);
+  background: var(--ink);
+  color: var(--on-dark);
+  box-shadow: 0 10px 30px rgb(10 26 51 / 0.25);
+  transition:
+    background-color var(--dur) var(--ease),
+    gap var(--dur-slow) var(--ease);
+  animation: pop-in 600ms var(--ease-out) 1.2s both;
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0) scale(0.9);
+  }
+}
+
+.label {
+  max-width: 0;
+  overflow: hidden;
+  font-size: var(--fs-small);
+  font-weight: 500;
+  white-space: nowrap;
+  transition: max-width var(--dur-slow) var(--ease);
+}
+
+.button:hover,
+.button:focus-visible {
+  gap: 10px;
+  background: #128c4b;
+}
+
+.button:hover .label,
+.button:focus-visible .label {
+  max-width: 120px;
+}
