@@ -1,0 +1,23 @@
+.layout {
+  display: grid;
+  gap: clamp(40px, 2rem + 3vw, 72px);
+}
+
+.blocks {
+  display: grid;
+  gap: clamp(32px, 1.5rem + 2vw, 56px);
+  min-width: 0;
+}
+
+@media (min-width: 1024px) {
+  .aside {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: clamp(48px, 5vw, 96px);
+    align-items: start;
+  }
+
+  .aside .head {
+    position: sticky;
+    top: calc(var(--header-h) + 32px);
+  }
+}
