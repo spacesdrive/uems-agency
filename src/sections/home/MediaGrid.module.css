@@ -1,0 +1,24 @@
+.grid {
+  display: grid;
+  gap: 32px 20px;
+  margin-top: clamp(40px, 2rem + 3vw, 64px);
+}
+
+@media (min-width: 768px) {
+  .two,
+  .three {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 40px 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .three {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 40px 28px;
+  }
+
+  .two {
+    gap: 40px 28px;
+  }
+}

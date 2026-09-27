@@ -1,0 +1,140 @@
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.head h2 {
+  max-width: 20ch;
+}
+
+.controls {
+  display: flex;
+  gap: 8px;
+}
+
+.control {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  transition:
+    background-color var(--dur) var(--ease),
+    color var(--dur) var(--ease),
+    border-color var(--dur) var(--ease);
+}
+
+.control:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--on-dark);
+}
+
+.flip {
+  transform: scaleX(-1);
+}
+
+.track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: min(86%, 400px);
+  gap: 16px;
+  margin-top: clamp(32px, 1.5rem + 2vw, 56px);
+  margin-inline: calc(var(--gutter) * -1);
+  padding: 4px var(--gutter) 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--gutter);
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+.track:focus-visible {
+  outline-offset: -3px;
+}
+
+.card {
+  scroll-snap-align: start;
+}
+
+.figure {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+  padding: 28px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+
+.stars {
+  display: flex;
+  gap: 2px;
+}
+
+.starOn {
+  color: var(--accent);
+}
+
+.starOff {
+  color: var(--line-strong);
+}
+
+.text {
+  flex: 1;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  white-space: pre-line;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.author > span:last-child {
+  display: grid;
+}
+
+.author strong {
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.author span span {
+  font-size: var(--fs-xs);
+  color: var(--text-subtle);
+}
+
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--accent);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}

@@ -1,0 +1,39 @@
+.grid {
+  display: grid;
+  gap: 32px;
+  margin-top: clamp(40px, 2rem + 3vw, 80px);
+  padding-top: clamp(32px, 1.5rem + 2vw, 48px);
+  border-top: 1px solid var(--line);
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: clamp(40px, 6vw, 112px);
+  }
+}
+
+.lead p {
+  font-size: clamp(1.125rem, 1rem + 0.6vw, 1.5rem);
+  line-height: 1.5;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.body {
+  display: grid;
+  justify-items: start;
+  gap: 20px;
+  line-height: 1.75;
+  color: var(--text-muted);
+}
+
+.body p strong,
+.lead p strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.body :global(a) {
+  margin-top: 8px;
+}
