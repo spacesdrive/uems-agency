@@ -8,11 +8,27 @@ to static HTML for every route.
 
 ```bash
 npm install
-npm run dev        # development server with hot reload
-npm run build      # typecheck → client build → SSR build → pre-render every route into dist/
-npm run preview    # serve dist/ locally
+npm run dev            # development server with hot reload
+npm run build          # typecheck → client build → SSR build → pre-render every route into dist/
+npm run preview        # serve dist/ locally
+npm run preview:cf     # serve dist/ through the Cloudflare runtime (headers, redirects, 404)
+npm run lint           # oxlint (TypeScript, React, hooks, a11y rules)
 npm run typecheck
+npm test               # Vitest: unit, component and integration tests
+npm run test:coverage
+npm run verify:dist    # check the build artifact before deploying
 ```
+
+## Testing
+
+Tests live in `tests/` and run with Vitest and Testing Library in jsdom:
+
+- `tests/unit`: link helpers, route matching, internal-link integrity across all content data, JSON-LD
+  escaping, and enquiry submission (endpoint and mailto fallback).
+- `tests/components`: enquiry form validation and submission states, header dropdowns and mobile menu, the
+  destination tabs' keyboard support, RichText and SmartLink.
+- `tests/integration`: server-renders every route through `src/entry-server.tsx`, the same entry the
+  pre-render step uses, and checks the heading, title, description, canonical URL and indexing rules.
 
 ## How it works
 
@@ -54,11 +70,19 @@ src/
 ├── styles/        tokens and base styles
 ├── entry-server.tsx
 └── main.tsx
+tests/             unit, component and integration tests (Vitest)
+scripts/           prerender, dist verification, production smoke test
+.github/           CI/CD workflow and Dependabot
 ```
 
 ## Deployment
 
-Upload `dist/` to any static host.
+Production is **https://uems-agency.spacesdrive.cc**, served by Cloudflare Workers static assets. Every push to
+`main` that changes the app runs lint, type checking, tests, dependency and secret scans, and a production build.
+Only then does it deploy and run a smoke test against the live site. See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)
+for the pipeline, secrets and rollback.
+
+`dist/` also works on any other static host:
 
 - Configure the host to serve `404.html` for unknown paths. If the host serves `index.html` instead, the app still
   shows the 404 page because it renders on the client.

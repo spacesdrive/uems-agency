@@ -1,0 +1,79 @@
+# Deployment
+
+The site is deployed to **https://uems-agency.spacesdrive.cc** as a
+[Cloudflare Workers static-assets](https://developers.cloudflare.com/workers/static-assets/) site. There is no Worker
+script. Every route is a pre-rendered HTML file in `dist/`, served directly from Cloudflare's edge.
+
+## Pipeline
+
+`.github/workflows/ci-cd.yml` runs on pushes to `main`, on pull requests into `main`, and when started manually.
+
+```text
+push to main
+  └─ paths-ignore: pushes that only change docs (*.md, docs/**) or repo metadata do not start a run
+      ├─ validate      npm ci --ignore-scripts → npm audit signatures → lint → typecheck → tests
+      │                → npm audit (high) → production build → verify dist/ → upload artifact
+      ├─ secret-scan   gitleaks (checksum-verified CLI) over the full git history, findings redacted
+      └─ deploy        needs both jobs above, main branch only, "production" environment
+                       download the tested artifact → re-verify → wrangler deploy → production smoke test
+```
+
+- Pull requests run `validate` and `secret-scan` only. They never deploy, and they cannot read the Cloudflare
+  secrets.
+- The deploy job uploads the same `dist/` artifact that was tested. It does not rebuild.
+- Deploys are serialised (`concurrency: production-deploy`) and are never cancelled part-way through.
+- `scripts/smoke-production.mjs` waits until the live site serves the new build, by matching its hashed entry
+  script. It then checks the key routes, the trailing-slash redirect, the 404 page, the security headers,
+  immutable asset caching and the HTTP→HTTPS redirect.
+
+## Configuration
+
+| File | Purpose |
+| --- | --- |
+| `wrangler.jsonc` | Worker name `uems-agency`, `dist/` as assets, trailing-slash HTML handling, `404.html` for unknown URLs, custom domain route. `workers.dev` and preview URLs are disabled. |
+| `public/_headers` | CSP, HSTS, `nosniff`, frame blocking, referrer and permissions policies, and long-lived caching for hashed `/assets/*`. Copied into `dist/`. |
+| `scripts/verify-dist.mjs` | Fails the build if a route page, `_headers`, `404.html` or `sitemap.xml` is missing. Also fails if source maps, env/credential/config files, or secret-like strings are in the artifact. |
+
+## Secrets
+
+The deploy job reads two secrets from the GitHub **`production` environment**, which is restricted to the `main`
+branch:
+
+| Secret | Value |
+| --- | --- |
+| `CLOUDFLARE_API_TOKEN` | Cloudflare API token used by Wrangler |
+| `CLOUDFLARE_ACCOUNT_ID` | Cloudflare account that owns the `spacesdrive.cc` zone |
+
+The secrets are never written to files, logs or the repository. Wrangler reads them from the environment of
+that one step.
+
+**Recommended token scope** (least privilege). Create a dedicated token for this site with only:
+
+- Account → Workers Scripts → Edit
+- Zone (`spacesdrive.cc` only) → Workers Routes → Edit
+- Zone (`spacesdrive.cc` only) → DNS → Edit (needed to attach the custom domain)
+
+To rotate the token, create a new one in the Cloudflare dashboard, then run
+`gh secret set CLOUDFLARE_API_TOKEN --env production --repo spacesdrive/uems-agency` and paste the value at the
+prompt. Revoke the old token afterwards.
+
+## Deploying manually
+
+CI is the normal path. A manual deploy from a trusted machine needs the two variables in the shell environment,
+never in a file inside the repository:
+
+```bash
+npm ci
+npm run build && npm run verify:dist
+npx wrangler deploy
+node scripts/smoke-production.mjs https://uems-agency.spacesdrive.cc
+```
+
+`npm run preview:cf` serves `dist/` locally through the Cloudflare runtime (`wrangler dev`), including
+`_headers`, redirects and 404 handling.
+
+## Rollback
+
+Every deploy creates a Worker version tagged with the commit SHA. To roll back, run `npx wrangler rollback`, or
+use Workers & Pages → `uems-agency` → Deployments in the dashboard. Reverting the commit on `main` also redeploys
+the previous code through the pipeline.
