@@ -22,12 +22,14 @@ export function Header() {
   const headerRef = useRef<HTMLElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const hoverTimer = useRef<number | undefined>(undefined);
+  const [menuPath, setMenuPath] = useState(pathname);
 
-  // Close menus whenever the route changes.
-  useEffect(() => {
+  // Close menus whenever the route changes (adjusted during render, not in an effect).
+  if (menuPath !== pathname) {
+    setMenuPath(pathname);
     setMenuOpen(false);
     setOpenItem(null);
-  }, [pathname]);
+  }
 
   // Scroll state is written to a data attribute to avoid re-rendering on scroll.
   useEffect(() => {
@@ -165,6 +167,8 @@ function DropdownItem({ item, active, open, onToggle, onClose, onHover }: Dropdo
   const [overview, ...rest] = children;
 
   return (
+    // Hover only opens the panel early for pointer users; the button below is the keyboard control.
+    // oxlint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
     <li
       className={s.dropdown}
       onPointerEnter={(e) => onHover(item.label, e)}

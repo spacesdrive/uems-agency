@@ -1,4 +1,4 @@
-import { createElement, useLayoutEffect, useRef, type CSSProperties, type ReactNode } from 'react';
+import { createElement, useCallback, type CSSProperties, type ReactNode } from 'react';
 import { observeReveal } from '../lib/reveal';
 
 type RevealTag = 'div' | 'li' | 'article' | 'figure' | 'header';
@@ -12,12 +12,8 @@ interface RevealProps {
 }
 
 export function Reveal({ as = 'div', delay = 0, className, children }: RevealProps) {
-  const ref = useRef<HTMLElement>(null);
-
-  useLayoutEffect(() => {
-    const el = ref.current;
-    return el ? observeReveal(el) : undefined;
-  }, []);
+  // React 19 callback ref: observe on attach, and the returned cleanup unobserves on detach.
+  const ref = useCallback((el: HTMLElement | null) => (el ? observeReveal(el) : undefined), []);
 
   const style = delay ? ({ '--reveal-delay': `${delay}ms` } as CSSProperties) : undefined;
   return createElement(as, { ref, className, style }, children);

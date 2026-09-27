@@ -1,4 +1,5 @@
 import { site } from '../data/site';
+import { serializeJsonLd } from '../lib/jsonLd';
 import { canonicalPath } from '../lib/links';
 
 interface SeoProps {
@@ -26,7 +27,8 @@ export function Seo({ title, description, path, jsonLd, noIndex = false }: SeoPr
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       {jsonLd && (
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        // oxlint-disable-next-line react/no-danger -- JSON-LD must be raw text; serializeJsonLd escapes `<`.
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }} />
       )}
     </>
   );

@@ -51,6 +51,8 @@ export function Destinations({ index }: { index: number }) {
       </Reveal>
 
       <Reveal className={s.explorer}>
+        {/* Tabs use roving tabIndex; the tablist only delegates arrow-key handling. */}
+        {/* oxlint-disable-next-line jsx-a11y/interactive-supports-focus */}
         <div role="tablist" aria-label="Study destinations" aria-orientation="vertical" className={s.tabs} onKeyDown={onKeyDown}>
           {items.map((d, i) => (
             <button

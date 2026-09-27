@@ -6,20 +6,18 @@ import { SectionHeading } from '../components/SectionHeading';
 import { Seo } from '../components/Seo';
 import type { ContentPageData, PageSection, SectionTone } from '../data/types';
 import { cx } from '../lib/cx';
+import { sectionTones } from '../lib/sectionTones';
 import s from './ContentPage.module.css';
 
 export function ContentPage({ page }: { page: ContentPageData }) {
-  let previousTone: SectionTone = 'muted';
+  const tones = sectionTones(page.sections);
   return (
     <>
       <Seo title={page.meta.title} description={page.meta.description} path={page.path} />
       <PageHero hero={page.hero} path={page.path} />
-      {page.sections.map((section, i) => {
-        // Alternate light/muted backgrounds unless a section sets its own tone.
-        const tone = section.tone ?? (previousTone === 'light' ? 'muted' : 'light');
-        previousTone = tone;
-        return <ContentSection key={section.label + i} section={section} index={i + 1} tone={tone} />;
-      })}
+      {page.sections.map((section, i) => (
+        <ContentSection key={section.label + i} section={section} index={i + 1} tone={tones[i] ?? 'light'} />
+      ))}
     </>
   );
 }

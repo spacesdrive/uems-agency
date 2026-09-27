@@ -15,6 +15,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
   const [navigated, setNavigated] = useState(false);
   const mainRef = useRef<HTMLElement>(null);
 
+  // Runs on every navigation; pathname is the trigger even though the body does not read it.
   useLayoutEffect(() => {
     if (firstRender.current) {
       firstRender.current = false;
@@ -27,6 +28,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     }
     mainRef.current?.focus({ preventScroll: true });
+    // oxlint-disable-next-line react/exhaustive-effect-dependencies
   }, [pathname, hash, navigationType]);
 
   return (

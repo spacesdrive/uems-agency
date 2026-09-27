@@ -48,6 +48,8 @@ export function BlockRenderer({ block }: { block: Block }) {
       return (
         <figure className={s.tableFigure}>
           {block.caption && <figcaption className={s.blockTitle}>{block.caption}</figcaption>}
+          {/* Scrollable region must be keyboard-focusable (axe scrollable-region-focusable). */}
+          {/* oxlint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
           <div className={s.tableScroll} role="region" aria-label={block.caption ?? 'Table'} tabIndex={0}>
             <table className={s.table}>
               <thead>

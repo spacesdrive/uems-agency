@@ -42,6 +42,8 @@ export function Reviews({ index }: { index: number }) {
         </div>
       </div>
 
+      {/* Horizontally scrollable track must be keyboard-focusable (axe scrollable-region-focusable). */}
+      {/* oxlint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
       <ul ref={trackRef} role="list" className={s.track} aria-label="Student reviews" tabIndex={0}>
         {reviews.map((review) => (
           <li key={review.name} className={s.card}>
