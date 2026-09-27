@@ -1,0 +1,13 @@
+{
+  "name": "UEMS Ventures",
+  "short_name": "UEMS",
+  "description": "Study abroad, migration and career guidance consultancy in Mumbai.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0a1a33",
+  "icons": [
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
