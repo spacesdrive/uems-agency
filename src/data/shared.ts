@@ -19,7 +19,7 @@ export function enquirySection(label = 'Talk to Mumbai expert'): PageSection {
     label,
     title: 'Let’s connect & guide you forward',
     intro:
-      'Drop your details—our team will contact you shortly to understand your goals and help you choose the best pathway for your future abroad.',
+      'Drop your details and our team will contact you shortly to understand your goals and help you choose the best pathway for your future abroad.',
     layout: 'aside',
     blocks: [{ type: 'enquiry' }],
   };

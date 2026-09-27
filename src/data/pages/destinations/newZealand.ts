@@ -13,7 +13,7 @@ const page: ContentPageData = {
     title: 'Study in New Zealand: your gateway to global success',
     lead: [
       'New Zealand is one of the most sought-after study destinations for international students, known for its high academic standards, globally recognised qualifications, and excellent post-study work opportunities. It blends picturesque landscapes with top educational offerings and strong student support systems, making it ideal for international scholars.',
-      'At **UEMS**, we guide you through every step of your journey — from choosing the right course to successfully starting your life in New Zealand.',
+      'At **UEMS**, we guide you through every step of your journey, from choosing the right course to successfully starting your life in New Zealand.',
     ],
     actions: [
       { label: 'Book a free consultation', to: '#enquire' },

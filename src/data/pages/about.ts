@@ -11,7 +11,7 @@ const page: ContentPageData = {
     eyebrow: 'About us',
     title: 'We at UEMS have a clear “You First” policy',
     lead: [
-      'Our clients’ needs and satisfaction are our top priority. It gives our team immense pleasure to leave our clients feeling empowered and happy with the choice they make — be it choosing where and what to study, or migrating to a different part of the world.',
+      'Our clients’ needs and satisfaction are our top priority. It gives our team immense pleasure to leave our clients feeling empowered and happy with the choice they make, be it choosing where and what to study, or migrating to a different part of the world.',
     ],
     actions: [
       { label: 'Talk to our team', to: '/contact-us' },
@@ -21,7 +21,7 @@ const page: ContentPageData = {
     facts: [
       { value: '15+ yrs', label: 'Of student counselling experience' },
       { value: '3000+', label: 'Students placed in Australia and Canada' },
-      { value: '3', label: 'Continents — offices in India, Australia and Canada' },
+      { value: '3', label: 'Continents, with offices in India, Australia and Canada' },
     ],
   },
   sections: [

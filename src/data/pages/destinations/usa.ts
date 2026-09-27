@@ -12,7 +12,7 @@ const page: ContentPageData = {
     eyebrow: 'Study in the USA',
     title: 'Study in the USA – universities & visa guide',
     lead: [
-      'As the third largest country in the world in size with nearly 319 million people, America is one of the most sought after study abroad destinations. It has the largest economy, connected to the country’s enormous population, technological innovation and high average incomes with a moderate unemployment rate — and it’s home to artists including Frank Sinatra, Elvis Presley, Madonna and Whitney Houston.',
+      'As the third largest country in the world in size with nearly 319 million people, America is one of the most sought after study abroad destinations. It has the largest economy, connected to the country’s enormous population, technological innovation and high average incomes with a moderate unemployment rate, and it’s home to artists including Frank Sinatra, Elvis Presley, Madonna and Whitney Houston.',
     ],
     actions: [
       { label: 'Talk to Mumbai expert', to: '#enquire' },

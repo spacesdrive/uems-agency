@@ -59,7 +59,7 @@ const page: ContentPageData = {
     },
     {
       label: 'Eligibility',
-      title: 'Eligibility criteria — our services include',
+      title: 'Eligibility criteria: our services include',
       blocks: [
         {
           type: 'cards',
@@ -69,7 +69,7 @@ const page: ContentPageData = {
             { title: 'Assistance with choosing the “best” option for your situation.' },
             {
               title: 'Guidance on the right visa stream',
-              text: 'We guide professionals working across various occupation types — including engineers, architects, doctors, managers, teachers and more — to select the visa stream or immigration program most suitable for their profile.',
+              text: 'We guide professionals working across various occupation types, including engineers, architects, doctors, managers, teachers and more, to select the visa stream or immigration program most suitable for their profile.',
             },
             { title: 'Simplifying the process with complete navigation through the paperwork.' },
             { title: 'Sharing professional knowledge and education.' },
@@ -98,7 +98,7 @@ const page: ContentPageData = {
             {
               eyebrow: 'Provisional',
               title: '491 Visa',
-              text: 'A provisional visa which allows you to work, live and study in regional areas of Australia — speak to UEMS to find out what the regional areas are. It allows you to travel to and from Australia while the visa is valid.',
+              text: 'A provisional visa which allows you to work, live and study in regional areas of Australia (speak to UEMS to find out what the regional areas are). It allows you to travel to and from Australia while the visa is valid.',
             },
           ],
         },
@@ -111,7 +111,7 @@ const page: ContentPageData = {
         {
           type: 'callout',
           title: 'Get your profile assessed thoroughly',
-          text: 'Contact UEMS to understand if you qualify and which visa type is the best fit for your background — then follow through with complete guidance on the application process.',
+          text: 'Contact UEMS to understand if you qualify and which visa type is the best fit for your background, then follow through with complete guidance on the application process.',
           actions: [{ label: 'Inquire now', to: '#enquire' }],
         },
       ],

@@ -139,7 +139,7 @@ export const destinations = {
       id: 'usa',
       name: 'USA',
       code: 'US',
-      description: 'Home to the Ivy League and Silicon Valley — launch your career at the highest level.',
+      description: 'Home to the Ivy League and Silicon Valley. Launch your career at the highest level.',
       benefits: ['OPT & STEM Visa Extensions', 'Cutting-Edge Research Facilities', 'Global Networking Hub'],
       courses: 'Computer Science, Business, Medicine',
       tuition: 'USD 20k – 50k / yr',
@@ -276,7 +276,7 @@ export const founder = {
   paragraphs: [
     'I’m Shalini Menon, Founder of UEMS Ventures. With over two decades of experience in corporate consulting and business transformation, I envisioned a platform that bridges the gap between ambition and achievement.',
     'At UEMS Ventures, we are committed to empowering businesses and individuals through strategic consulting, professional training, and comprehensive development programs. Our mission is to unlock potential and drive meaningful growth for every client we serve.',
-    'We believe that the right guidance at the right time can transform trajectories. That belief is the cornerstone of everything we do — from shaping leadership capabilities to building resilient organizations.',
+    'We believe that the right guidance at the right time can transform trajectories. That belief is the cornerstone of everything we do, from shaping leadership capabilities to building resilient organizations.',
   ],
   facts: [
     { value: '20+', label: 'Years exp.' },

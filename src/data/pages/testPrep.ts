@@ -6,7 +6,7 @@ const page: ContentPageData = {
   meta: {
     title: 'External Exam Preparation – GMAT, GRE, IELTS, PTE, SAT & TOEFL',
     description:
-      'Online coaching with UEMS Ventures for GMAT, GRE, SAT, IELTS, PTE and TOEFL — exam formats and score validity at a glance, plus answers to common questions.',
+      'Online coaching with UEMS Ventures for GMAT, GRE, SAT, IELTS, PTE and TOEFL: exam formats and score validity at a glance, plus answers to common questions.',
   },
   hero: {
     eyebrow: 'Services · External exam preparation',

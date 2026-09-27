@@ -60,7 +60,7 @@ const page: ContentPageData = {
         {
           type: 'callout',
           title: 'Special packages available',
-          text: `Special packages are available for anyone interested in becoming a career counselor. Enquire with us — reach us on ${site.phones[0].display} for a complete write-up on how the counselling model can work for you.`,
+          text: `Special packages are available for anyone interested in becoming a career counselor. Enquire with us: reach us on ${site.phones[0].display} for a complete write-up on how the counselling model can work for you.`,
           actions: [
             { label: 'Call us', to: site.phones[0].href },
             { label: 'Register for free', to: '/contact-us' },

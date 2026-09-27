@@ -4,7 +4,7 @@
  * colour roles are mapped onto the UEMS Ventures brand (logo navy + gold).
  */
 :root {
-  /* Colour — ink replaces Hirael's gray-900, accent replaces its orange */
+  /* Colour: ink replaces Hirael's gray-900, accent replaces its orange */
   --ink: #0a1a33;
   --ink-soft: #1d2c47;
   --text-muted: #46526b;

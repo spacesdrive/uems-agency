@@ -80,7 +80,7 @@ const page: ContentPageData = {
             {
               eyebrow: 'Step two',
               title: 'In-person career counselling',
-              text: 'After attempting Eval you can take further help from our expert counsellors, who will understand the result of your Eval career report and help you plan your career — the stream you need to choose and the courses you need to study to achieve your desired career goals.',
+              text: 'After attempting Eval you can take further help from our expert counsellors, who will understand the result of your Eval career report and help you plan your career: the stream you need to choose and the courses you need to study to achieve your desired career goals.',
               action: { label: 'Book your counselling session', to: '/contact-us' },
             },
             {

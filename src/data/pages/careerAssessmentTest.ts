@@ -151,7 +151,7 @@ const page: ContentPageData = {
             {
               eyebrow: 'For class owners',
               title: 'A value-added service for your students',
-              text: 'The EVAL test can be offered as a value-added service through tuition classes. It helps class owners understand which career paths are best for their students and provide guidance accordingly — and offer further educational support that extends student loyalty to the institute.',
+              text: 'The EVAL test can be offered as a value-added service through tuition classes. It helps class owners understand which career paths are best for their students and provide guidance accordingly, and offer further educational support that extends student loyalty to the institute.',
             },
           ],
         },

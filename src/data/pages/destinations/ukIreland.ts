@@ -12,8 +12,8 @@ const page: ContentPageData = {
     eyebrow: 'Study in the UK & Ireland',
     title: 'Study in the UK & Ireland – best options',
     lead: [
-      'A flight time of merely 9 hours gets you into a country full of cultural diversity called the United Kingdom — the biggest island in the European continent, with four countries: England, Scotland, Wales and Northern Ireland, surrounded by water all around.',
-      'The UK shares its only land border with Ireland, where some of the biggest innovations come from — like the submarine, the modern stethoscope and colour photography. Ireland is one of the friendliest places to be; everyone is always made to feel at home.',
+      'A flight time of merely 9 hours gets you into a country full of cultural diversity called the United Kingdom, the biggest island in the European continent, with four countries: England, Scotland, Wales and Northern Ireland, surrounded by water all around.',
+      'The UK shares its only land border with Ireland, where some of the biggest innovations come from, like the submarine, the modern stethoscope and colour photography. Ireland is one of the friendliest places to be; everyone is always made to feel at home.',
     ],
     actions: [
       { label: 'Talk to Mumbai expert', to: '#enquire' },
@@ -67,7 +67,7 @@ const page: ContentPageData = {
         {
           type: 'callout',
           title: 'Course requirements and UK course costs',
-          text: 'Entry requirements for Ireland and detailed course costs for the UK depend on the course and institution — talk to our team for current figures for your profile.',
+          text: 'Entry requirements for Ireland and detailed course costs for the UK depend on the course and institution. Talk to our team for current figures for your profile.',
           actions: [{ label: 'Contact us', to: '/contact-us' }],
         },
       ],

@@ -75,7 +75,7 @@ const page: ContentPageData = {
             'Know what IELTS examiners want from speaking and writing',
           ],
           paragraphs: [
-            'Our trainers are trained by the British Council and are able to share their expertise and tips for getting the best scores — for studying abroad, migration or to work as a professional overseas.',
+            'Our trainers are trained by the British Council and are able to share their expertise and tips for getting the best scores, for studying abroad, migration or to work as a professional overseas.',
           ],
           actions: [{ label: 'Contact us', to: '/contact-us' }],
         },

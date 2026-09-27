@@ -6,7 +6,7 @@ const page: ContentPageData = {
   meta: {
     title: 'Best Free Career Personality Test – RIASEC Quiz',
     description:
-      'The UEMS Career Personality Quiz follows the RIASEC format — Realistic, Investigative, Artistic, Social, Enterprising and Conventional — to point you towards careers that suit you.',
+      'The UEMS Career Personality Quiz follows the RIASEC format (Realistic, Investigative, Artistic, Social, Enterprising and Conventional) to point you towards careers that suit you.',
   },
   hero: {
     eyebrow: 'Best free career personality quiz',

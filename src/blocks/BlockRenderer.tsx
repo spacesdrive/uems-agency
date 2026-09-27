@@ -190,7 +190,7 @@ export function BlockRenderer({ block }: { block: Block }) {
           <blockquote>
             <p>{block.text}</p>
           </blockquote>
-          {block.cite && <figcaption>— {block.cite}</figcaption>}
+          {block.cite && <figcaption>{block.cite}</figcaption>}
         </figure>
       );
 

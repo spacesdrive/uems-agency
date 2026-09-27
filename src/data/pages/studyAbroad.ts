@@ -90,7 +90,7 @@ const page: ContentPageData = {
         {
           type: 'callout',
           title: 'Many countries welcome international students',
-          text: 'Talk to us — each country has its own advantage, and UEMS helps you find the right country and the right course for you.',
+          text: 'Talk to us. Each country has its own advantage, and UEMS helps you find the right country and the right course for you.',
           actions: [
             { label: 'Inquire now', to: '#enquire' },
             { label: 'Read about student experiences', to: '/#reviews' },

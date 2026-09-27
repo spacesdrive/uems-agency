@@ -14,7 +14,7 @@ export default function NewsEventsPage() {
     <>
       <Seo
         title="News & Events"
-        description="News flashes, webinars, seminars and trending courses from UEMS Ventures — including career clarity webinars and school seminars across Mumbai."
+        description="News flashes, webinars, seminars and trending courses from UEMS Ventures, including career clarity webinars and school seminars across Mumbai."
         path={path}
       />
       <PageHero

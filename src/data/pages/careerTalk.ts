@@ -86,7 +86,7 @@ const page: ContentPageData = {
       title: 'Personalized guidance for every student',
       layout: 'aside',
       intro:
-        'Every student is different — and so is every career journey. Our one-on-one counselling sessions provide personalized support based on a student’s interests, strengths, goals, and aspirations.',
+        'Every student is different, and so is every career journey. Our one-on-one counselling sessions provide personalized support based on a student’s interests, strengths, goals, and aspirations.',
       blocks: [
         {
           type: 'cards',
@@ -122,7 +122,7 @@ const page: ContentPageData = {
       title: 'Let’s build brighter futures together',
       tone: 'dark',
       intro:
-        'Whether you are a school, college, coaching institute, or educational organization — we can help your students gain career clarity, confidence, and direction through impactful guidance programs.',
+        'Whether you are a school, college, coaching institute, or educational organization, we can help your students gain career clarity, confidence, and direction through impactful guidance programs.',
       blocks: [
         { type: 'tags', items: ['Free Consultation', 'Custom Programs', 'Expert Mentors'] },
         {

@@ -163,7 +163,7 @@ export function EnquiryForm({ className, preset }: EnquiryFormProps) {
       </div>
 
       <p className={cx(s.status, status === 'error' && s.statusError)} role="status" aria-live="polite">
-        {status === 'sent' && 'Thank you — your enquiry has been sent. Our team will get back to you within 24 hours.'}
+        {status === 'sent' && 'Thank you, your enquiry has been sent. Our team will get back to you within 24 hours.'}
         {status === 'mail-client' && (
           <>
             Your email app should now open with your enquiry addressed to {site.email}. If it doesn’t, call us on{' '}

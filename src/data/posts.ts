@@ -29,7 +29,7 @@ export const blogPosts: readonly BlogPost[] = [
   },
   {
     title: 'Best European Countries with Post-Study Work Visa for Indian Students in 2026',
-    excerpt: 'Choosing the right country is not just about education—it’s about what…',
+    excerpt: 'Choosing the right country is not just about education, it’s about what…',
     url: `${base}/best-european-countries-with-post-study-work-visa-for-indian-students-in-2026/`,
     image: 'blog-3',
     date: 'Apr 20',

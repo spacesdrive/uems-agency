@@ -78,7 +78,7 @@ export function Destinations({ index }: { index: number }) {
 
         <div role="tabpanel" id={panelId} aria-labelledby={`${baseId}-tab-${current.id}`} className={s.panel}>
           <div key={current.id} className={s.media}>
-            <Img name={current.image} alt={`${current.name} — study destination`} sizes="(min-width: 1024px) 55vw, 100vw" />
+            <Img name={current.image} alt={`${current.name}, study destination`} sizes="(min-width: 1024px) 55vw, 100vw" />
             <span className={s.mediaTag}>
               <span className={s.mediaCode}>{current.code}</span>
               {current.name}
@@ -114,9 +114,9 @@ export function Destinations({ index }: { index: number }) {
       </Reveal>
 
       <p className={s.footnote}>
-        {destinations.footnote} —{' '}
+        {destinations.footnote}.{' '}
         <SmartLink to="/contact-us" className="inline-link">
-          book free counselling
+          Book free counselling
         </SmartLink>
       </p>
     </Section>

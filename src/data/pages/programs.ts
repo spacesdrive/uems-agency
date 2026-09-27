@@ -14,7 +14,7 @@ const page: ContentPageData = {
     eyebrow: 'Admissions open',
     title: 'Your future starts here',
     lead: [
-      'Discover the right career. Build a powerful profile. Get into your dream university. At UEMS Ventures, we don’t just help students choose courses — we help them discover who they can become.',
+      'Discover the right career. Build a powerful profile. Get into your dream university. At UEMS Ventures, we don’t just help students choose courses; we help them discover who they can become.',
     ],
     actions: [
       { label: 'Explore programs', to: '#pathways' },
@@ -44,7 +44,7 @@ const page: ContentPageData = {
             },
             {
               title: 'Scientific career assessments',
-              text: 'Data-driven insights through validated psychometric tools — not guesswork or generic advice.',
+              text: 'Data-driven insights through validated psychometric tools, not guesswork or generic advice.',
             },
             {
               title: 'Global university expertise',
@@ -77,7 +77,7 @@ const page: ContentPageData = {
               image: { name: 'prog-subject', alt: 'Two students choosing an academic stream' },
               eyebrow: 'Grade 10',
               title: 'Subject Selection Program',
-              text: 'Choose the right stream with confidence. Science, Commerce, or Humanities — we’ll help you decide based on your unique aptitude and interests.',
+              text: 'Choose the right stream with confidence. Science, Commerce, or Humanities: we’ll help you decide based on your unique aptitude and interests.',
               bullets: ['Stream Selection Counselling', 'Career Pathway Mapping', 'Personalised Assessment Reports', 'One-on-One Expert Guidance'],
               action: book,
             },
@@ -135,11 +135,11 @@ const page: ContentPageData = {
             { title: 'Global university network', text: 'Admissions expertise across 30+ countries and 200+ institutions worldwide.' },
             {
               title: 'End-to-end support',
-              text: 'From school career clarity all the way to university acceptance — we’re with you every step.',
+              text: 'From school career clarity all the way to university acceptance, we’re with you every step.',
             },
             {
               title: 'Student-first philosophy',
-              text: 'Your aspirations lead — we simply illuminate the path and open the right doors.',
+              text: 'Your aspirations lead; we simply illuminate the path and open the right doors.',
             },
           ],
         },
@@ -157,12 +157,12 @@ const page: ContentPageData = {
             {
               eyebrow: 'MBBS · Edinburgh',
               title: 'Aanya Sharma',
-              text: '“UEMS helped me realise that medicine was genuinely my calling — not just family expectation. The aptitude tests and counselling sessions gave me absolute clarity.”',
+              text: '“UEMS helped me realise that medicine was genuinely my calling, not just family expectation. The aptitude tests and counselling sessions gave me absolute clarity.”',
             },
             {
               eyebrow: 'Finance · Bath',
               title: 'Rohan Mehta',
-              text: '“I had no idea what stream to pick after Grade 10. After two sessions at UEMS I had a full roadmap — Commerce with Economics, leading to Finance at a top UK university.”',
+              text: '“I had no idea what stream to pick after Grade 10. After two sessions at UEMS I had a full roadmap: Commerce with Economics, leading to Finance at a top UK university.”',
             },
             {
               eyebrow: 'Psychology · KCL',
@@ -172,7 +172,7 @@ const page: ContentPageData = {
             {
               eyebrow: 'CS · NUS',
               title: 'Kabir Reddy',
-              text: '“I was torn between engineering and design. UEMS showed me how I could combine both — and now I’m studying CS with a specialisation in HCI at my dream school.”',
+              text: '“I was torn between engineering and design. UEMS showed me how I could combine both, and now I’m studying CS with a specialisation in HCI at my dream school.”',
             },
             {
               eyebrow: 'Architecture · UCL',

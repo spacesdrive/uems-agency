@@ -12,7 +12,7 @@ const page: ContentPageData = {
     eyebrow: 'Study in Asia',
     title: 'Explore education in Asia offering quality, diversity, opportunity',
     lead: [
-      'Asia’s education landscape is dynamic and evolving — from research-intensive programs in Singapore and Japan to affordable degree options in Malaysia, South Korea, and beyond.',
+      'Asia’s education landscape is dynamic and evolving, from research-intensive programs in Singapore and Japan to affordable degree options in Malaysia, South Korea, and beyond.',
     ],
     actions: [
       { label: 'Book a free counselling session', to: '#enquire' },

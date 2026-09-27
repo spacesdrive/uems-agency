@@ -12,7 +12,7 @@ const page: ContentPageData = {
     eyebrow: 'Powered by EvalTest',
     title: 'Discover the career that truly fits you',
     lead: [
-      'At **UEMS Ventures**, we believe career decisions should be based on clarity — not confusion, pressure, or guesswork. Let us introduce you to EvalTest.',
+      'At **UEMS Ventures**, we believe career decisions should be based on clarity, not confusion, pressure, or guesswork. Let us introduce you to EvalTest.',
       'Whether you’re confused about subject selection, choosing a degree, or planning your future career, **EvalTest** helps you make smarter decisions with confidence.',
     ],
     actions: [
@@ -83,7 +83,7 @@ const page: ContentPageData = {
         {
           type: 'prose',
           paragraphs: [
-            'The assessment provides **personalized insights** — identifying natural strengths, career interests, personality traits, suitable pathways, subject recommendations, and ideal learning environments.',
+            'The assessment provides **personalized insights**, identifying natural strengths, career interests, personality traits, suitable pathways, subject recommendations, and ideal learning environments.',
           ],
         },
         {
@@ -124,7 +124,7 @@ const page: ContentPageData = {
             'Simple and interactive questions',
             'Less than 30 minutes to complete',
             'Instant career insights & recommendations',
-            'It’s not an exam — it’s self-discovery',
+            'It’s not an exam, it’s self-discovery',
           ],
         },
       ],
@@ -154,7 +154,7 @@ const page: ContentPageData = {
           image: { name: 'cct-mentoring', alt: 'Mentor with a group of smiling students' },
           title: 'Live mentoring · signature program',
           paragraphs: [
-            'Guiding students at every stage — from subject selection to career planning. Our expert mentors provide personalized counselling tailored to each student’s unique strengths.',
+            'Guiding students at every stage, from subject selection to career planning. Our expert mentors provide personalized counselling tailored to each student’s unique strengths.',
           ],
           actions: [{ label: 'Book a session', to: site.evalUrl }],
         },

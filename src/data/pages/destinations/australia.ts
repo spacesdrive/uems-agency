@@ -6,13 +6,13 @@ const page: ContentPageData = {
   meta: {
     title: 'Study in Australia from Mumbai – Eligibility, Courses & Visa',
     description:
-      'Why study in Australia: quality education, up to 3 years of post-study work rights, requirements, accommodation costs, scholarships and the subclass 500 student visa — with UEMS Ventures.',
+      'Why study in Australia: quality education, up to 3 years of post-study work rights, requirements, accommodation costs, scholarships and the subclass 500 student visa, with UEMS Ventures.',
   },
   hero: {
     eyebrow: 'Study in Australia',
     title: 'Why study in Australia? Eligibility & courses',
     lead: [
-      'Australia has much more to offer than the usual expectations. Many international students are choosing to study in Australia because of its friendly, laid-back nature, excellent education system, and high standard of living — and the support provided by education consultants.',
+      'Australia has much more to offer than the usual expectations. Many international students are choosing to study in Australia because of its friendly, laid-back nature, excellent education system, and high standard of living, and the support provided by education consultants.',
     ],
     actions: [
       { label: 'Talk to Mumbai expert', to: '#enquire' },
@@ -32,7 +32,7 @@ const page: ContentPageData = {
           items: [
             {
               title: 'Great weather condition',
-              text: 'Australia is a land of abundance — abundance of sun, abundance of green pastures, abundance of fresh air, abundance of minerals and it doesn’t just end there.',
+              text: 'Australia is a land of abundance: abundance of sun, abundance of green pastures, abundance of fresh air, abundance of minerals and it doesn’t just end there.',
             },
             {
               title: 'Quality education',
@@ -87,7 +87,7 @@ const page: ContentPageData = {
       title: 'Cost of studying in Australia',
       layout: 'aside',
       intro:
-        'The entire cost of studying in Australia isn’t just the tuition cost but many other factors — accommodation, student visa cost, airfares and the availability of scholarships.',
+        'The entire cost of studying in Australia isn’t just the tuition cost but many other factors: accommodation, student visa cost, airfares and the availability of scholarships.',
       blocks: [
         {
           type: 'prose',
