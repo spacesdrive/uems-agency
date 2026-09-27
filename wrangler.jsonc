@@ -1,0 +1,20 @@
+// Cloudflare Workers static-assets deployment. There is no Worker script: every route is a
+// pre-rendered HTML file in dist/, served straight from Cloudflare's edge.
+// Credentials are never stored here. Wrangler reads CLOUDFLARE_API_TOKEN and
+// CLOUDFLARE_ACCOUNT_ID from the environment (GitHub Actions secrets in CI).
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "uems-agency",
+  "compatibility_date": "2026-09-27",
+  "assets": {
+    "directory": "./dist",
+    // /about-us redirects to /about-us/ (the canonical form used by every page).
+    "html_handling": "auto-trailing-slash",
+    // Unknown URLs get the pre-rendered 404.html with a real 404 status.
+    "not_found_handling": "404-page"
+  },
+  "routes": [{ "pattern": "uems-agency.spacesdrive.cc", "custom_domain": true }],
+  // Serve only on the custom domain; no public *.workers.dev or preview URLs.
+  "workers_dev": false,
+  "preview_urls": false
+}
