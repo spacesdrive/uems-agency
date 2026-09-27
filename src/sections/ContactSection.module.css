@@ -1,0 +1,140 @@
+.grid {
+  display: grid;
+  gap: 48px;
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: clamp(48px, 6vw, 96px);
+    align-items: start;
+  }
+}
+
+.aside {
+  display: grid;
+  gap: 40px;
+}
+
+.details {
+  display: grid;
+  gap: 24px;
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .details {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.detail {
+  display: flex;
+  gap: 16px;
+}
+
+.detail > div {
+  display: grid;
+  align-content: start;
+  gap: 6px;
+}
+
+.detail address {
+  display: grid;
+  font-style: normal;
+  line-height: 1.6;
+}
+
+.detailIcon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--surface-muted);
+}
+
+.value {
+  width: fit-content;
+  line-height: 1.6;
+  transition: color var(--dur) var(--ease);
+}
+
+.value:hover {
+  color: var(--brand);
+}
+
+.socials {
+  display: grid;
+  gap: 12px;
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .socials {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.social {
+  display: flex;
+  gap: 16px;
+  padding: 20px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  transition:
+    border-color var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease);
+}
+
+.social:hover {
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow-card);
+}
+
+.socialIcon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--on-dark);
+}
+
+.socialBody {
+  display: grid;
+  gap: 6px;
+}
+
+.socialBody strong {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.socialText {
+  font-size: var(--fs-small);
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.socialStats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  font-size: var(--fs-xs);
+  color: var(--text-subtle);
+}
+
+.socialStats b {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.socialCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--fs-small);
+  font-weight: 500;
+}
