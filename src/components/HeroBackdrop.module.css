@@ -1,0 +1,93 @@
+.backdrop {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: var(--surface-sunken);
+  pointer-events: none;
+  contain: strict;
+}
+
+.streaks,
+.prism {
+  position: absolute;
+  inset: -20% -30%;
+  will-change: transform;
+}
+
+.streaks {
+  background:
+    repeating-linear-gradient(
+      116deg,
+      transparent 0 70px,
+      rgb(255 255 255 / 0.95) 110px,
+      transparent 150px,
+      transparent 190px,
+      rgb(10 26 51 / 0.05) 214px,
+      transparent 240px 300px
+    ),
+    repeating-linear-gradient(
+      116deg,
+      transparent 0 160px,
+      rgb(255 255 255 / 0.7) 200px,
+      transparent 250px 470px
+    );
+  filter: blur(12px);
+  animation: drift 26s var(--ease) infinite alternate;
+}
+
+.prism {
+  background: repeating-linear-gradient(
+    116deg,
+    transparent 0 238px,
+    rgb(224 176 50 / 0.14) 250px,
+    rgb(120 160 255 / 0.12) 262px,
+    rgb(255 150 200 / 0.08) 272px,
+    transparent 290px 520px
+  );
+  filter: blur(8px);
+  mix-blend-mode: multiply;
+  animation: drift 34s var(--ease) infinite alternate-reverse;
+}
+
+.veil {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(120% 90% at 10% 70%, rgb(239 239 239 / 0.85), transparent 60%),
+    linear-gradient(180deg, transparent 72%, rgb(255 255 255 / 0.55));
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 900ms var(--ease-out);
+}
+
+.canvas[data-ready='true'] {
+  opacity: 1;
+}
+
+/* Once the canvas is live, stop the fallback layers from animating underneath. */
+.backdrop:has(.canvas[data-ready='true']) :is(.streaks, .prism) {
+  animation: none;
+  visibility: hidden;
+}
+
+@keyframes drift {
+  from {
+    transform: translate3d(-4%, 0, 0);
+  }
+  to {
+    transform: translate3d(4%, -3%, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .streaks,
+  .prism {
+    animation: none;
+  }
+}
