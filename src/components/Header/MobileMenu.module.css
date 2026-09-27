@@ -1,0 +1,157 @@
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  background: var(--surface);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity var(--dur) var(--ease),
+    visibility 0s linear var(--dur);
+}
+
+.menu[data-open='true'] {
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity var(--dur) var(--ease),
+    visibility 0s;
+}
+
+@media (min-width: 1180px) {
+  .menu {
+    display: none;
+  }
+}
+
+.scroller {
+  height: 100%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: calc(var(--header-h) + 16px) var(--gutter) calc(32px + env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.list {
+  display: grid;
+}
+
+.item {
+  border-bottom: 1px solid var(--line);
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.menu[data-open='true'] .item {
+  animation: item-in 500ms var(--ease-out) forwards;
+  animation-delay: calc(var(--i) * 35ms + 60ms);
+}
+
+@keyframes item-in {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.row {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 2px;
+  font-size: clamp(1.375rem, 1.1rem + 1.2vw, 1.75rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  text-align: left;
+}
+
+.current {
+  color: var(--brand);
+}
+
+.rowArrow {
+  color: var(--text-faint);
+}
+
+.toggle {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--surface-muted);
+  transition:
+    transform var(--dur) var(--ease),
+    background-color var(--dur) var(--ease);
+}
+
+.toggleOpen {
+  transform: rotate(45deg);
+  background: var(--accent);
+}
+
+.sub {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--dur) var(--ease);
+}
+
+.sub[data-open='true'] {
+  grid-template-rows: 1fr;
+}
+
+.subList {
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2px 16px;
+}
+
+.sub[data-open='true'] .subList {
+  padding-bottom: 16px;
+}
+
+.subLink {
+  display: block;
+  padding: 8px 0;
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
+.subLink.current {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.footer {
+  display: grid;
+  gap: 28px;
+  margin-top: auto;
+}
+
+.actions {
+  display: grid;
+  gap: 10px;
+}
+
+@media (min-width: 560px) {
+  .actions {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.contact {
+  display: grid;
+  gap: 10px;
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+}
+
+.contact a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
