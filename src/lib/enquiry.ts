@@ -31,12 +31,17 @@ export async function submitEnquiry(data: Enquiry): Promise<EnquiryResult> {
     return 'sent';
   }
 
+  window.location.href = buildMailto(data);
+  return 'mail-client';
+}
+
+/** A mailto: URL addressed to UEMS with the enquiry pre-filled as subject and body. */
+export function buildMailto(data: Enquiry): string {
   const lines = [`Name: ${data.name}`, `Email: ${data.email}`, `Contact number: ${data.phone}`];
   if (data.heardFrom) lines.push(`Where did you hear about us: ${data.heardFrom}`);
   if (data.queryAbout) lines.push(`Query about: ${data.queryAbout}`);
   if (data.interest) lines.push(`${data.interest.label}: ${data.interest.value}`);
   if (data.question) lines.push('', data.question);
   const subject = `Website enquiry${data.queryAbout ? ` – ${data.queryAbout}` : ''}`;
-  window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
-  return 'mail-client';
+  return `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
 }
