@@ -26,7 +26,7 @@
     "jsx-a11y/no-redundant-roles": "off",
     // role="img" on icon groups and role="status" live regions are intentional.
     "jsx-a11y/prefer-tag-over-role": "off",
-    "import/no-unassigned-import": ["warn", { "allow": ["**/*.css"] }],
+    "import/no-unassigned-import": ["warn", { "allow": ["**/*.css", "@testing-library/jest-dom/vitest"] }],
     "typescript/no-explicit-any": "error",
     "typescript/consistent-type-imports": "error",
     "no-console": ["warn", { "allow": ["warn", "error"] }],
