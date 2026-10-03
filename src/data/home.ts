@@ -25,7 +25,7 @@ export const whyUems = {
   title: 'Why choose UEMS? Your trusted partner for study abroad and immigration services.',
   text: 'With over 15 years of expertise and offices in India and Australia, UEMS Ventures guides students from India and across borders to universities worldwide. We provide comprehensive guidance to chart your destiny abroad.',
   facts: [
-    { value: '15+ countries', label: 'Global network' },
+    { value: '40 countries', label: 'Global network' },
     { value: '3000+', label: 'Students trust us' },
   ] satisfies Fact[],
   image: { name: 'home-students', alt: 'Students from around the world celebrating together' } satisfies ImageRef,

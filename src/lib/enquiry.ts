@@ -31,14 +31,11 @@ export interface FormMessage {
  */
 const endpoint = import.meta.env.VITE_ENQUIRY_ENDPOINT || '/api/enquiry';
 
-/** Thrown when the endpoint rejects the submission itself, so the visitor should fix and retry. */
-export class SubmissionRejected extends Error {}
-
 /**
- * Every UEMS form is delivered the same way: a JSON POST to the email endpoint. If the
- * endpoint is unavailable (static host without the Worker, email not set up yet, rate limit,
- * network error), the visitor's mail client opens with the same message addressed to UEMS,
- * so a form always leads somewhere real.
+ * Every UEMS form is delivered the same way: a JSON POST to the email endpoint. If that fails
+ * for any reason (static host without the Worker, email not set up yet, rate limit, rejected
+ * input, network error), the visitor's mail client opens with the same message addressed to
+ * UEMS, so a submission is never lost.
  */
 async function deliver(message: FormMessage, fields: object): Promise<EnquiryResult> {
   try {
@@ -48,9 +45,8 @@ async function deliver(message: FormMessage, fields: object): Promise<EnquiryRes
       body: JSON.stringify({ ...message, fields }),
     });
     if (res.ok) return 'sent';
-    if (res.status === 400) throw new SubmissionRejected(`${message.subject} was rejected`);
-  } catch (error) {
-    if (error instanceof SubmissionRejected) throw error;
+  } catch {
+    // Network failure: fall through to the mail app.
   }
 
   window.location.href = toMailto(message);

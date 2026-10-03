@@ -94,14 +94,8 @@ describe('submitEnquiry', () => {
     expect(fetchMock.mock.calls[0]?.[0]).toBe('https://forms.example.com/uems');
   });
 
-  it('rejects when the endpoint says the submission itself is invalid', async () => {
-    vi.stubGlobal('fetch', vi.fn<typeof fetch>().mockResolvedValue(new Response('{}', { status: 400 })));
-    const { submitEnquiry, SubmissionRejected } = await loadEnquiry();
-
-    await expect(submitEnquiry(enquiry)).rejects.toBeInstanceOf(SubmissionRejected);
-  });
-
   it.each([
+    ['the endpoint rejects the input', () => Promise.resolve(new Response('{}', { status: 400 }))],
     ['email not set up yet', () => Promise.resolve(new Response('{}', { status: 503 }))],
     ['rate limited', () => Promise.resolve(new Response('{}', { status: 429 }))],
     ['no endpoint on this host', () => Promise.resolve(new Response('not found', { status: 404 }))],

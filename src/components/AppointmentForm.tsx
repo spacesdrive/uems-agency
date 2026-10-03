@@ -157,7 +157,7 @@ export function AppointmentForm({ className }: { className?: string }) {
         </div>
         <div className={cx(s.field, s.full)}>
           <label htmlFor={`${id}-message`}>Anything we should know before we meet?</label>
-          <textarea id={`${id}-message`} name="message" rows={4} />
+          <textarea id={`${id}-message`} name="message" rows={4} maxLength={2000} />
         </div>
       </div>
 

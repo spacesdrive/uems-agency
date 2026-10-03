@@ -1,20 +1,32 @@
-// Cloudflare Workers static-assets deployment. There is no Worker script: every route is a
-// pre-rendered HTML file in dist/, served straight from Cloudflare's edge.
+// Cloudflare Workers deployment. Every page is a pre-rendered HTML file in dist/, served
+// straight from Cloudflare's edge. The small Worker in worker/ only handles /api/enquiry,
+// which emails form submissions to UEMS.
 // Credentials are never stored here. Wrangler reads CLOUDFLARE_API_TOKEN and
 // CLOUDFLARE_ACCOUNT_ID from the environment (GitHub Actions secrets in CI).
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "uems-agency",
+  "main": "./worker/index.ts",
   "compatibility_date": "2026-09-27",
   "assets": {
     "directory": "./dist",
+    "binding": "ASSETS",
+    // Only the form endpoint runs the Worker first; pages and files are served directly.
+    "run_worker_first": ["/api/*"],
     // /about-us redirects to /about-us/ (the canonical form used by every page).
     "html_handling": "auto-trailing-slash",
     // Unknown URLs get the pre-rendered 404.html with a real 404 status.
     "not_found_handling": "404-page"
   },
+  // At most 5 form submissions per minute from one visitor (per Cloudflare location).
+  "ratelimits": [{ "name": "ENQUIRY_LIMITER", "namespace_id": "41201", "simple": { "limit": 5, "period": 60 } }],
+  // Form emails go only to this inbox, sent from website@spacesdrive.cc (Email Routing is enabled
+  // on spacesdrive.cc). Delivery starts once the inbox clicks Cloudflare's verification email;
+  // until then sends are refused and the site opens the visitor's mail app instead.
+  "send_email": [{ "name": "ENQUIRY_EMAIL", "destination_address": "info@uemsventures.com" }],
   "routes": [{ "pattern": "uems-agency.spacesdrive.cc", "custom_domain": true }],
   // Serve only on the custom domain; no public *.workers.dev or preview URLs.
   "workers_dev": false,
-  "preview_urls": false
+  "preview_urls": false,
+  "observability": { "enabled": true }
 }

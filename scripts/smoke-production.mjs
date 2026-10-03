@@ -38,7 +38,7 @@ check(home.includes('data-route="/"'), 'home page is served');
 if (expectedEntry) check(home.includes(expectedEntry), `live site serves this build (${expectedEntry})`);
 
 // 2. Key routes render their pre-rendered page.
-for (const path of ['/about-us/', '/study-in-australia/', '/contact-us/', '/career-guidance/career-assessment-test/']) {
+for (const path of ['/about-us/', '/study-in-australia/', '/contact-us/', '/career-clarity-tests/']) {
   const res = await get(path);
   const html = res.ok ? await res.text() : '';
   check(res.status === 200 && html.includes(`data-route="${path.slice(0, -1)}"`), `${path} → ${res.status}`);
@@ -68,6 +68,21 @@ if (entry) {
 }
 const http = await fetch(base.replace('https://', 'http://') + '/', { redirect: 'manual' }).catch(() => null);
 check(!http || [301, 302, 307, 308].includes(http.status), `plain HTTP redirects to HTTPS (${http?.status ?? 'refused'})`);
+
+// 5. Form email endpoint is live and guarded. These requests are refused before any email is sent.
+const getApi = await get('/api/enquiry');
+check(getApi.status === 405, `/api/enquiry rejects GET (${getApi.status})`);
+const foreign = await fetch(`${base}/api/enquiry`, {
+  method: 'POST',
+  headers: { Origin: 'https://example.com', 'Content-Type': 'application/json' },
+  body: '{}',
+});
+check(foreign.status === 403, `/api/enquiry rejects other origins (${foreign.status})`);
+const redirected = await get('/career-guidance/career-assessment-test/');
+check(
+  redirected.status === 301 && new URL(redirected.headers.get('location') ?? '', base).pathname === '/career-clarity-tests/',
+  `removed Premium page redirects to /career-clarity-tests/ (${redirected.status})`,
+);
 
 if (failures.length) {
   console.error(`\n${failures.length} production check(s) failed.`);

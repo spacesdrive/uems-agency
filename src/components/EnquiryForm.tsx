@@ -143,7 +143,7 @@ export function EnquiryForm({ className, preset }: EnquiryFormProps) {
         </div>
         <div className={cx(s.field, s.full)}>
           <label htmlFor={`${id}-question`}>What is your question</label>
-          <textarea rows={4} {...fieldProps('question')} />
+          <textarea rows={4} maxLength={2000} {...fieldProps('question')} />
         </div>
       </div>
 

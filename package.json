@@ -5,16 +5,17 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node scripts/prerender.mjs",
+    "build": "npm run types:worker --silent && tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node scripts/prerender.mjs",
     "preview": "vite preview",
-    "typecheck": "tsc -b",
+    "typecheck": "npm run types:worker --silent && tsc -b",
     "lint": "oxlint --deny-warnings",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "verify:dist": "node scripts/verify-dist.mjs",
     "deploy": "wrangler deploy",
-    "preview:cf": "wrangler dev --port 4393"
+    "preview:cf": "wrangler dev --port 4393",
+    "types:worker": "wrangler types worker/worker-configuration.d.ts"
   },
   "dependencies": {
     "react": "^19.3.0",

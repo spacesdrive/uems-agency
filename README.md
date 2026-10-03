@@ -51,11 +51,11 @@ The visual language follows the [Hirael agency landing template](https://hirael.
 | Feature | What it does |
 | :--- | :--- |
 | **Static pre-rendering** | Each of the 30 routes is rendered at build time with `react-dom/static`, then hydrated in the browser only if the markup matches the current URL. |
-| **Data-driven pages** | 23 inner pages are built from a typed block system with 15 block types (cards, steps, FAQ, tables, stats and more) and a small inline markup for bold text and links. |
+| **Data-driven pages** | 22 inner pages are built from a typed block system with 16 block types (cards, steps, FAQ, tables, stats and more) and a small inline markup for bold text and links. |
 | **Fluted-glass hero** | An original three-pass WebGL renderer draws a pointer-reactive ink trail behind refracting glass. It pauses off screen, draws one still frame for reduced motion, and falls back to CSS without WebGL. |
 | **Accessible by default** | Skip link, managed focus on navigation, keyboard-operable tabs and menus, `inert` background under the mobile menu, and reduced-motion support throughout. |
 | **Instant navigation** | Every page is its own lazy chunk. Links preload their target on hover, focus or touch, and the main routes warm up when the browser is idle. |
-| **Enquiry forms** | Validated forms with accessible error messages. They post JSON to any form endpoint, or open a pre-filled email to UEMS when none is configured. |
+| **Forms that email UEMS** | Contact, free counselling and appointment forms post to a small Cloudflare Worker that emails info@uemsventures.com, with Reply-To set to the visitor. If sending is unavailable, the visitor's mail app opens with the message pre-filled. |
 | **SEO essentials** | Per-page titles, descriptions, canonical URLs and Open Graph tags, organisation structured data, `sitemap.xml`, and a real 404 status for unknown URLs. |
 | **Hardened delivery** | Strict Content Security Policy, HSTS and related headers, immutable caching for hashed assets, and no public preview hosts. |
 
@@ -104,7 +104,7 @@ npm run preview
 
 ## Architecture
 
-There is no application server and no database. The build turns typed content into static files, and Cloudflare serves them.
+There is no database. The build turns typed content into static files, and Cloudflare serves them. The only server code is a small Worker (`worker/`) for `/api/enquiry`, which emails form submissions to UEMS.
 
 ```mermaid
 flowchart LR
@@ -125,6 +125,8 @@ flowchart LR
     P --> O[("dist/")]
     O --> CF["Cloudflare Workers<br/>static assets"]
     CF --> B["Browser"]
+    B -- "form POST /api/enquiry" --> W["Worker<br/>worker/enquiry.ts"]
+    W --> M["Email Routing<br/>info@uemsventures.com"]
 ```
 
 The pre-render step renders each route through the same `App` the browser runs. It moves the tags React 19 emits (title, meta, canonical) into `<head>`, inlines the single stylesheet, and stamps the root element with a `data-route` marker.
@@ -221,11 +223,14 @@ flowchart TD
 
 Pull requests run the same checks without deploying. Cloudflare credentials live only in a GitHub environment restricted to `main`. The [deployment guide](docs/DEPLOYMENT.md) covers secrets, token scope, manual deploys and rollback.
 
-`dist/` also works on any static host. Serve `404.html` for unknown paths, and set `VITE_ENQUIRY_ENDPOINT` at build time to send enquiries to a form service (see [.env.example](.env.example)).
+`dist/` also works on any static host. Serve `404.html` for unknown paths. Without the Worker, forms open the visitor's mail app, or set `VITE_ENQUIRY_ENDPOINT` at build time to post them to another form service (see [.env.example](.env.example)).
 
 ## Content notes
 
-- Blog and news cards link to the full articles on the current UEMS blog. Only the listings were migrated.
+- Blog cards and event listings link to the full articles on the current UEMS blog. Only the listings were migrated.
+- **Seminars & Events** (`/news-and-events`) lists events from `src/data/events.ts`. To add one, put an entry at the top of `upcomingEvents` or `pastEvents`. Videos stay on the [UEMS Ventures YouTube channel](https://www.youtube.com/@uemsventures) and are linked with the optional `video` field, so the site never hosts video files.
+- **Forms and Book appointment** (`/book-appointment`) post to `/api/enquiry` (`worker/enquiry.ts`), which emails info@uemsventures.com from website@spacesdrive.cc through Cloudflare Email Routing. Delivery starts once that inbox has clicked Cloudflare's one-time verification email; until then, and whenever sending fails, the visitor's mail app opens with the message addressed to UEMS. The endpoint only accepts requests from this site, limits size and rate, and can only email that one inbox.
+- The former Premium Career Assessment Test page now lives inside Career Clarity Tests, and its old URL redirects there (`public/_redirects`).
 - The interactive quiz on `/best-free-career-personality-test` is a plugin on the current site. The page keeps all its content, but the quiz needs to be connected again.
 - The "Write a review" link opens a Google search for the UEMS listing, because the original link used a placeholder place ID. Replace it with the real link from Google Business Profile.
 - The Disclaimer page says "Coming soon", as on the current site, and is excluded from search indexing.
