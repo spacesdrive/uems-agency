@@ -7,17 +7,14 @@ import { whyUems } from '../../data/home';
 import s from './WhyUems.module.css';
 
 export function WhyUems({ index }: { index: number }) {
-  const { small, large } = whyUems.images;
+  const { image } = whyUems;
   return (
     <Section labelledBy="why-title" className={s.section}>
       <Reveal>
         <SectionHeading index={index} label={whyUems.label} title={whyUems.title} id="why-title" size="compact" />
       </Reveal>
       <div className={s.grid}>
-        <Reveal className={s.small}>
-          <Img name={small.name} alt={small.alt} sizes="(min-width: 1024px) 24vw, (min-width: 640px) 45vw, 100vw" />
-        </Reveal>
-        <Reveal className={s.copy} delay={80}>
+        <Reveal className={s.copy}>
           <p className={s.text}>{whyUems.text}</p>
           <dl className={s.facts}>
             {whyUems.facts.map((f) => (
@@ -29,8 +26,8 @@ export function WhyUems({ index }: { index: number }) {
           </dl>
           <Button to="/about-us" label="Discover more" />
         </Reveal>
-        <Reveal className={s.large} delay={160}>
-          <Img name={large.name} alt={large.alt} sizes="(min-width: 1024px) 44vw, (min-width: 640px) 55vw, 100vw" />
+        <Reveal className={s.photo} delay={120}>
+          <Img name={image.name} alt={image.alt} sizes="(min-width: 768px) 52vw, 100vw" />
         </Reveal>
       </div>
     </Section>

@@ -27,14 +27,17 @@ export const site = {
       mapUrl: 'https://www.google.com/maps/search/UEMS+Ventures+Mulund+West+Mumbai/',
     },
     {
-      label: 'Sydney office',
+      label: 'Australia office',
       lines: ['526/368 Sussex Street', 'Sydney NSW 2000', 'Australia'],
       mapUrl: 'https://www.google.com/maps/search/?api=1&query=368+Sussex+Street+Sydney+NSW+2000',
     },
   ],
-  appointmentUrl: 'https://www.picktime.com/43b6a5f6-94a8-4835-a4e3-288436e74f02',
+  /** Appointment requests are sent to UEMS by email from this page. */
+  appointmentPath: '/book-appointment',
   whatsappUrl: 'https://wa.me/919833808612',
   evalUrl: 'https://www.evaltest.com/',
+  /** Event and seminar videos are hosted on YouTube rather than on this site. */
+  youtubeUrl: 'https://www.youtube.com/@uemsventures',
   reviews: {
     rating: '4.9',
     listUrl: 'https://www.google.com/maps/search/UEMS+Ventures+Mulund+West+Mumbai/',
@@ -90,9 +93,8 @@ export const primaryNav: readonly NavItem[] = [
       { label: 'Programs', to: '/programs' },
       { label: 'Career Clarity Tests', to: '/career-clarity-tests' },
       { label: 'Career Talk', to: '/career-talk' },
-      { label: 'Premium Career Assessment Test', to: '/career-guidance/career-assessment-test' },
       { label: 'Free Career Personality Test', to: '/best-free-career-personality-test' },
-      { label: 'Test Career Counselling', to: '/test-career-counselling' },
+      { label: 'Career Counselling', to: '/test-career-counselling' },
     ],
   },
   {
@@ -113,7 +115,7 @@ export const primaryNav: readonly NavItem[] = [
     to: '/blogs',
     children: [
       { label: 'Blogs', to: '/blogs' },
-      { label: 'News & Events', to: '/news-and-events' },
+      { label: 'Seminars & Events', to: '/news-and-events' },
     ],
   },
   { label: 'Contact Us', to: '/contact-us' },
@@ -141,7 +143,7 @@ export const footerNav = {
 /** Options offered by every UEMS enquiry form. */
 export const enquiryOptions = {
   heardFrom: ['Google', 'Social Media', 'Newspaper', 'Friends/Relatives', 'Others'],
-  queryAbout: ['Study Abroad', 'Migration', 'Career Counseling', 'Global Profile Accelerator', 'External Exam (Coaching)'],
+  queryAbout: ['Study Abroad', 'Migration', 'Career Counselling', 'Global Profile Accelerator', 'External Exam (Coaching)'],
 } as const;
 
 /** Extra choice shown by specialised enquiry forms. */
@@ -155,6 +157,13 @@ export const enquiryPresets = {
 } as const;
 
 export type EnquiryPreset = keyof typeof enquiryPresets;
+
+/** Choices on the Book appointment form. UEMS confirms the final slot by email or phone. */
+export const appointmentOptions = {
+  time: ['Morning', 'Afternoon', 'Evening'],
+  mode: ['In person at our Mumbai office', 'Online video call', 'Phone call'],
+  topic: enquiryOptions.queryAbout,
+} as const;
 
 /** Options for the free counselling / Global Profile Accelerator registration. */
 export const registrationOptions = {

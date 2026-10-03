@@ -4,12 +4,12 @@ import type { ContentPageData } from '../types';
 const page: ContentPageData = {
   path: '/test-career-counselling',
   meta: {
-    title: 'Test Career Counselling – Get Connected to a Career Counsellor',
+    title: 'Career Counselling – Get Connected to a Career Counsellor',
     description:
       'EVAL’s 4-step approach to academic and career counselling: understand yourself, overcome external pressures and make an informed career decision with a UEMS career counsellor.',
   },
   hero: {
-    eyebrow: 'Test career counselling',
+    eyebrow: 'Career counselling',
     title: 'A successful career is just one step away',
     lead: ['Gain a better understanding of your career path forward.'],
     actions: [
@@ -23,14 +23,14 @@ const page: ContentPageData = {
       label: 'EVAL 4-step approach',
       title: 'Get connected to a career counsellor',
       layout: 'aside',
-      intro: 'EVAL 4-step approach to academic, test career counselling & planning.',
+      intro: 'EVAL 4-step approach to academic, career counselling & planning.',
       blocks: [
         {
           type: 'prose',
           paragraphs: [
-            'A very important part of a career planning journey is test career counselling. Our expert career counsellors help all individuals understand themselves better to make an informed decision about a meaningful career.',
-            'Career counselors work with you to create self-awareness and develop understanding. Whether you are a student or a professional, if you are confused or looking for a career change, career counselors can shed light on the options available.',
-            'A session with a career counselor gives you a detailed insight into yourself and your interests.',
+            'A very important part of a career planning journey is career counselling. Our expert career counsellors help all individuals understand themselves better to make an informed decision about a meaningful career.',
+            'Career counsellors work with you to create self-awareness and develop understanding. Whether you are a student or a professional, if you are confused or looking for a career change, career counsellors can shed light on the options available.',
+            'A session with a career counsellor gives you a detailed insight into yourself and your interests.',
           ],
         },
       ],
@@ -79,7 +79,7 @@ const page: ContentPageData = {
       title: 'Our team of career counsellors',
       tone: 'dark',
       intro:
-        'Our test career counselling members hold years of experience and have expertise in career development theory, counselling techniques, administration and interpretation of assessments, and career information resources. Our career counselors are fully trained to assist with all aspects of the candidate’s career decisions.',
+        'Our career counselling members hold years of experience and have expertise in career development theory, counselling techniques, administration and interpretation of assessments, and career information resources. Our career counsellors are fully trained to assist with all aspects of the candidate’s career decisions.',
       blocks: [
         {
           type: 'callout',

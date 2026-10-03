@@ -42,12 +42,14 @@ for (const path of paths) {
 
 await writeFile(join(dist, '404.html'), await renderPage('/__not-found__', '*'));
 
+// Pages rendered with noindex (see their <Seo noIndex />) stay out of the sitemap.
+const noIndexPaths = new Set(['/disclaimer', '/book-appointment']);
 const today = new Date().toISOString().slice(0, 10);
 const sitemap = [
   '<?xml version="1.0" encoding="UTF-8"?>',
   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
   ...paths
-    .filter((p) => p !== '/disclaimer')
+    .filter((p) => !noIndexPaths.has(p))
     .map((p) => `  <url><loc>${siteUrl}${p === '/' ? '/' : `${p}/`}</loc><lastmod>${today}</lastmod></url>`),
   '</urlset>',
   '',

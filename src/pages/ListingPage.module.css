@@ -132,3 +132,29 @@
 .row:hover .rowTitle {
   color: var(--brand);
 }
+
+/* Secondary link inside a row: sits above the row's stretched link so both stay clickable. */
+.rowVideo {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  font-size: var(--fs-small);
+  font-weight: 500;
+  color: var(--brand);
+}
+
+.rowVideo:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.empty {
+  margin-top: clamp(24px, 1rem + 1.5vw, 40px);
+  max-width: 62ch;
+  font-size: var(--fs-small);
+  line-height: 1.7;
+  color: var(--fg-muted);
+}

@@ -6,13 +6,13 @@ const page: ContentPageData = {
   meta: {
     title: 'Franchise & Channel Partners',
     description:
-      'Partner with UEMS Ventures: become an associate career counselor with the Eval team or associate with UEMS Abroad for study abroad, with training, marketing and admin support.',
+      'Partner with UEMS Ventures: become an associate career counsellor with the Eval team or associate with UEMS Abroad for study abroad, with training, marketing and admin support.',
   },
   hero: {
     eyebrow: 'Franchise & channel partners',
     title: 'Become a member of a team which believes in spreading light',
     lead: [
-      'Become a member of a team which believes in spreading light and offering direction to students. Join us as our partner to enhance your own career or business. Choose to become an associate career counselor with the Eval team or associate with UEMS Abroad for study abroad.',
+      'Become a member of a team which believes in spreading light and offering direction to students. Join us as our partner to enhance your own career or business. Choose to become an associate career counsellor with the Eval team or associate with UEMS Abroad for study abroad.',
     ],
     actions: [
       { label: 'Register for free', to: '/contact-us' },
@@ -31,8 +31,8 @@ const page: ContentPageData = {
       ],
     },
     {
-      label: 'Associate career counselor',
-      title: 'Become an associate career counselor',
+      label: 'Associate career counsellor',
+      title: 'Become an associate career counsellor',
       layout: 'aside',
       intro:
         'UEMS Ventures is looking for partners who can join us in our mission of reaching out to as many students as possible with the Career Clarity Test series.',
@@ -46,7 +46,7 @@ const page: ContentPageData = {
         },
         {
           type: 'checklist',
-          title: 'Special features available to a career counselor',
+          title: 'Special features available to a career counsellor',
           columns: 2,
           items: [
             'Training',
@@ -60,7 +60,7 @@ const page: ContentPageData = {
         {
           type: 'callout',
           title: 'Special packages available',
-          text: `Special packages are available for anyone interested in becoming a career counselor. Enquire with us: reach us on ${site.phones[0].display} for a complete write-up on how the counselling model can work for you.`,
+          text: `Special packages are available for anyone interested in becoming a career counsellor. Enquire with us: reach us on ${site.phones[0].display} for a complete write-up on how the counselling model can work for you.`,
           actions: [
             { label: 'Call us', to: site.phones[0].href },
             { label: 'Register for free', to: '/contact-us' },

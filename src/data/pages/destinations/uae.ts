@@ -162,12 +162,12 @@ const page: ContentPageData = {
       label: 'How we help',
       title: 'How UEMS Ventures can help you',
       layout: 'aside',
-      intro: 'At UEMS Ventures, we simplify your journey to Dubai. Our expert counselors provide end-to-end support:',
+      intro: 'At UEMS Ventures, we simplify your journey to Dubai. Our expert counsellors provide end-to-end support:',
       blocks: [
         {
           type: 'checklist',
           items: [
-            '**Personalized counseling:** selecting the right university and course based on your profile',
+            '**Personalized counselling:** selecting the right university and course based on your profile',
             '**Application management:** handling documentation, SOPs, and LORs to ensure high acceptance rates',
             '**Scholarship assistance:** identifying merit-based scholarships to reduce your financial burden',
             '**Visa guidance:** navigating the GDRFA portal and medical insurance requirements',

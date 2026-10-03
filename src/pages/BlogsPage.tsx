@@ -25,7 +25,7 @@ export default function BlogsPage() {
           eyebrow: 'Blogs',
           title: 'Study abroad & migration insights',
           lead: ['Navigate your journey overseas with the latest visa updates, university guides, and immigration tips.'],
-          actions: [{ label: 'News & events', to: '/news-and-events', variant: 'outline' }],
+          actions: [{ label: 'Seminars & events', to: '/news-and-events', variant: 'outline' }],
         }}
       />
 

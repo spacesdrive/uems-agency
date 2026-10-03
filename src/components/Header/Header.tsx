@@ -139,7 +139,7 @@ export function Header() {
             <SmartLink to="/#free-counselling" className={s.clarity}>
               Free counselling
             </SmartLink>
-            <Button to={site.appointmentUrl} label="Book appointment" variant="dark" size="sm" className={s.cta} />
+            <Button to={site.appointmentPath} label="Book appointment" variant="dark" size="sm" className={s.cta} />
             <button
               ref={menuButtonRef}
               type="button"

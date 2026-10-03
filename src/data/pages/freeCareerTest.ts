@@ -129,7 +129,7 @@ const page: ContentPageData = {
           type: 'actions',
           items: [
             { label: 'Request the free quiz', to: '/contact-us' },
-            { label: 'Premium career assessment', to: '/career-guidance/career-assessment-test', variant: 'outline' },
+            { label: 'Eval test series', to: '/career-clarity-tests#series', variant: 'outline' },
           ],
         },
       ],

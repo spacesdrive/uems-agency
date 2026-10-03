@@ -23,15 +23,12 @@ export const hero = {
 export const whyUems = {
   label: 'Study abroad & immigration experts',
   title: 'Why choose UEMS? Your trusted partner for study abroad and immigration services.',
-  text: 'With over 15 years of expertise and offices in Mumbai and Sydney, UEMS Ventures guides students from India and across borders to universities worldwide. We provide comprehensive guidance to chart your destiny abroad.',
+  text: 'With over 15 years of expertise and offices in India and Australia, UEMS Ventures guides students from India and across borders to universities worldwide. We provide comprehensive guidance to chart your destiny abroad.',
   facts: [
     { value: '15+ countries', label: 'Global network' },
     { value: '3000+', label: 'Students trust us' },
   ] satisfies Fact[],
-  images: {
-    small: { name: 'founder', alt: 'UEMS founder Shalini Menon reviewing a student file in the office' },
-    large: { name: 'home-students', alt: 'Students from around the world celebrating together' },
-  } satisfies Record<string, ImageRef>,
+  image: { name: 'home-students', alt: 'Students from around the world celebrating together' } satisfies ImageRef,
 };
 
 export interface Service {
@@ -59,7 +56,7 @@ export const services: readonly Service[] = [
   },
   {
     title: 'Migration',
-    text: 'Chart your path to settling abroad with confidence. Our MARA-registered team in Sydney and licensed consultants navigate skilled and family migration with you every step.',
+    text: 'Chart your path to settling abroad with confidence. Our MARA-registered team in Australia and licensed consultants navigate skilled and family migration with you every step.',
     cta: 'More info',
     to: '/migration',
     image: { name: 'svc-migration', alt: 'Family walking through an international airport terminal' },
@@ -97,7 +94,7 @@ export const metrics = {
   title: 'Built on trust',
   items: [
     { value: '1000+', label: 'Success cases completed', note: 'Verified cases · +12% quarterly growth' },
-    { value: '280', label: 'Partner institutions worldwide', note: 'Across 40 countries' },
+    { value: '1200+', label: 'Partner institutions worldwide', note: 'Across 40 countries' },
     { value: '15 yrs', label: 'Industry experience', note: 'Est. 2009 · proven track record' },
     { value: '98%', label: 'Client success rate', note: 'Industry leading' },
   ] satisfies Stat[],
@@ -249,21 +246,28 @@ export const destinations = {
 export const profileServices = {
   label: 'Other services',
   title: 'Strengthen your profile',
-  intro: 'Expert support to clarify your path and hit your target scores.',
+  intro: 'Expert support to clarify your path, build your profile and hit your target scores.',
   items: [
-    {
-      title: 'IELTS & PTE',
-      text: 'Expert-led training with proven strategies to hit your target band score and secure your admission.',
-      cta: 'Start preparing',
-      to: '/test-preparation-for-international-students',
-      image: { name: 'svc-ielts-pte', alt: 'Open books on a library desk' },
-    },
     {
       title: 'EVAL Career Clarity',
       text: 'Scientific aptitude assessment mapping your strengths to the ideal courses and global career paths.',
       cta: 'Find my clarity',
       to: '/career-clarity-tests',
-      image: { name: 'svc-eval-card', alt: 'Group of smiling schoolchildren' },
+      image: { name: 'svc-eval-clarity', alt: 'UEMS counsellor explaining the EVAL career clarity test at a UEMS Ventures stall' },
+    },
+    {
+      title: 'Global Profile Accelerator',
+      text: 'Expert mentors plan your academics, projects, activities and essays, so you apply to top universities with a standout profile.',
+      cta: 'Explore the accelerator',
+      to: '/#global-profile-accelerator',
+      image: { name: 'svc-gpa', alt: 'UEMS counsellor guiding a parent and student one-on-one' },
+    },
+    {
+      title: 'External Exams',
+      text: 'Expert-led coaching for IELTS, PTE, TOEFL, GRE, GMAT and SAT, with proven strategies to hit your target score.',
+      cta: 'Start preparing',
+      to: '/test-preparation-for-international-students',
+      image: { name: 'svc-exams', alt: 'Students in a classroom session with UEMS Ventures' },
     },
   ] satisfies Service[],
 };

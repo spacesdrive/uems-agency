@@ -53,7 +53,7 @@ const page: ContentPageData = {
             'Statement of Purpose',
             'Academic resume',
             'Your portfolio',
-            'Two letters of recommendation from teachers and counselors',
+            'Two letters of recommendation from teachers and counsellors',
             'Proof of funds',
           ],
         },

@@ -23,8 +23,8 @@ const page: ContentPageData = {
     image: { name: 'prog-counsel', alt: 'Student in a one-on-one career counselling session' },
     facts: [
       { value: '94%', label: 'Career match rate' },
-      { value: '200+', label: 'Partner universities' },
-      { value: '30+', label: 'Countries of admissions expertise' },
+      { value: '1200+', label: 'Partner universities' },
+      { value: '40', label: 'Countries of admissions expertise' },
     ],
   },
   sections: [
@@ -48,7 +48,7 @@ const page: ContentPageData = {
             },
             {
               title: 'Global university expertise',
-              text: 'Deep knowledge of admissions processes across 30+ countries and 200+ partner institutions.',
+              text: 'Deep knowledge of admissions processes across 40 countries and 1200+ partner institutions.',
             },
           ],
         },
@@ -132,7 +132,7 @@ const page: ContentPageData = {
               title: 'Science-backed career assessments',
               text: 'Psychometric and aptitude tools give you clarity grounded in data, not assumptions.',
             },
-            { title: 'Global university network', text: 'Admissions expertise across 30+ countries and 200+ institutions worldwide.' },
+            { title: 'Global university network', text: 'Admissions expertise across 40 countries and 1200+ institutions worldwide.' },
             {
               title: 'End-to-end support',
               text: 'From school career clarity all the way to university acceptance, we’re with you every step.',

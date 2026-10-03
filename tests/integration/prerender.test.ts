@@ -18,8 +18,8 @@ describe('pre-rendered routes', () => {
     expect(text).not.toMatch(/\bundefined\b|\[object Object\]|\bNaN\b/);
   });
 
-  // The original site's Disclaimer page is a "coming soon" stub, kept out of search results.
-  const noIndexPaths = ['/disclaimer'];
+  // The Disclaimer page is a "coming soon" stub and the appointment form needs no search listing.
+  const noIndexPaths = ['/disclaimer', '/book-appointment'];
 
   it.each(paths.filter((p) => !noIndexPaths.includes(p)))('%s declares its canonical URL', async (path) => {
     const html = await render(path);

@@ -64,36 +64,53 @@ describe('buildMailto', () => {
   });
 });
 
+const ok = () => vi.fn<typeof fetch>().mockResolvedValue(new Response('{"ok":true}', { status: 200 }));
+
 describe('submitEnquiry', () => {
-  it('posts JSON to the configured endpoint', async () => {
-    vi.stubEnv('VITE_ENQUIRY_ENDPOINT', 'https://forms.example.com/uems');
-    const fetchMock = vi.fn<typeof fetch>().mockResolvedValue(new Response('{}', { status: 200 }));
+  it('posts the message to the site email endpoint by default', async () => {
+    const fetchMock = ok();
     vi.stubGlobal('fetch', fetchMock);
     const { submitEnquiry } = await loadEnquiry();
 
     await expect(submitEnquiry(enquiry)).resolves.toBe('sent');
     expect(fetchMock).toHaveBeenCalledOnce();
     const [url, init = {}] = fetchMock.mock.calls[0] ?? [];
-    expect(url).toBe('https://forms.example.com/uems');
+    expect(url).toBe('/api/enquiry');
     expect(init.method).toBe('POST');
     expect(new Headers(init.headers).get('content-type')).toBe('application/json');
-    expect(JSON.parse(String(init.body))).toEqual(enquiry);
+    const body = JSON.parse(String(init.body));
+    expect(body).toMatchObject({ form: 'enquiry', subject: 'Website enquiry – Migration', replyTo: 'asha@example.com' });
+    expect(body.lines).toContain('Name: Asha Rao');
+    expect(body.fields).toEqual(enquiry);
   });
 
-  it('rejects when the endpoint responds with an error status', async () => {
+  it('uses VITE_ENQUIRY_ENDPOINT when a build sets one', async () => {
     vi.stubEnv('VITE_ENQUIRY_ENDPOINT', 'https://forms.example.com/uems');
-    vi.stubGlobal('fetch', vi.fn<typeof fetch>().mockResolvedValue(new Response('nope', { status: 500 })));
+    const fetchMock = ok();
+    vi.stubGlobal('fetch', fetchMock);
     const { submitEnquiry } = await loadEnquiry();
 
-    await expect(submitEnquiry(enquiry)).rejects.toThrow('status 500');
+    await submitEnquiry(enquiry);
+    expect(fetchMock.mock.calls[0]?.[0]).toBe('https://forms.example.com/uems');
   });
 
-  it('rejects when the network request fails', async () => {
-    vi.stubEnv('VITE_ENQUIRY_ENDPOINT', 'https://forms.example.com/uems');
-    vi.stubGlobal('fetch', vi.fn<typeof fetch>().mockRejectedValue(new TypeError('Failed to fetch')));
+  it('rejects when the endpoint says the submission itself is invalid', async () => {
+    vi.stubGlobal('fetch', vi.fn<typeof fetch>().mockResolvedValue(new Response('{}', { status: 400 })));
+    const { submitEnquiry, SubmissionRejected } = await loadEnquiry();
+
+    await expect(submitEnquiry(enquiry)).rejects.toBeInstanceOf(SubmissionRejected);
+  });
+
+  it.each([
+    ['email not set up yet', () => Promise.resolve(new Response('{}', { status: 503 }))],
+    ['rate limited', () => Promise.resolve(new Response('{}', { status: 429 }))],
+    ['no endpoint on this host', () => Promise.resolve(new Response('not found', { status: 404 }))],
+    ['network failure', () => Promise.reject(new TypeError('Failed to fetch'))],
+  ])('falls back to the visitor mail app when %s', async (_case, respond) => {
+    vi.stubGlobal('fetch', vi.fn<typeof fetch>().mockImplementation(respond));
     const { submitEnquiry } = await loadEnquiry();
 
-    await expect(submitEnquiry(enquiry)).rejects.toThrow('Failed to fetch');
+    await expect(submitEnquiry(enquiry)).resolves.toBe('mail-client');
   });
 });
 
@@ -116,5 +133,59 @@ describe('buildRegistrationMailto', () => {
     expect(body).toContain('City / Country: Dubai, UAE');
     expect(body).toContain('Year of completion: 2028');
     expect(decodeURIComponent(url)).toContain('Free counselling registration – Asha Rao');
+  });
+});
+
+describe('appointment requests', () => {
+  const appointment = {
+    name: 'Asha Rao',
+    email: 'asha@example.com',
+    phone: '+91 98765 43210',
+    date: '2026-10-14',
+    time: 'Morning',
+    mode: 'Online video call',
+    topic: 'Study Abroad',
+    message: 'I would like to discuss UK universities.',
+  };
+
+  it('formats the preferred date without a time zone shift', async () => {
+    const { formatDate } = await loadEnquiry();
+    expect(formatDate('2026-10-14')).toBe('Wednesday, 14 October 2026');
+    expect(formatDate('not-a-date')).toBe('not-a-date');
+  });
+
+  it('emails UEMS the full request', async () => {
+    const { buildAppointmentMailto } = await loadEnquiry();
+    const url = new URL(buildAppointmentMailto(appointment));
+    expect(url.pathname).toBe(site.email);
+    expect(url.searchParams.get('subject')).toBe('Appointment request: Asha Rao');
+    expect(url.searchParams.get('body')).toBe(
+      [
+        'Name: Asha Rao',
+        'Email: asha@example.com',
+        'Contact number: +91 98765 43210',
+        'Preferred date: Wednesday, 14 October 2026',
+        'Preferred time: Morning',
+        'Meeting type: Online video call',
+        'Appointment about: Study Abroad',
+        '',
+        'I would like to discuss UK universities.',
+      ].join('\n'),
+    );
+  });
+
+  it('posts the request with the visitor as reply-to', async () => {
+    const fetchMock = vi.fn<typeof fetch>().mockResolvedValue(new Response('{}', { status: 200 }));
+    vi.stubGlobal('fetch', fetchMock);
+    const { submitAppointment } = await loadEnquiry();
+
+    await expect(submitAppointment(appointment)).resolves.toBe('sent');
+    const [, init = {}] = fetchMock.mock.calls[0] ?? [];
+    expect(JSON.parse(String(init.body))).toMatchObject({
+      form: 'appointment-request',
+      subject: 'Appointment request: Asha Rao',
+      replyTo: 'asha@example.com',
+      fields: appointment,
+    });
   });
 });

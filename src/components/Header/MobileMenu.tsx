@@ -89,7 +89,7 @@ export function MobileMenu({ id, open, pathname, onClose }: MobileMenuProps) {
 
         <div className={s.footer}>
           <div className={s.actions}>
-            <Button to={site.appointmentUrl} label="Book appointment" variant="dark" block />
+            <Button to={site.appointmentPath} label="Book appointment" variant="dark" block />
             <Button to="/#free-counselling" label="Free counselling" variant="outline" block />
           </div>
           <div className={s.contact}>

@@ -13,37 +13,71 @@ export interface Enquiry {
 
 export type EnquiryResult = 'sent' | 'mail-client';
 
-const endpoint = import.meta.env.VITE_ENQUIRY_ENDPOINT;
+/** Which form a submission came from; the email endpoint only accepts these. */
+export type FormKind = 'enquiry' | 'free-counselling-registration' | 'appointment-request';
+
+/** A submission as it is emailed to UEMS: one subject and readable lines of text. */
+export interface FormMessage {
+  form: FormKind;
+  subject: string;
+  lines: string[];
+  /** Visitor's email, so UEMS can reply straight to them. */
+  replyTo?: string;
+}
 
 /**
- * Sends an enquiry to the configured form endpoint (JSON POST).
- * Without an endpoint, opens the visitor's mail client addressed to UEMS
- * with the enquiry pre-filled, so the form always leads somewhere real.
+ * Same-origin Worker route that emails submissions to UEMS (see worker/). Builds can point
+ * VITE_ENQUIRY_ENDPOINT at another form service instead.
  */
-export async function submitEnquiry(data: Enquiry): Promise<EnquiryResult> {
-  if (endpoint) {
+const endpoint = import.meta.env.VITE_ENQUIRY_ENDPOINT || '/api/enquiry';
+
+/** Thrown when the endpoint rejects the submission itself, so the visitor should fix and retry. */
+export class SubmissionRejected extends Error {}
+
+/**
+ * Every UEMS form is delivered the same way: a JSON POST to the email endpoint. If the
+ * endpoint is unavailable (static host without the Worker, email not set up yet, rate limit,
+ * network error), the visitor's mail client opens with the same message addressed to UEMS,
+ * so a form always leads somewhere real.
+ */
+async function deliver(message: FormMessage, fields: object): Promise<EnquiryResult> {
+  try {
     const res = await fetch(endpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify(data),
+      body: JSON.stringify({ ...message, fields }),
     });
-    if (!res.ok) throw new Error(`Enquiry failed with status ${res.status}`);
-    return 'sent';
+    if (res.ok) return 'sent';
+    if (res.status === 400) throw new SubmissionRejected(`${message.subject} was rejected`);
+  } catch (error) {
+    if (error instanceof SubmissionRejected) throw error;
   }
 
-  window.location.href = buildMailto(data);
+  window.location.href = toMailto(message);
   return 'mail-client';
 }
 
-/** A mailto: URL addressed to UEMS with the enquiry pre-filled as subject and body. */
-export function buildMailto(data: Enquiry): string {
+/** A mailto: URL addressed to UEMS with the message as subject and body. */
+export function toMailto({ subject, lines }: FormMessage): string {
+  return `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
+}
+
+export function enquiryMessage(data: Enquiry): FormMessage {
   const lines = [`Name: ${data.name}`, `Email: ${data.email}`, `Contact number: ${data.phone}`];
   if (data.heardFrom) lines.push(`Where did you hear about us: ${data.heardFrom}`);
   if (data.queryAbout) lines.push(`Query about: ${data.queryAbout}`);
   if (data.interest) lines.push(`${data.interest.label}: ${data.interest.value}`);
   if (data.question) lines.push('', data.question);
   const subject = `Website enquiry${data.queryAbout ? ` – ${data.queryAbout}` : ''}`;
-  return `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
+  return { form: 'enquiry', subject, lines, replyTo: data.email };
+}
+
+export function submitEnquiry(data: Enquiry): Promise<EnquiryResult> {
+  return deliver(enquiryMessage(data), data);
+}
+
+export function buildMailto(data: Enquiry): string {
+  return toMailto(enquiryMessage(data));
 }
 
 /** Free counselling / Global Profile Accelerator registration. */
@@ -71,26 +105,69 @@ const registrationLabels: Record<keyof Registration, string> = {
   interest: 'Interested in',
 };
 
-/** Sends a registration like an enquiry: JSON POST to the endpoint, or a pre-filled email. */
-export async function submitRegistration(data: Registration): Promise<EnquiryResult> {
-  if (endpoint) {
-    const res = await fetch(endpoint, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify({ form: 'free-counselling-registration', ...data }),
-    });
-    if (!res.ok) throw new Error(`Registration failed with status ${res.status}`);
-    return 'sent';
-  }
-
-  window.location.href = buildRegistrationMailto(data);
-  return 'mail-client';
-}
-
-export function buildRegistrationMailto(data: Registration): string {
+export function registrationMessage(data: Registration): FormMessage {
   const lines = (Object.keys(registrationLabels) as (keyof Registration)[])
     .filter((key) => data[key])
     .map((key) => `${registrationLabels[key]}: ${data[key]}`);
-  const subject = `Free counselling registration – ${data.applicantName}`;
-  return `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
+  return { form: 'free-counselling-registration', subject: `Free counselling registration – ${data.applicantName}`, lines };
+}
+
+export function submitRegistration(data: Registration): Promise<EnquiryResult> {
+  return deliver(registrationMessage(data), data);
+}
+
+export function buildRegistrationMailto(data: Registration): string {
+  return toMailto(registrationMessage(data));
+}
+
+/** Appointment request from the Book appointment page. */
+export interface Appointment {
+  name: string;
+  email: string;
+  phone: string;
+  /** Preferred date as YYYY-MM-DD. */
+  date: string;
+  time: string;
+  mode: string;
+  topic: string;
+  message: string;
+}
+
+const appointmentLabels: Record<Exclude<keyof Appointment, 'message'>, string> = {
+  name: 'Name',
+  email: 'Email',
+  phone: 'Contact number',
+  date: 'Preferred date',
+  time: 'Preferred time',
+  mode: 'Meeting type',
+  topic: 'Appointment about',
+};
+
+export function appointmentMessage(data: Appointment): FormMessage {
+  const lines = (Object.keys(appointmentLabels) as (keyof typeof appointmentLabels)[])
+    .filter((key) => data[key])
+    .map((key) => `${appointmentLabels[key]}: ${key === 'date' ? formatDate(data.date) : data[key]}`);
+  if (data.message) lines.push('', data.message);
+  return { form: 'appointment-request', subject: `Appointment request: ${data.name}`, lines, replyTo: data.email };
+}
+
+export function submitAppointment(data: Appointment): Promise<EnquiryResult> {
+  return deliver(appointmentMessage(data), data);
+}
+
+export function buildAppointmentMailto(data: Appointment): string {
+  return toMailto(appointmentMessage(data));
+}
+
+/** "2026-10-14" becomes "Wednesday, 14 October 2026" (a calendar date, so no time zone shift). */
+export function formatDate(isoDate: string): string {
+  const [y, m, d] = isoDate.split('-').map(Number);
+  if (!y || !m || !d) return isoDate;
+  return new Date(Date.UTC(y, m - 1, d)).toLocaleDateString('en-GB', {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC',
+  });
 }

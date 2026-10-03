@@ -7,7 +7,9 @@ export interface ImageAsset {
 }
 
 export const images = {
+  'about-fair': { width: 1024, height: 768, variants: [480, 1024] },
   'about-meet': { width: 1024, height: 1024, variants: [480, 960, 1024] },
+  'about-stall': { width: 800, height: 600, variants: [480, 800] },
   'about-shalini': { width: 1024, height: 1024, variants: [480, 960, 1024] },
   'au-hero': { width: 1440, height: 956, variants: [480, 960, 1440] },
   'aumig-hero': { width: 1440, height: 956, variants: [480, 960, 1440] },
@@ -69,7 +71,7 @@ export const images = {
   'person-chakrapani': { width: 180, height: 180, variants: [180] },
   'person-disha': { width: 180, height: 180, variants: [180] },
   'person-gagandeep': { width: 180, height: 180, variants: [180] },
-  'person-gauri': { width: 180, height: 180, variants: [180] },
+  'person-gauri-katira': { width: 360, height: 360, variants: [180, 360] },
   'person-geetu': { width: 180, height: 180, variants: [180] },
   'person-indu': { width: 180, height: 180, variants: [180] },
   'person-ketki': { width: 180, height: 180, variants: [180] },
@@ -98,8 +100,9 @@ export const images = {
   'sn-insurance': { width: 700, height: 393, variants: [480, 700] },
   'sn-loan': { width: 700, height: 393, variants: [480, 700] },
   'svc-eval': { width: 1024, height: 1024, variants: [480, 960, 1024] },
-  'svc-eval-card': { width: 1200, height: 800, variants: [480, 960, 1200] },
-  'svc-ielts-pte': { width: 1200, height: 800, variants: [480, 960, 1200] },
+  'svc-eval-clarity': { width: 960, height: 960, variants: [480, 960] },
+  'svc-exams': { width: 960, height: 960, variants: [480, 960] },
+  'svc-gpa': { width: 960, height: 960, variants: [480, 960] },
   'svc-migration': { width: 1024, height: 1024, variants: [480, 960, 1024] },
   'svc-study': { width: 1024, height: 1024, variants: [480, 960, 1024] },
   'team-1': { width: 1024, height: 768, variants: [480, 960, 1024] },

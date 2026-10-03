@@ -22,7 +22,7 @@ export default function ContactPage() {
             'Please complete the details below and click submit. Our expert team will get in touch with you within 24 hours to answer all your queries.',
           ],
           actions: [
-            { label: 'Book appointment', to: site.appointmentUrl },
+            { label: 'Book appointment', to: site.appointmentPath },
             { label: `Call ${site.phones[0].display}`, to: site.phones[0].href, variant: 'outline' },
           ],
         }}

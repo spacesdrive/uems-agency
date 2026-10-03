@@ -5,7 +5,7 @@ const page: ContentPageData = {
   meta: {
     title: 'About Us – 15+ Years of Expertise',
     description:
-      'UEMS Ventures has a clear “You First” policy. Meet our Mumbai and Sydney teams and associates, and learn how we have guided 3000+ students to universities around the world.',
+      'UEMS Ventures has a clear “You First” policy. Meet our India and Australia teams and associates, and learn how we have guided 3000+ students to universities around the world.',
   },
   hero: {
     eyebrow: 'About us',
@@ -59,8 +59,8 @@ const page: ContentPageData = {
           type: 'gallery',
           items: [
             { name: 'about-meet', alt: 'UEMS Ventures student meet in a packed classroom' },
-            { name: 'team-1', alt: 'UEMS counsellors working with a student' },
-            { name: 'team-3', alt: 'UEMS team in a counselling session' },
+            { name: 'about-fair', alt: 'UEMS Ventures counsellors guiding students and parents at an education fair' },
+            { name: 'about-stall', alt: 'UEMS Ventures team at the Study Destination: Australia stall' },
           ],
         },
       ],
@@ -86,7 +86,7 @@ const page: ContentPageData = {
             {
               eyebrow: 'Mission',
               title: 'Discovering your path',
-              text: 'To assist students and professionals in their journey of discovering their path through career guidance, study abroad and migration counseling.',
+              text: 'To assist students and professionals in their journey of discovering their path through career guidance, study abroad and migration counselling.',
               action: { label: 'Study abroad', to: '/study-abroad-consultants' },
             },
             {
@@ -108,18 +108,18 @@ const page: ContentPageData = {
           type: 'people',
           items: [
             { name: 'Shalini Menon', role: 'CEO, Founder', credentials: 'B.Sc. IT (UTS Sydney), MCSE, DipBow', image: 'person-shalini' },
-            { name: 'Disha Shah', role: 'Student Counselor', credentials: 'BA (Sociology), Montessori teacher training', image: 'person-disha' },
-            { name: 'Tanya Nair', role: 'Career Counselor', credentials: 'B.Sc. Psychology (Davidson College USA)', image: 'person-tanya' },
+            { name: 'Disha Shah', role: 'Student Counsellor', credentials: 'BA (Sociology), Montessori teacher training', image: 'person-disha' },
+            { name: 'Tanya Nair', role: 'Career Counsellor', credentials: 'B.Sc. Psychology (Davidson College USA)', image: 'person-tanya' },
             { name: 'Smitha Leo', role: 'IELTS Coach', credentials: 'B.Com, MBA', image: 'person-smitha' },
-            { name: 'Gauri Katira', role: 'Creative and Research Team Member', credentials: 'B.Sc. in Textiles major', image: 'person-gauri' },
+            { name: 'Gauri Katira', role: 'Creative and Research Team Member', credentials: 'B.Sc. in Textiles major', image: 'person-gauri-katira' },
             { name: 'Gagandeep Singh', role: 'Digital Marketing Manager', credentials: 'B.B.A', image: 'person-gagandeep' },
           ],
         },
       ],
     },
     {
-      label: 'Our Sydney team',
-      title: 'Our Sydney team',
+      label: 'Our Australia team',
+      title: 'Our Australia team',
       blocks: [
         {
           type: 'people',
@@ -138,7 +138,7 @@ const page: ContentPageData = {
         {
           type: 'people',
           items: [
-            { name: 'Manjusha Bhaskarwar', role: 'Career Counselor', image: 'person-manjusha' },
+            { name: 'Manjusha Bhaskarwar', role: 'Career Counsellor', image: 'person-manjusha' },
             {
               name: 'Binal Soni',
               role: 'Edu Compass – Founder & Counsellor',
@@ -147,7 +147,7 @@ const page: ContentPageData = {
               email: 'binal@educompass.in',
               bio: [
                 'Masters in Computer Applications · Masters in Counseling Psychology · Global Career Counselor from University of California, Los Angeles · Certified Career Analyst from Edumilestones · 3-level Certification for Career Coach from myAglakadam · ISO Certified Handwriting Analyst · TA-101 · Drawing Analysis.',
-                '7+ years of experience, guided 1500+ individuals across the globe including students and professionals. Visiting Career Counselor at Mithibai College.',
+                '7+ years of experience, guided 1500+ individuals across the globe including students and professionals. Visiting Career Counsellor at Mithibai College.',
               ],
             },
           ],
@@ -167,7 +167,7 @@ const page: ContentPageData = {
               title: 'Students, educators and professionals',
               bullets: [
                 'Students seeking career guidance or wanting to study abroad.',
-                'Teachers, principals, schools, colleges, and education institutes who wish to use career guidance and study abroad counseling for their students.',
+                'Teachers, principals, schools, colleges, and education institutes who wish to use career guidance and study abroad counselling for their students.',
                 'Professionals wanting to migrate or change careers.',
               ],
             },

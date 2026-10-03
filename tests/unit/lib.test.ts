@@ -23,7 +23,7 @@ describe('canonicalPath', () => {
 
   it('leaves the root and already-canonical paths alone', () => {
     expect(canonicalPath('/')).toBe('/');
-    expect(canonicalPath('/career-guidance/career-assessment-test/')).toBe('/career-guidance/career-assessment-test/');
+    expect(canonicalPath('/study-abroad/guides/')).toBe('/study-abroad/guides/');
   });
 });
 

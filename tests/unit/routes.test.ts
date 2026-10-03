@@ -27,9 +27,13 @@ describe('findRoute', () => {
     expect(findRoute('/Study-In-Australia/')?.path).toBe('/study-in-australia');
   });
 
-  it('matches nested routes and the home page', () => {
-    expect(findRoute('/career-guidance/career-assessment-test/')?.path).toBe('/career-guidance/career-assessment-test');
+  it('matches the home page', () => {
     expect(findRoute('/')?.path).toBe('/');
+  });
+
+  it('no longer serves the removed Premium assessment page (it redirects to Career Clarity Tests)', () => {
+    expect(findRoute('/career-guidance/career-assessment-test/')).toBeUndefined();
+    expect(findRoute('/career-clarity-tests/')?.path).toBe('/career-clarity-tests');
   });
 
   it('returns undefined for unknown paths', () => {
