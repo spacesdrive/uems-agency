@@ -1,0 +1,374 @@
+/* The card's start control is a button styled like the card links around it. */
+.start {
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-size: var(--fs-small);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.start:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+
+:global(html):has(.dialog[open]) {
+  overflow: hidden;
+}
+
+.dialog {
+  width: min(560px, calc(100vw - 32px));
+  max-height: calc(100dvh - 32px);
+  margin: auto;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: var(--shadow-pop);
+  overflow: auto;
+}
+
+.dialog::backdrop {
+  background: rgb(10 26 51 / 0.55);
+  backdrop-filter: blur(4px);
+}
+
+.dialog[open] {
+  animation: quiz-in var(--dur) var(--ease-out);
+}
+
+@keyframes quiz-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+}
+
+.panel {
+  display: grid;
+  gap: 20px;
+  padding: clamp(20px, 4vw, 32px);
+}
+
+.head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.sub {
+  margin-top: 2px;
+  font-size: var(--fs-xs);
+  color: var(--text-subtle);
+}
+
+.close {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.close:hover {
+  background: var(--surface-muted);
+}
+
+.progressMeta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.track {
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-sunken);
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent);
+  transition: width var(--dur-slow) var(--ease-out);
+}
+
+.body {
+  min-height: 260px;
+}
+
+.intro {
+  display: grid;
+  gap: 8px;
+  padding: 24px 0;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: var(--fs-small);
+  line-height: 1.6;
+}
+
+.introHeading {
+  margin-bottom: 4px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.3;
+}
+
+.question {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.qNumber {
+  flex-shrink: 0;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  background: var(--accent-soft);
+  color: var(--accent-text);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+}
+
+.options {
+  display: grid;
+  gap: 10px;
+}
+
+.option {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  font-size: var(--fs-small);
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    border-color var(--dur-fast) var(--ease),
+    background var(--dur-fast) var(--ease);
+}
+
+.option:hover {
+  border-color: var(--line-strong);
+  background: var(--surface-muted);
+}
+
+.option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.option:has(input:checked) {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.option:has(input:focus-visible) {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+.letter {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--surface-sunken);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+}
+
+.option:has(input:checked) .letter {
+  background: var(--accent);
+  color: var(--ink);
+}
+
+.prompt {
+  min-height: 1.5em;
+  margin-top: 10px;
+  font-size: var(--fs-xs);
+  color: var(--danger);
+}
+
+.result {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  padding: 8px 0 4px;
+  text-align: center;
+}
+
+.resultLabel {
+  font-size: var(--fs-label);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
+
+.resultPath {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.trait {
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--accent-soft);
+  color: var(--accent-text);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+}
+
+.resultText {
+  max-width: 42ch;
+  margin-top: 4px;
+  font-size: var(--fs-small);
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.next {
+  display: grid;
+  gap: 10px;
+  width: 100%;
+  margin-top: 12px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-muted);
+  text-align: left;
+  font-size: var(--fs-small);
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.next strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.nextLabel {
+  font-size: var(--fs-label);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+
+.nextCta,
+.primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+  color: var(--ink);
+  font: inherit;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease);
+}
+
+.nextCta:hover,
+.primary:hover {
+  background: var(--accent-hover);
+}
+
+.textButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 4px;
+  border: 0;
+  background: none;
+  color: var(--text-muted);
+  font: inherit;
+  font-size: var(--fs-small);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.textButton:hover:not(:disabled) {
+  color: var(--ink);
+}
+
+.textButton:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.flip {
+  transform: scaleX(-1);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+/* Keep "Start quiz" on the right when Previous is hidden on the intro. */
+.nav > :last-child {
+  margin-left: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dialog[open] {
+    animation: none;
+  }
+
+  .fill {
+    transition: none;
+  }
+}

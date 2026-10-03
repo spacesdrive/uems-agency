@@ -3,71 +3,74 @@
   padding-bottom: clamp(72px, 3rem + 4vw, 96px);
 }
 
-.section h2 {
-  max-width: 24ch;
-}
-
 .grid {
   display: grid;
-  gap: 24px;
-  margin-top: clamp(48px, 2rem + 5vw, 112px);
+  gap: clamp(40px, 5vw, 56px);
 }
 
-@media (min-width: 768px) {
+/* Heading and copy sit beside the photo, both centred vertically, so neither column leaves a gap. */
+@media (min-width: 960px) {
   .grid {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
-    align-items: end;
-    gap: clamp(32px, 4vw, 64px);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(48px, 5vw, 88px);
   }
-
-  .copy {
-    padding-bottom: 4px;
-  }
-}
-
-.photo {
-  overflow: hidden;
-  border-radius: var(--radius);
-  background: var(--surface-sunken);
-  aspect-ratio: 3 / 2;
-}
-
-.photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 .copy {
   display: grid;
+  gap: clamp(28px, 3vw, 40px);
+}
+
+.copy h2 {
+  max-width: 22ch;
+}
+
+.details {
+  display: grid;
   justify-items: start;
-  gap: 24px;
+  gap: 28px;
 }
 
 .text {
-  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
-  line-height: 1.65;
+  max-width: 54ch;
+  font-size: clamp(1.0625rem, 0.98rem + 0.4vw, 1.3125rem);
+  line-height: 1.6;
   font-weight: 500;
 }
 
 .facts {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px 32px;
+  gap: 20px 48px;
 }
 
 .facts div {
   display: grid;
-  gap: 2px;
+  gap: 4px;
 }
 
 .facts dd {
-  font-size: 1.375rem;
+  font-size: clamp(1.75rem, 1.4rem + 1vw, 2.25rem);
   font-weight: 500;
   letter-spacing: -0.03em;
+  line-height: 1.1;
 }
 
 .facts dt {
-  font-size: var(--fs-xs);
+  font-size: var(--fs-small);
   color: var(--text-subtle);
+}
+
+.photo {
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--surface-sunken);
+  aspect-ratio: 4 / 3;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

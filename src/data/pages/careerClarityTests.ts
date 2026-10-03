@@ -51,28 +51,7 @@ const page: ContentPageData = {
       title: 'Confused about subjects or stream?',
       intro:
         'Take a curriculum-based quiz to explore the right subjects, careers, and future opportunities. Make smarter subject choices with confidence.',
-      blocks: [
-        {
-          type: 'cards',
-          columns: 2,
-          items: [
-            {
-              eyebrow: '6 subjects',
-              title: 'IB Curriculum',
-              text: 'Choose IB subjects like you’re designing your future. Discover whether Science/Tech, Commerce, Humanities, or Creative paths suit you best.',
-              tags: ['TOK', 'EE', 'CAS', '3 HL + 3 SL'],
-              action: { label: 'Start IB quiz', to: site.evalUrl },
-            },
-            {
-              eyebrow: 'Streams',
-              title: 'ICSE Curriculum',
-              text: 'Explore the right stream and subject combination for your ICSE journey. Find out if Science, Commerce, or Humanities is your calling.',
-              tags: ['Science', 'Commerce', 'Humanities'],
-              action: { label: 'Start ICSE quiz', to: site.evalUrl },
-            },
-          ],
-        },
-      ],
+      blocks: [{ type: 'quizzes' }],
     },
     {
       id: 'about-evaltest',

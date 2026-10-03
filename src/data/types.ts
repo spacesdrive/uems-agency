@@ -88,7 +88,9 @@ export type Block =
       readonly actions: readonly LinkAction[];
     }
   | { readonly type: 'enquiry'; readonly preset?: EnquiryPreset }
-  | { readonly type: 'registration' };
+  | { readonly type: 'registration' }
+  /** IB and ICSE curriculum quizzes that run on the page (src/data/quizzes.ts). */
+  | { readonly type: 'quizzes' };
 
 export type SectionTone = 'light' | 'muted' | 'dark';
 
