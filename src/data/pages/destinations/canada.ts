@@ -4,7 +4,7 @@ import type { ContentPageData } from '../../types';
 const page: ContentPageData = {
   path: '/studyincanada',
   meta: {
-    title: 'Study in Canada from Mumbai – Requirements, Costs & Visa',
+    title: 'Study in Canada – Requirements, Costs & Visa',
     description:
       'Study in Canada with UEMS Ventures: what Canada offers international students, estimated study costs, popular scholarships and the SDS and General student visa streams.',
   },

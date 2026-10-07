@@ -49,3 +49,12 @@ describe('pre-rendered routes', () => {
     expect(data.name).toBe(site.name);
   });
 });
+
+describe('contact page', () => {
+  it('shows the enquiry form in the hero, beside "Fill the form"', async () => {
+    const html = await render('/contact-us');
+    const hero = html.slice(html.indexOf('id="page-title"'), html.indexOf('</section>', html.indexOf('id="page-title"')));
+    expect(hero).toContain('<form');
+    expect(html.match(/<form/g)).toHaveLength(1);
+  });
+});

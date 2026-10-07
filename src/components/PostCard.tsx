@@ -7,7 +7,7 @@ export function PostCard({ post, featured = false }: { post: BlogPost; featured?
   const sizes = featured ? '(min-width: 900px) 55vw, 100vw' : '(min-width: 1100px) 25vw, (min-width: 640px) 50vw, 100vw';
   return (
     <article className={s.card}>
-      <div className={s.media}>
+      <div className={featured ? `${s.media} ${s.natural}` : s.media}>
         <Img name={post.image} alt="" sizes={sizes} />
       </div>
       <p className={s.meta}>

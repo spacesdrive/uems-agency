@@ -4,7 +4,7 @@ import type { ContentPageData } from '../../types';
 const page: ContentPageData = {
   path: '/study-in-uk-ireland',
   meta: {
-    title: 'Study in UK & Ireland from Mumbai – Requirements, Costs & Visa',
+    title: 'Study in UK & Ireland – Requirements, Costs & Visa',
     description:
       'Study in the UK and Ireland with UEMS Ventures: why students choose the UK & Ireland, course requirements, costs in Ireland and the student visa document checklist.',
   },
@@ -16,7 +16,7 @@ const page: ContentPageData = {
       'The UK shares its only land border with Ireland, where some of the biggest innovations come from, like the submarine, the modern stethoscope and colour photography. Ireland is one of the friendliest places to be; everyone is always made to feel at home.',
     ],
     actions: [
-      { label: 'Talk to Mumbai expert', to: '#enquire' },
+      { label: 'Talk to an expert', to: '#enquire' },
       { label: 'Contact us', to: '/contact-us', variant: 'outline' },
     ],
     image: { name: 'uk-hero', alt: 'Group of smiling students holding books' },

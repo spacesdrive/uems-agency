@@ -4,7 +4,7 @@ import type { ContentPageData } from '../../types';
 const page: ContentPageData = {
   path: '/study-in-australia',
   meta: {
-    title: 'Study in Australia from Mumbai – Eligibility, Courses & Visa',
+    title: 'Study in Australia – Eligibility, Courses & Visa',
     description:
       'Why study in Australia: quality education, up to 3 years of post-study work rights, requirements, accommodation costs, scholarships and the subclass 500 student visa, with UEMS Ventures.',
   },
@@ -15,7 +15,7 @@ const page: ContentPageData = {
       'Australia has much more to offer than the usual expectations. Many international students are choosing to study in Australia because of its friendly, laid-back nature, excellent education system, and high standard of living, and the support provided by education consultants.',
     ],
     actions: [
-      { label: 'Talk to Mumbai expert', to: '#enquire' },
+      { label: 'Talk to an expert', to: '#enquire' },
       { label: 'Contact us', to: '/contact-us', variant: 'outline' },
     ],
     image: { name: 'au-hero', alt: 'International students gathered in front of the Australian flag' },

@@ -39,7 +39,6 @@ const table: ReadonlyArray<readonly [string, Loader]> = [
   ['/programs', contentPage(() => import('./data/pages/programs'))],
   ['/career-clarity-tests', contentPage(() => import('./data/pages/careerClarityTests'))],
   ['/career-talk', contentPage(() => import('./data/pages/careerTalk'))],
-  ['/best-free-career-personality-test', contentPage(() => import('./data/pages/freeCareerTest'))],
   ['/test-career-counselling', contentPage(() => import('./data/pages/testCareerCounselling'))],
   ['/test-preparation-for-international-students', contentPage(() => import('./data/pages/testPrep'))],
   ['/ielts', contentPage(() => import('./data/pages/ielts'))],

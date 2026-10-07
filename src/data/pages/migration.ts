@@ -4,7 +4,7 @@ import type { ContentPageData } from '../types';
 const page: ContentPageData = {
   path: '/migration',
   meta: {
-    title: 'Top Immigration Consultant in Mumbai – Migration Services',
+    title: 'Top Immigration Consultant – Migration Services',
     description:
       'UEMS Ventures migration services for Australia and Canada: free assessment, MARA agents and IRCC members, and a step-by-step migration process.',
   },

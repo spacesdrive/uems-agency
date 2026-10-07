@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import type { PageHero as PageHeroData } from '../data/types';
 import { cx } from '../lib/cx';
 import { Breadcrumbs } from './Breadcrumbs';
@@ -10,15 +11,17 @@ import s from './PageHero.module.css';
 interface PageHeroProps {
   hero: PageHeroData;
   path: string;
+  /** Content shown beside the copy instead of an image, e.g. the contact form. */
+  aside?: ReactNode;
 }
 
-export function PageHero({ hero, path }: PageHeroProps) {
+export function PageHero({ hero, path, aside }: PageHeroProps) {
   const { eyebrow, title, lead, actions, image, facts } = hero;
 
   return (
     <section className={s.hero} aria-labelledby="page-title">
       <HeroBackdrop />
-      <div className={cx('container', s.inner, image && s.withImage)}>
+      <div className={cx('container', s.inner, image && !aside && s.withImage, aside != null && s.withAside)}>
         <div className={s.copy}>
           <Breadcrumbs path={path} className={s.crumbs} />
           <p className={s.eyebrow}>{eyebrow}</p>
@@ -42,7 +45,8 @@ export function PageHero({ hero, path }: PageHeroProps) {
             </div>
           )}
         </div>
-        {image && (
+        {aside != null && <div className={s.aside}>{aside}</div>}
+        {image && !aside && (
           <div className={s.media}>
             <Img name={image.name} alt={image.alt} priority sizes="(min-width: 1024px) 42vw, 100vw" />
           </div>

@@ -1,3 +1,4 @@
+import { EnquiryForm } from '../components/EnquiryForm';
 import { PageHero } from '../components/PageHero';
 import { Seo } from '../components/Seo';
 import { site } from '../data/site';
@@ -19,15 +20,16 @@ export default function ContactPage() {
           eyebrow: 'Contact us',
           title: 'Fill the form and we’ll get back within 24 hours',
           lead: [
-            'Please complete the details below and click submit. Our expert team will get in touch with you within 24 hours to answer all your queries.',
+            'Please complete the form and click Send enquiry. Our expert team will get in touch with you within 24 hours to answer all your queries.',
           ],
           actions: [
             { label: 'Book appointment', to: site.appointmentPath },
             { label: `Call ${site.phones[0].display}`, to: site.phones[0].href, variant: 'outline' },
           ],
         }}
+        aside={<EnquiryForm />}
       />
-      <ContactSection />
+      <ContactSection form={false} />
     </>
   );
 }

@@ -12,7 +12,7 @@ describe('route table', () => {
   });
 
   it('includes every page of the original site map', () => {
-    expect(routes).toHaveLength(30);
+    expect(routes).toHaveLength(29);
   });
 });
 

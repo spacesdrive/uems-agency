@@ -10,11 +10,14 @@ import { destinations } from '../../data/home';
 import { cx } from '../../lib/cx';
 import s from './Destinations.module.css';
 
+// Alphabetical, so no single country is presented as the default focus.
+const sortedDestinations = destinations.items.toSorted((a, b) => a.name.localeCompare(b.name));
+
 export function Destinations({ index }: { index: number }) {
   const baseId = useId();
   const [active, setActive] = useState(0);
   const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
-  const items = destinations.items;
+  const items = sortedDestinations;
   const current = items[active] ?? items[0];
 
   function onKeyDown(e: KeyboardEvent<HTMLDivElement>) {

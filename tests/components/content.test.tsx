@@ -81,3 +81,12 @@ describe('Destinations tabs', () => {
     expect(second).toHaveAttribute('aria-controls', panel.id);
   });
 });
+
+describe('Destinations order', () => {
+  it('lists destinations alphabetically so no country is the default focus', () => {
+    inRouter(<Destinations index={1} />);
+    const names = screen.getAllByRole('tab').map((t) => t.textContent?.replace(/^[A-Z]{2}/, '') ?? '');
+    expect(names).toEqual(names.toSorted((a, b) => a.localeCompare(b)));
+    expect(screen.getAllByRole('tab')[0]).toHaveTextContent('Australia');
+  });
+});

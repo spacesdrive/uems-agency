@@ -93,7 +93,6 @@ export const primaryNav: readonly NavItem[] = [
       { label: 'Programs', to: '/programs' },
       { label: 'Career Clarity Tests', to: '/career-clarity-tests' },
       { label: 'Career Talk', to: '/career-talk' },
-      { label: 'Free Career Personality Test', to: '/best-free-career-personality-test' },
       { label: 'Career Counselling', to: '/test-career-counselling' },
     ],
   },

@@ -14,7 +14,7 @@ const destinations: CardItem[] = [
 const page: ContentPageData = {
   path: '/study-abroad-consultants',
   meta: {
-    title: 'Best Study Abroad Consultants in Mumbai',
+    title: 'Best Study Abroad Consultants for Students in India and Worldwide',
     description:
       'Study abroad consultants UEMS Ventures guide students from India and around the world to the USA, UK, Australia, Canada, Singapore and Asia, Dubai, Ireland, Germany and Europe.',
   },
@@ -26,7 +26,7 @@ const page: ContentPageData = {
     ],
     actions: [
       { label: 'Inquire now', to: '#enquire' },
-      { label: 'Talk to Mumbai expert', to: '/contact-us', variant: 'outline' },
+      { label: 'Talk to an expert', to: '/contact-us', variant: 'outline' },
     ],
     image: { name: 'sa-hero', alt: 'Graduate in cap and gown pointing towards a city skyline' },
   },

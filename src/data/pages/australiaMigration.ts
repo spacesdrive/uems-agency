@@ -4,7 +4,7 @@ import type { ContentPageData } from '../types';
 const page: ContentPageData = {
   path: '/australia-migration',
   meta: {
-    title: 'Australia Immigration Specialist in Mumbai – Migrate to Australia',
+    title: 'Australia Immigration Specialist – Migrate to Australia',
     description:
       'Migrate to Australia with UEMS Ventures: MARA agents with 20+ years’ combined experience, and skilled visas (189, 190 and 491).',
   },

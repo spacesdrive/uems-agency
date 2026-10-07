@@ -7,8 +7,50 @@ import { socialCards } from '../data/home';
 import { site } from '../data/site';
 import s from './ContactSection.module.css';
 
-/** Contact details, social cards and the enquiry form. */
-export function ContactSection({ index }: { index?: number }) {
+/**
+ * Contact details, social cards and the enquiry form. The Contact page shows its form in the hero,
+ * so it renders this section with form={false} and the social cards take the form's place.
+ */
+export function ContactSection({ index, form = true }: { index?: number; form?: boolean }) {
+  const socials = (
+    <Reveal className={s.socials} delay={140}>
+      <a href={socialCards.facebook.href} target="_blank" rel="noopener noreferrer" className={s.social}>
+        <span className={s.socialIcon}>
+          <Icon name="facebook" size={18} />
+        </span>
+        <span className={s.socialBody}>
+          <span className="t-label">Facebook</span>
+          <strong>{socialCards.facebook.title}</strong>
+          <span className={s.socialCta}>
+            {socialCards.facebook.cta} <Icon name="arrow-up-right" size={13} />
+          </span>
+        </span>
+        <span className="visually-hidden"> (opens in a new tab)</span>
+      </a>
+      <a href={socialCards.linkedin.href} target="_blank" rel="noopener noreferrer" className={s.social}>
+        <span className={s.socialIcon}>
+          <Icon name="linkedin" size={18} />
+        </span>
+        <span className={s.socialBody}>
+          <span className="t-label">LinkedIn · {socialCards.linkedin.subtitle}</span>
+          <strong>{socialCards.linkedin.title}</strong>
+          <span className={s.socialText}>{socialCards.linkedin.text}</span>
+          <span className={s.socialStats}>
+            {socialCards.linkedin.stats.map((st) => (
+              <span key={st.label}>
+                <b>{st.value}</b> {st.label}
+              </span>
+            ))}
+          </span>
+          <span className={s.socialCta}>
+            {socialCards.linkedin.cta} <Icon name="arrow-up-right" size={13} />
+          </span>
+        </span>
+        <span className="visually-hidden"> (opens in a new tab)</span>
+      </a>
+    </Reveal>
+  );
+
   return (
     <Section id="contact" labelledBy="contact-title">
       <div className={s.grid}>
@@ -18,7 +60,7 @@ export function ContactSection({ index }: { index?: number }) {
               index={index}
               label="Get in touch"
               title="Let’s connect & guide you forward"
-              intro="Send us a message and we’ll respond within 24 hours."
+              intro={form ? 'Send us a message and we’ll respond within 24 hours.' : 'Visit our offices, call or email us, or follow us on social media.'}
               id="contact-title"
               size="compact"
             />
@@ -61,47 +103,16 @@ export function ContactSection({ index }: { index?: number }) {
             </div>
           </Reveal>
 
-          <Reveal className={s.socials} delay={140}>
-            <a href={socialCards.facebook.href} target="_blank" rel="noopener noreferrer" className={s.social}>
-              <span className={s.socialIcon}>
-                <Icon name="facebook" size={18} />
-              </span>
-              <span className={s.socialBody}>
-                <span className="t-label">Facebook</span>
-                <strong>{socialCards.facebook.title}</strong>
-                <span className={s.socialCta}>
-                  {socialCards.facebook.cta} <Icon name="arrow-up-right" size={13} />
-                </span>
-              </span>
-              <span className="visually-hidden"> (opens in a new tab)</span>
-            </a>
-            <a href={socialCards.linkedin.href} target="_blank" rel="noopener noreferrer" className={s.social}>
-              <span className={s.socialIcon}>
-                <Icon name="linkedin" size={18} />
-              </span>
-              <span className={s.socialBody}>
-                <span className="t-label">LinkedIn · {socialCards.linkedin.subtitle}</span>
-                <strong>{socialCards.linkedin.title}</strong>
-                <span className={s.socialText}>{socialCards.linkedin.text}</span>
-                <span className={s.socialStats}>
-                  {socialCards.linkedin.stats.map((st) => (
-                    <span key={st.label}>
-                      <b>{st.value}</b> {st.label}
-                    </span>
-                  ))}
-                </span>
-                <span className={s.socialCta}>
-                  {socialCards.linkedin.cta} <Icon name="arrow-up-right" size={13} />
-                </span>
-              </span>
-              <span className="visually-hidden"> (opens in a new tab)</span>
-            </a>
-          </Reveal>
+          {form && socials}
         </div>
 
-        <Reveal delay={100}>
-          <EnquiryForm />
-        </Reveal>
+        {form ? (
+          <Reveal delay={100}>
+            <EnquiryForm />
+          </Reveal>
+        ) : (
+          socials
+        )}
       </div>
     </Section>
   );

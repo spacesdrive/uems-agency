@@ -13,7 +13,7 @@ export const partnerSection: PageSection = {
   blocks: [{ type: 'prose', paragraphs: achieveYourDream }],
 };
 
-export function enquirySection(label = 'Talk to Mumbai expert'): PageSection {
+export function enquirySection(label = 'Talk to an expert'): PageSection {
   return {
     id: 'enquire',
     label,

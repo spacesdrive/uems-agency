@@ -240,7 +240,8 @@ export function BlockRenderer({ block }: { block: Block }) {
           </div>
           <div className={s.actions}>
             {block.actions.map((a, i) => (
-              <Button key={a.label} to={a.to} label={a.label} variant={a.variant ?? (i === 0 ? 'accent' : 'light')} />
+              // The callout is dark, so an outline button would be invisible; it uses the light variant instead.
+              <Button key={a.label} to={a.to} label={a.label} variant={a.variant === 'outline' ? 'light' : (a.variant ?? (i === 0 ? 'accent' : 'light'))} />
             ))}
           </div>
         </div>

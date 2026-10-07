@@ -4,7 +4,7 @@ import type { ContentPageData } from '../../types';
 const page: ContentPageData = {
   path: '/study-in-usa',
   meta: {
-    title: 'Study in the USA from Mumbai – Universities & Visa Guide',
+    title: 'Study in the USA – Universities & Visa Guide',
     description:
       'Study in the USA with UEMS Ventures: what the USA offers international students, application documents and estimated course costs at public and private institutions.',
   },
@@ -15,7 +15,7 @@ const page: ContentPageData = {
       'As the third largest country in the world in size with nearly 319 million people, America is one of the most sought after study abroad destinations. It has the largest economy, connected to the country’s enormous population, technological innovation and high average incomes with a moderate unemployment rate, and it’s home to artists including Frank Sinatra, Elvis Presley, Madonna and Whitney Houston.',
     ],
     actions: [
-      { label: 'Talk to Mumbai expert', to: '#enquire' },
+      { label: 'Talk to an expert', to: '#enquire' },
       { label: 'Contact us', to: '/contact-us', variant: 'outline' },
     ],
     image: { name: 'us-hero', alt: 'Students holding books in a university library' },

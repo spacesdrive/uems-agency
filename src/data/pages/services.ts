@@ -49,11 +49,10 @@ const page: ContentPageData = {
           type: 'split',
           image: { name: 'sn-loan', alt: 'Illustration of a bank building' },
           paragraphs: [
-            'UEMS is working closely with HDFC Credila and other approved banks to provide education loans for studying abroad. Speak to us to understand the various options available, including scholarships you may be eligible for. You may also go straight to HDFC Credila and apply.',
+            'UEMS is working closely with HDFC Credila and other approved banks to provide education loans for studying abroad. Speak to us to understand the various options available, including scholarships you may be eligible for.',
           ],
           actions: [
             { label: 'Inquire now', to: '#enquire' },
-            { label: 'Apply with HDFC Credila', to: 'http://www.hdfccredila.com/apply-for-loan-partner.html?chear=Partner&cspecify=E1901080002', variant: 'outline' },
           ],
         },
       ],

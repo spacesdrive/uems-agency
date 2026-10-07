@@ -5,18 +5,28 @@
   height: 100%;
 }
 
+/* Blog banners carry text to their edges, so the whole image is shown (never cropped). */
 .media {
   overflow: hidden;
   border-radius: var(--radius);
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
   background: var(--surface-sunken);
 }
 
 .media img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 900ms var(--ease-out);
+}
+
+/* A featured post stands alone, so its image keeps its own proportions. */
+.natural {
+  aspect-ratio: auto;
+}
+
+.natural img {
+  height: auto;
 }
 
 .card:hover .media img {

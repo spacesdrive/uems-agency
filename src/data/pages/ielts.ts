@@ -3,7 +3,7 @@ import type { ContentPageData } from '../types';
 const page: ContentPageData = {
   path: '/ielts',
   meta: {
-    title: 'IELTS Coaching in Mumbai – Online & Offline Classes',
+    title: 'IELTS Coaching – Online & Offline Classes',
     description:
       'UEMS IELTS training with trainers trained by the British Council: General and Academic modules, Band 7+ learning outcomes, exam strategies and booking your test date.',
   },

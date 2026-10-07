@@ -104,3 +104,21 @@ describe('consistency follow-ups', () => {
     expect(stripped).not.toMatch(/\bcounsel(or|ors|ing)\b/i);
   });
 });
+
+describe('October fixes', () => {
+  const pages = Object.values(import.meta.glob<{ default: { meta: { title: string } } }>('../../src/data/pages/**/*.ts', { eager: true }));
+
+  it('removes the Free Career Personality Test page and its menu link', () => {
+    expect(findRoute('/best-free-career-personality-test/')).toBeUndefined();
+    expect(navLabels.join('|')).not.toMatch(/personality test/i);
+  });
+
+  it('speaks to students everywhere, not only Mumbai, in page titles and buttons', () => {
+    expect(allData).not.toMatch(/Talk to Mumbai expert/i);
+    for (const page of pages) expect(page.default.meta.title).not.toMatch(/Mumbai/);
+  });
+
+  it('no longer links straight to the HDFC Credila application', () => {
+    expect(allData).not.toMatch(/hdfccredila\.com\/apply/i);
+  });
+});
