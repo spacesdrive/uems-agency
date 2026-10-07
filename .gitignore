@@ -45,3 +45,6 @@ public/images/*.[jJ][pP][gG]
 public/images/*.[jJ][pP][eE][gG]
 public/images/*.[pP][nN][gG]
 public/images/*.[hH][eE][iI][cC]
+
+# Untouched camera originals stay local (they can contain GPS data).
+assets/originals/raw/
