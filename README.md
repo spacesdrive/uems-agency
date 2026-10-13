@@ -50,8 +50,8 @@ The visual language follows the [Hirael agency landing template](https://hirael.
 
 | Feature | What it does |
 | :--- | :--- |
-| **Static pre-rendering** | Each of the 29 routes is rendered at build time with `react-dom/static`, then hydrated in the browser only if the markup matches the current URL. |
-| **Data-driven pages** | 21 inner pages are built from a typed block system with 16 block types (cards, steps, FAQ, tables, stats and more) and a small inline markup for bold text and links. |
+| **Static pre-rendering** | Each of the 30 routes is rendered at build time with `react-dom/static`, then hydrated in the browser only if the markup matches the current URL. |
+| **Data-driven pages** | 22 inner pages are built from a typed block system with 16 block types (cards, steps, FAQ, tables, stats and more) and a small inline markup for bold text and links. |
 | **Fluted-glass hero** | An original three-pass WebGL renderer draws a pointer-reactive ink trail behind refracting glass. It pauses off screen, draws one still frame for reduced motion, and falls back to CSS without WebGL. |
 | **Accessible by default** | Skip link, managed focus on navigation, keyboard-operable tabs and menus, `inert` background under the mobile menu, and reduced-motion support throughout. |
 | **Instant navigation** | Every page is its own lazy chunk. Links preload their target on hover, focus or touch, and the main routes warm up when the browser is idle. |
@@ -116,7 +116,7 @@ flowchart LR
         T["tsc -b<br/>type check"]
         V["Vite client build<br/>hashed, code-split assets"]
         S["Vite SSR build<br/>entry-server.tsx"]
-        P["scripts/prerender.mjs<br/>29 routes, 404, sitemap"]
+        P["scripts/prerender.mjs<br/>30 routes, 404, sitemap"]
     end
     D --> T
     C --> T

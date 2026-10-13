@@ -259,7 +259,7 @@ export const profileServices = {
       title: 'Global Profile Accelerator',
       text: 'Expert mentors plan your academics, projects, activities and essays, so you apply to top universities with a standout profile.',
       cta: 'Explore the accelerator',
-      to: '/#global-profile-accelerator',
+      to: '/global-profile-accelerator',
       image: { name: 'svc-gpa', alt: 'UEMS counsellor guiding a parent and student one-on-one' },
     },
     {
@@ -300,7 +300,6 @@ export const team = {
 };
 
 export const affiliations: readonly { name: string; image: ImageName }[] = [
-  { name: 'HDFC Credila', image: 'logo-hdfc-credila' },
   { name: 'British Council IELTS', image: 'logo-ielts' },
   { name: 'Medibank', image: 'logo-medibank' },
   { name: 'ahm OSHC', image: 'logo-ahm' },

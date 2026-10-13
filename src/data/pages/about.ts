@@ -111,15 +111,15 @@ const page: ContentPageData = {
             { name: 'Disha Shah', role: 'Student Counsellor', credentials: 'BA (Sociology), Montessori teacher training', image: 'person-disha' },
             { name: 'Tanya Nair', role: 'Career Counsellor', credentials: 'B.Sc. Psychology (Davidson College USA)', image: 'person-tanya' },
             { name: 'Smitha Leo', role: 'IELTS Coach', credentials: 'B.Com, MBA', image: 'person-smitha' },
-            { name: 'Gauri Katira', role: 'Creative and Research Team Member', credentials: 'B.Sc. in Textiles major', image: 'person-gauri-katira' },
+            { name: 'Gauri Katira', role: 'Creative and Research Team Member', credentials: 'B.Sc. in Textiles major', image: 'person-gauri' },
             { name: 'Gagandeep Singh', role: 'Digital Marketing Manager', credentials: 'B.B.A', image: 'person-gagandeep' },
           ],
         },
       ],
     },
     {
-      label: 'Our Australia team',
-      title: 'Our Australia team',
+      label: 'Our Australian team',
+      title: 'Our Australian Team',
       blocks: [
         {
           type: 'people',
@@ -143,8 +143,6 @@ const page: ContentPageData = {
               name: 'Binal Soni',
               role: 'Edu Compass – Founder & Counsellor',
               image: 'person-binal',
-              phone: '9869172620',
-              email: 'binal@educompass.in',
               bio: [
                 'Masters in Computer Applications · Masters in Counseling Psychology · Global Career Counselor from University of California, Los Angeles · Certified Career Analyst from Edumilestones · 3-level Certification for Career Coach from myAglakadam · ISO Certified Handwriting Analyst · TA-101 · Drawing Analysis.',
                 '7+ years of experience, guided 1500+ individuals across the globe including students and professionals. Visiting Career Counsellor at Mithibai College.',

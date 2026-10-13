@@ -30,7 +30,7 @@ const page: ContentPageData = {
           columns: 3,
           numbered: true,
           items: [
-            { title: 'Financial assistance', text: 'Education loans through HDFC Credila and approved banks.', action: { label: 'Learn more', to: '#financial-assistance' } },
+            { title: 'Financial assistance', text: 'Education loans through all major banks.', action: { label: 'Learn more', to: '#financial-assistance' } },
             { title: 'Accommodation', text: 'On-campus, homestay and rental options arranged before you fly.', action: { label: 'Learn more', to: '#accommodation' } },
             { title: 'Visa lodgement', text: 'Document checklists, application lodgement and interview preparation.', action: { label: 'Learn more', to: '#visa-lodgement' } },
             { title: 'Pre-departure counselling', text: 'A face-to-face or virtual briefing so you land with confidence.', action: { label: 'Learn more', to: '#pre-departure' } },
@@ -49,7 +49,7 @@ const page: ContentPageData = {
           type: 'split',
           image: { name: 'sn-loan', alt: 'Illustration of a bank building' },
           paragraphs: [
-            'UEMS is working closely with HDFC Credila and other approved banks to provide education loans for studying abroad. Speak to us to understand the various options available, including scholarships you may be eligible for.',
+            'UEMS works with all banks to help you get an education loan for studying abroad. Speak to us to understand the various options available, including scholarships you may be eligible for.',
           ],
           actions: [
             { label: 'Inquire now', to: '#enquire' },
@@ -67,7 +67,7 @@ const page: ContentPageData = {
           imageSide: 'left',
           image: { name: 'sn-accommodation', alt: 'Illustration of a student house' },
           paragraphs: [
-            'UEMS assists all its students in finding the right accommodation for them. We are linked to many accommodation providers who can assist. Each country offers different types of accommodation, such as:',
+            'UEMS assists all its students in finding the right accommodation for them. We have accommodation partners all over the world. Each country offers different types of accommodation, such as:',
           ],
           bullets: ['**USA:** on campus', '**Australia:** on campus, boarding and lodging, or renting an apartment'],
         },

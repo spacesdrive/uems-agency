@@ -32,7 +32,7 @@ describe('home page', () => {
     for (const item of profileServices.items) {
       expect(findRoute(item.to)).toBeDefined();
     }
-    expect(profileServices.items[1]?.to).toBe('/#global-profile-accelerator');
+    expect(profileServices.items[1]?.to).toBe('/global-profile-accelerator');
   });
 });
 
@@ -91,7 +91,7 @@ describe('consistency follow-ups', () => {
     const stripped = allData
       .replace(/Sydney NSW 2000|Sussex\+Street\+Sydney|UTS Sydney|Sydney Opera House/g, '');
     expect(stripped).not.toMatch(/Sydney/);
-    expect(JSON.stringify(aboutPage)).toContain('Our Australia team');
+    expect(JSON.stringify(aboutPage)).toContain('Our Australian Team');
   });
 
   it('use one country figure for the partner network', () => {
@@ -120,5 +120,21 @@ describe('October fixes', () => {
 
   it('no longer links straight to the HDFC Credila application', () => {
     expect(allData).not.toMatch(/hdfccredila\.com\/apply/i);
+  });
+});
+
+describe('October 13 fixes', () => {
+  it('works with all banks, without naming HDFC Credila', () => {
+    expect(allData).not.toMatch(/HDFC|Credila/i);
+  });
+
+  it('shows no private phone or email for associates', () => {
+    expect(JSON.stringify(aboutPage)).not.toMatch(/9869172620|binal@educompass\.in/);
+  });
+
+  it('has a dedicated Global Profile Accelerator page linked from the menu', () => {
+    expect(findRoute('/global-profile-accelerator/')).toBeDefined();
+    const gpa = primaryNav.flatMap((i) => i.children ?? []).find((c) => c.label === 'Global Profile Accelerator');
+    expect(gpa?.to).toBe('/global-profile-accelerator');
   });
 });

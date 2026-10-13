@@ -89,7 +89,7 @@ export const primaryNav: readonly NavItem[] = [
     to: '/career-guidance',
     children: [
       { label: 'Career Guidance overview', to: '/career-guidance' },
-      { label: 'Global Profile Accelerator', to: '/#global-profile-accelerator' },
+      { label: 'Global Profile Accelerator', to: '/global-profile-accelerator' },
       { label: 'Programs', to: '/programs' },
       { label: 'Career Clarity Tests', to: '/career-clarity-tests' },
       { label: 'Career Talk', to: '/career-talk' },

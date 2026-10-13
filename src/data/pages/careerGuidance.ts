@@ -9,7 +9,7 @@ const page: ContentPageData = {
       'UEMS Ventures career guidance: academic programs from Class 8 to graduation, scientific career clarity tests with Eval, career talks, counselling and mentoring.',
   },
   hero: {
-    eyebrow: 'Future starts here',
+    eyebrow: 'Our future starts here',
     title: 'Confusion to clarity',
     lead: [
       'Don’t leave your future to guesswork. Discover the right career path through a proven journey of discovery, assessment, and guidance.',

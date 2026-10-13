@@ -1,3 +1,4 @@
+import { Button } from '../../components/Button';
 import { RegistrationForm } from '../../components/RegistrationForm';
 import { Reveal } from '../../components/Reveal';
 import { Section } from '../../components/Section';
@@ -35,6 +36,7 @@ export function Accelerator({ index }: { index: number }) {
                 </li>
               ))}
             </ol>
+            <Button to="/global-profile-accelerator" label="Explore the GPA program" variant="outline" className={s.more} />
           </Reveal>
         </div>
 

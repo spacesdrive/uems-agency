@@ -38,6 +38,7 @@ const table: ReadonlyArray<readonly [string, Loader]> = [
   ['/career-guidance', contentPage(() => import('./data/pages/careerGuidance'))],
   ['/programs', contentPage(() => import('./data/pages/programs'))],
   ['/career-clarity-tests', contentPage(() => import('./data/pages/careerClarityTests'))],
+  ['/global-profile-accelerator', contentPage(() => import('./data/pages/globalProfileAccelerator'))],
   ['/career-talk', contentPage(() => import('./data/pages/careerTalk'))],
   ['/test-career-counselling', contentPage(() => import('./data/pages/testCareerCounselling'))],
   ['/test-preparation-for-international-students', contentPage(() => import('./data/pages/testPrep'))],
