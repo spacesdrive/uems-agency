@@ -1,0 +1,19 @@
+import type { BlogPostData } from '../types';
+
+const post: BlogPostData = {
+  slug: "benefits-of-studying-abroad",
+  title: "Benefits of studying abroad",
+  excerpt: "1. Diversity : Learning is not limited to a classroom. You can learn so much about life by having an engaging conversation with people from different parts of the world...",
+  date: "2019-04-03",
+  modified: "2021-07-12",
+  author: "UEMS Team",
+  categories: [{"name":"Blog","slug":"blog"}],
+  tags: [],
+  featuredImage: "/blog-media/2019/04/benefits-of-study-abroad-banner.jpg",
+  featuredImageAlt: "benefits of study abroad banner",
+  readingTime: 3,
+  seo: { title: "Benefits of studying abroad", description: "1. Diversity : Learning is not limited to a classroom. You can learn so much about life by having an engaging conversation with people from different parts of the world..." },
+  html: `<p>1. <strong>Diversity</strong>: Learning is not limited to a classroom. You can learn so much about life by having an engaging conversation with people from different parts of the world, traveling to different countries, and living with people from all over the world. Study abroad does just that. It gives you the opportunity to step outside of your comfort zone and gives you the chance to meet students from all over the world. You not only make wonderful friendships with other international students, but also learn about their country, culture, traditions, food, and lifestyle. It broadens your world view and prepares you to be a global citizen.</p><p>2.<strong> Research opportunities</strong>: Participating in the process of knowledge creation is one of the most exciting things a student can do. When studying abroad, students get the opportunity to work on research projects with their professors directly. These projects allow them the freedom to find a topic that they like, conduct experiments on it (if its science based), or conduct surveys and interviews to gather information. Several students even end up publishing their research results in journals or books right from their undergraduate level.</p><p>3. <strong>Focus on knowledge</strong>: Studying abroad helps you shift your mindset from "grades" to "learning and knowledge acquisition". The way tests and exams are conducted in Australia, Canada, UK and USA, ensure that students are tested on their understanding of concepts and not their ability to rote learn and memorise. The professors abroad ensure that a student is able to gain practical knowledge and skills from what they are studying so that they can apply it to the real world.</p><p>4. <strong>Quality of Life</strong>: Classes abroad are different than in India because students might have only one or two lectures a week, per subject. Its not that you study less because the lectures are fewer. The lectures are fewer so that students have a chance to read the course content and engage in different projects to enhance their learning. Fewer lectures also allows students time to pursue other interests like, learning to play an instrument or doing a part-time job to gain work experience.</p><p>5. <strong>Job opportunities</strong>: Studying abroad significantly increases your probability of being able to get a job and settle down in a different country. Your international degree also holds value when you try to migrate to a different country.</p><p>Studying abroad can open up a whole new world of opportunities for students and early professionals, while ensuring that they receive the highest quality of education, practical training and world exposure.</p><p>UEMS Ventures specialises in supporting students fulfil their dream of study abroad in Australia, Canada, UK or USA. Contact our international education consultant today to get more information about study abroad and chart your global destiny with UEMS Ventures!<br></p>`,
+};
+
+export default post;
