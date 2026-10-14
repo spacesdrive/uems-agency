@@ -17,7 +17,7 @@ const post: BlogPostData = {
 
 Every year, thousands of students from India, Nepal, China, and across the world choose to <a href="/study-in-australia/">study in Australia</a> to pursue higher education and build successful careers overseas.
 
-In this comprehensive guide by <a href="/https://uemsventures.com/">UEMS Ventures</a>, we'll explore the <a href="/study-in-australia/https://uemsventures.com/study-in-australia/">top reasons to study in Australia</a>, the best courses, and how our expert team can help you achieve your dream of studying abroad.
+In this comprehensive guide by <a href="/">UEMS Ventures</a>, we'll explore the <a href="/study-in-australia/">top reasons to study in Australia</a>, the best courses, and how our expert team can help you achieve your dream of studying abroad.
 
 &nbsp;
 <h2>World-Class Education System</h2>
@@ -186,7 +186,7 @@ From world-class universities to post-study work opportunities, Australia stands
 Choosing to<a href="/study-in-australia/"> study in Australia with UEMS Ventures </a>means you get the best of both worlds: top-quality education and expert guidance from start to finish.
 
 So, if you're ready to take the next step in your academic journey,
-📞 <a href="/contact-us/https://uemsventures.com/contact-us/">Contact UEMS Ventures today </a>to get personalized guidance on universities, scholarships, and visa support.
+📞 <a href="/contact-us/">Contact UEMS Ventures today </a>to get personalized guidance on universities, scholarships, and visa support.
 
 Let's make your dream of studying in Australia a reality! 🌏✈️`,
 };

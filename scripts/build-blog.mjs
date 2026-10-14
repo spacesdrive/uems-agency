@@ -74,6 +74,12 @@ function sanitizeLocal(p) {
 // URL rewriting: our-domain uploads -> /blog-media, our-domain pages -> relative, else untouched.
 function rewriteUrl(u) {
   if (!u) return u;
+  // Repair malformed WordPress links that embed a second absolute URL — a doubled domain
+  // ("https://uemsventures.com/x/https://uemsventures.com/x") or a stray prefix before an
+  // absolute URL ("/x/https://uemsventures.com/x") — by keeping from the last real occurrence.
+  const occ = [...u.matchAll(/https?:\/\/(?:www\.)?uemsventures\.com/gi)];
+  if (occ.length > 1) u = u.slice(occ[occ.length - 1].index);
+  else if (occ.length === 1 && occ[0].index > 0) u = u.slice(occ[0].index);
   let m = u.match(/^https?:\/\/(?:www\.)?uemsventures\.com\/wp-content\/uploads\/(.+)$/i);
   if (m) return sanitizeLocal('/blog-media/' + m[1]);
   m = u.match(/^https?:\/\/(?:www\.)?uemsventures\.com(\/.*)?$/i);
