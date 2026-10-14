@@ -76,7 +76,8 @@ export function cleanHtml(html) {
 // Plain-text extraction (for word count / excerpts). Strips tags + decodes a few entities.
 export function htmlToText(html) {
   if (!html) return '';
-  let t = html.replace(/<(script|style)[\s\S]*?<\/\1>/gi, ' ')
+  const t = html
+    .replace(/<(script|style)[\s\S]*?<\/\1>/gi, ' ')
               .replace(/<[^>]+>/g, ' ')
               .replace(/&nbsp;/gi, ' ')
               .replace(/&amp;/gi, '&')
