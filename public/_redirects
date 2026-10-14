@@ -79,3 +79,12 @@
 /inquiry/ /contact-us/ 301
 /study-online /programs/ 301
 /study-online/ /programs/ 301
+
+# --- Non-migrated pages that still rank (from Search Console, 12 mo). Keep their clicks on-site. ---
+/usa-student-visa-consultants-in-mumbai-and-thane /study-in-usa/ 301
+/usa-student-visa-consultants-in-mumbai-and-thane/ /study-in-usa/ 301
+# Aged-care VET pages have no equivalent on the new site yet -> closest match (review / rebuild later).
+/certificate-iii-in-individual-support-ageing-disability /study-in-australia/ 301
+/certificate-iii-in-individual-support-ageing-disability/ /study-in-australia/ 301
+/certificate-iv-in-ageing-support /study-in-australia/ 301
+/certificate-iv-in-ageing-support/ /study-in-australia/ 301
