@@ -247,6 +247,19 @@
   color: var(--on-dark-subtle);
 }
 
+.credit {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--on-dark-subtle);
+}
+
+.creditBrand {
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--on-dark-muted);
+}
+
 .officeLabel {
   display: block;
   margin-bottom: 2px;

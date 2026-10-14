@@ -121,6 +121,9 @@ export function Footer() {
       <div className="container">
         <div className={s.bottom}>
           <p>Copyright 2020 {site.name}. All rights reserved.</p>
+          <p className={s.credit}>
+            Made under <span className={s.creditBrand}>Aevrin Labs</span>
+          </p>
         </div>
       </div>
     </footer>
