@@ -16,7 +16,6 @@ const post: BlogPostData = {
   html: `<p><strong>Europe has become one of the most preferred study destinations for Indian students</strong> - from Delhi and Mumbai to Bengaluru, Hyderabad, Ahmedabad, and beyond - thanks to its world-class education, affordable tuition options, and strong post-study career pathways.</p>
 <p>If you're planning to study abroad in 2026, this guide covers everything you need to know - from choosing the right country and course to visa process and career prospects. With expert support from UEMS Ventures, students from any city in India can make their European dream a reality.</p>
 
-
 <hr>
 <p><strong>Why Study in Europe?</strong></p>
 <p>Europe offers a unique blend of academic excellence, cultural diversity, and global career exposure. Many countries offer affordable or even tuition-free education, making it a high-value choice for Indian students at every budget level.</p>
@@ -31,7 +30,6 @@ const post: BlogPostData = {
 </ul>
 <p>Students across India are increasingly choosing Europe for its high return on investment and long-term career growth potential.</p>
 
-
 <hr>
 <p><strong>Top Countries to Study in Europe</strong></p>
 <p><strong>Germany</strong> - Tuition-free public universities, strong engineering and IT programs, and an 18-month post-study work visa.</p>
@@ -41,7 +39,6 @@ const post: BlogPostData = {
 <p><strong>Sweden and Finland</strong> - Innovation-driven, sustainability-focused education with an excellent quality of life.</p>
 <p><strong>Poland</strong> - One of Europe's most affordable options with low tuition fees and manageable living costs.</p>
 <p>UEMS Ventures helps students from all parts of India - metro cities and tier-2 towns alike - find the right country based on their budget, course preference, and career goals.</p>
-
 
 <hr>
 <p><strong>Popular Courses in Europe</strong></p>
@@ -55,7 +52,6 @@ const post: BlogPostData = {
  <li>Finance and Accounting</li>
 </ul>
 <p>These programs are designed to align with global industry requirements and are recognized by employers worldwide.</p>
-
 
 <hr>
 <p><strong>Cost of Studying in Europe</strong></p>
@@ -82,7 +78,6 @@ const post: BlogPostData = {
 </div>
 <p>Countries like Germany and Poland offer lower overall costs, while Ireland and the Netherlands offer strong ROI through high-paying job opportunities post-graduation.</p>
 
-
 <hr>
 <p><strong>Eligibility Criteria</strong></p>
 
@@ -94,7 +89,6 @@ const post: BlogPostData = {
  <li>Valid passport</li>
 </ul>
 <p>Additional requirements may apply based on the country and course.</p>
-
 
 <hr>
 <p><strong>Student Visa Process for Europe</strong></p>
@@ -108,7 +102,6 @@ const post: BlogPostData = {
  <li>Receive visa approval</li>
 </ol>
 <p>UEMS Ventures provides end-to-end visa guidance for students across India, ensuring a smooth and stress-free process.</p>
-
 
 <hr>
 <p><strong>Post-Study Work Opportunities</strong></p>
@@ -143,7 +136,6 @@ const post: BlogPostData = {
 </div>
 <p>These opportunities help students transition from academics to full-time international employment.</p>
 
-
 <hr>
 <p><strong>Career Opportunities After Studying in Europe</strong></p>
 <p>Top sectors hiring international graduates in Europe:</p>
@@ -156,7 +148,6 @@ const post: BlogPostData = {
  <li>Logistics and Supply Chain</li>
 </ul>
 <p>Graduates can explore job opportunities across multiple European countries, significantly widening their career prospects.</p>
-
 
 <hr>
 <p><strong>Why Choose UEMS Ventures?</strong></p>
@@ -172,7 +163,6 @@ const post: BlogPostData = {
 </ul>
 <p>We have helped thousands of Indian students achieve their global education goals with complete support and high success rates - no matter which city you're from.</p>
 
-
 <hr>
 <p><strong>FAQs - Study in Europe from India</strong></p>
 <p><strong>Which is the best country in Europe for Indian students?</strong> Germany, Ireland, France, and the Netherlands are top choices depending on your course and budget.</p>
@@ -181,7 +171,6 @@ const post: BlogPostData = {
 <p><strong>Can students work while studying in Europe?</strong> Yes, part-time work is permitted in most European countries for international students.</p>
 <p><strong>Which country offers the best post-study work visa?</strong> Ireland offers up to 2 years; Germany offers up to 18 months.</p>
 <p><strong>How can I apply from India?</strong> Connect with UEMS Ventures for complete end-to-end support from anywhere in India.</p>
-
 
 <hr>
 <p><strong>Conclusion</strong></p>
