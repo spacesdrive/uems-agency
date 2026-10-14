@@ -215,34 +215,15 @@
   color: var(--ink);
 }
 
-/* Watermark */
-
-.watermark {
-  padding-inline: var(--gutter);
-  max-width: var(--container);
-  margin-inline: auto;
-  font-size: min(24vw, 360px);
-  line-height: 0.8;
-  font-weight: 500;
-  letter-spacing: -0.05em;
-  color: rgb(255 255 255 / 0.06);
-  user-select: none;
-  border-top: 1px solid var(--line-dark);
-  padding-top: 40px;
-}
-
-/* Decorative wordmark lives in generated content so it isn't treated as text. */
-.watermark::before {
-  content: 'UEMS';
-  display: block;
-}
-
 .bottom {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: space-between;
   gap: 12px 24px;
-  padding-block: 28px calc(28px + env(safe-area-inset-bottom));
+  margin-top: clamp(32px, 2rem + 2vw, 56px);
+  padding-block: 32px calc(28px + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--line-dark);
   font-size: var(--fs-xs);
   color: var(--on-dark-subtle);
 }
@@ -250,14 +231,25 @@
 .credit {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 8px;
   color: var(--on-dark-subtle);
 }
 
-.creditBrand {
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  color: var(--on-dark-muted);
+.creditLink {
+  display: inline-flex;
+  align-items: center;
+  opacity: 0.9;
+  transition: opacity var(--dur) var(--ease);
+}
+
+.creditLink:hover {
+  opacity: 1;
+}
+
+.creditLogo {
+  display: block;
+  height: 18px;
+  width: auto;
 }
 
 .officeLabel {
