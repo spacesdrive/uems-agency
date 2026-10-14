@@ -19,10 +19,9 @@ function EventList({ items }: { items: readonly EventItem[] }) {
           <span className={s.date}>{item.date}</span>
           <div>
             <h3 className={s.rowTitle}>
-              <a href={item.url} target="_blank" rel="noopener noreferrer" className={s.rowLink}>
+              <SmartLink to={item.url} className={s.rowLink}>
                 {item.title}
-                <span className="visually-hidden"> (opens in a new tab)</span>
-              </a>
+              </SmartLink>
             </h3>
             {item.video && (
               <a href={item.video} target="_blank" rel="noopener noreferrer" className={s.rowVideo}>

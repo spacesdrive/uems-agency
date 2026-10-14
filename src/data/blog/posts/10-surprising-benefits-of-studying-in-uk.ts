@@ -19,7 +19,7 @@ const post: BlogPostData = {
 
 <p>UK universities provide top quality education in the world and it's Universities rank highest in the world but that's not the only reason which makes the UK a great place for studying&nbsp; abroad . There are countless features which collectively make it a great attraction for International Students.&nbsp;</p>
 
-<p>Want to know more about Studying in UK ? Checkout Our Ultimate Guide On UK Study Visa - <a href="/uk-study-visa-requirements-cost-processing-and-more/">https://uemsventures.com/uk-study-visa-requirements-cost-processing-and-more/</a></p>
+<p>Want to know more about Studying in UK ? Checkout Our Ultimate Guide On UK Study Visa - <a href="/uk-study-visa-requirements-cost-processing-and-more/">/uk-study-visa-requirements-cost-processing-and-more/</a></p>
 
 <p>There are so many benefits of Studying in the&nbsp; UK for International Students from Education to English culture , Future Opportunities , Health Benefits and so on . So Let's discuss the Top 5 benefits of studying in the UK</p>
 

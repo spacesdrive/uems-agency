@@ -15,7 +15,7 @@ const post: BlogPostData = {
   seo: { title: "College Fair 2021 | UEMS Ventures", description: "UEMS will be participating in college fair by Wishdom High International School, Govardhan, come join in webinar Online : bookaworkshop.in Price : Free/ Duration : 6 Hrs..." },
   html: `<p>UEMS will be participating in college fair by Wishdom High International School, Govardhan, come join in webinar<br>Online : bookaworkshop.in<br>Price : Free/ Duration : 6 Hrs<br>Public : Anyone</p>
 
-<p><strong>Contact Us on:</strong><br>Unique Education and Migration Services<br><a href="/">https://uemsventures.com/</a><br>www.uniquemigration.com.au</p>`,
+<p><strong>Contact Us on:</strong><br>Unique Education and Migration Services<br><a href="/">/</a><br>www.uniquemigration.com.au</p>`,
 };
 
 export default post;

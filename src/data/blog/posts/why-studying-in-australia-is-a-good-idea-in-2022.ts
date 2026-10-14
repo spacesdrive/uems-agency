@@ -19,7 +19,7 @@ const post: BlogPostData = {
 
 <p>Just to give you a brief idea what International Students mean to the Australian economy is that the International students inject almost $32 billion into Australia's economy each year plus support 130,000 Australian jobs. So it's safe to say that Australia will try to uplift its economy by allowing more International Students in 2022 or being a little easy in visa process so this makes Australia a hot destination for International Students for the year 2022.&nbsp;</p>
 
-<p><span><strong>Interested In Studying in Australia ? Book our Free Consultation here</strong> </span>-<span> <a href="/inquiry/">https://uemsventures.com/inquiry/</a></span> </p>
+<p><span><strong>Interested In Studying in Australia ? Book our Free Consultation here</strong> </span>-<span> <a href="/inquiry/">/inquiry/</a></span> </p>
 
 <p><span><strong>Need Help in Finding a Right Career For Yourself - Take our Career Clarity Test which guides you to choose right career , To Book Our Career Clarity Test Visit</strong></span> - <a href="http://www.evaltest.com" target="_blank" rel="noreferrer noopener" title="www.evaltest.com"> www.evaltest.com</a></p>
 

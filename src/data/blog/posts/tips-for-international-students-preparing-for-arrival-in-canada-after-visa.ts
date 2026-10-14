@@ -57,7 +57,7 @@ const post: BlogPostData = {
 
 <p>You must also know on arrival where you will stay in Canada as you must have an address and a phone number of that person or place where you will be residing in Canada.&nbsp;</p>
 
-<p>So these are some important documents and points you need while traveling to Canada. This will help you get your study permit easily. If you want assistance with a Canada study visa or have any questions related to Canada or any other country feel free to contact us at <a href="/inquiry/">https://uemsventures.com/inquiry/</a></p>`,
+<p>So these are some important documents and points you need while traveling to Canada. This will help you get your study permit easily. If you want assistance with a Canada study visa or have any questions related to Canada or any other country feel free to contact us at <a href="/inquiry/">/inquiry/</a></p>`,
 };
 
 export default post;

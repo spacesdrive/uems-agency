@@ -25,7 +25,7 @@ const post: BlogPostData = {
 
 <p>Thinking about studying in Canada ? </p>
 
-<p>Checkout our blog " <a href="/seven-most-popular-courses-in-canada-2021/" title="https://uemsventures.com/seven-most-popular-courses-in-canada-2021/">Seven Most Popular Courses In Canada</a> " </p>
+<p>Checkout our blog " <a href="/seven-most-popular-courses-in-canada-2021/" title="/seven-most-popular-courses-in-canada-2021/">Seven Most Popular Courses In Canada</a> " </p>
 
 <figure><img src="/blog-media/2022/01/kindpng_1320903-1024x146.png" alt loading="lazy" decoding="async"></figure>
 

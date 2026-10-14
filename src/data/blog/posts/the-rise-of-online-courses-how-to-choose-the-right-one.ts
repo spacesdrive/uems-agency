@@ -47,7 +47,7 @@ const post: BlogPostData = {
 
 <h3><strong>3 - Research</strong></h3>
 
-<p>Once you take into account all the factors for your preferred course, the next thing is to find the knowledge gap and to start your research online about the courses. It is important to find out about the types of courses available to fill those knowledge gaps which are required for the desired career options. You must also research the course provider as there are hundreds of course providers which include online platforms or universities and institutions. Some popular online&nbsp; course providers are <a href="/study-online/" title="https://uemsventures.com/study-online/">Upgrad</a> , <a href="https://www.coursera.org/in" rel="nofollow" title="https://www.coursera.org/in">Coursera</a> and others which provide all categories of courses online.&nbsp;</p>
+<p>Once you take into account all the factors for your preferred course, the next thing is to find the knowledge gap and to start your research online about the courses. It is important to find out about the types of courses available to fill those knowledge gaps which are required for the desired career options. You must also research the course provider as there are hundreds of course providers which include online platforms or universities and institutions. Some popular online&nbsp; course providers are <a href="/study-online/" title="/study-online/">Upgrad</a> , <a href="https://www.coursera.org/in" rel="nofollow" title="https://www.coursera.org/in">Coursera</a> and others which provide all categories of courses online.&nbsp;</p>
 
 <h3><strong>4 - Narrow down your options</strong></h3>
 

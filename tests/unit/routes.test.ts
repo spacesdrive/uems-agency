@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { blogIndex } from '../../src/data/blog';
+import { pastEvents, upcomingEvents } from '../../src/data/events';
 import { footerNav, primaryNav } from '../../src/data/site';
 import { findRoute, preloadRoute, routes } from '../../src/routes';
 
@@ -23,6 +24,13 @@ describe('route table', () => {
   it('serves each migrated blog post at its original root permalink', () => {
     for (const post of blogIndex) {
       expect(findRoute(`/${post.slug}`)?.path).toBe(`/${post.slug}`);
+    }
+  });
+
+  it('links every seminar/event to a page on this site, never the old domain', () => {
+    for (const event of [...upcomingEvents, ...pastEvents]) {
+      expect(event.url.startsWith('/')).toBe(true);
+      expect(findRoute(event.url)?.path).toBe(event.url);
     }
   });
 });

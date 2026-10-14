@@ -140,6 +140,9 @@ function cleanContent(rawHtml) {
     prev = out;
     out = out.replace(/<(p|div|span)>(?:\s|&nbsp;|<br\s*\/?>)*<\/\1>/gi, '');
   } while (out !== prev);
+  // Final safety net: rewrite EVERY remaining absolute link to our own domain (in hrefs, title
+  // tooltips and visible link text) to an on-site relative path, so nothing points at the old site.
+  out = out.replace(/https?:\/\/(?:www\.)?uemsventures\.com[^\s"'<>]*/gi, (m) => rewriteUrl(m));
   out = cleanHtml(out);                                              // typographic normalisation
   out = out.replace(/\r\n?/g, '\n').replace(/\n{3,}/g, '\n\n').trim(); // LF-only, no triple blank lines
   return out;
