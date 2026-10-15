@@ -7,8 +7,10 @@
  * limited, and a rate limiter caps volume per client.
  */
 
+// Submissions are emailed only to UEMS (RECIPIENT). The visitor's address is used solely as
+// the reply-to; nothing is ever sent to the person who filled the form.
 export const RECIPIENT = 'info@uemsventures.com';
-export const SENDER = { name: 'UEMS Ventures website', email: 'website@spacesdrive.cc' };
+export const SENDER = { name: 'UEMS Ventures website', email: 'info@uemsventures.com' };
 
 const FORMS = {
   enquiry: 'Contact form',
