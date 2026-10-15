@@ -116,11 +116,23 @@ export function Footer() {
         </div>
       </div>
 
-      <div className={s.watermark} aria-hidden="true" />
-
       <div className="container">
         <div className={s.bottom}>
           <p>Copyright 2020 {site.name}. All rights reserved.</p>
+          <p className={s.credit}>
+            <span>Made under</span>
+            <SmartLink to="https://aevrinlabs.com" className={s.creditLink}>
+              <img
+                src="/aevrin-labs-logo.png"
+                alt="Aevrin Labs"
+                className={s.creditLogo}
+                width="480"
+                height="95"
+                loading="lazy"
+                decoding="async"
+              />
+            </SmartLink>
+          </p>
         </div>
       </div>
     </footer>

@@ -1,4 +1,5 @@
 import { createElement, lazy, type ComponentType, type LazyExoticComponent } from 'react';
+import type { BlogPostData } from './data/blog/types';
 import type { ContentPageData } from './data/types';
 
 type PageModule = { default: ComponentType };
@@ -19,6 +20,28 @@ function contentPage(loadData: () => Promise<{ default: ContentPageData }>): Loa
       },
     }));
 }
+
+/** Pairs the shared blog-post template with one post's data module. */
+function blogPost(loadData: () => Promise<{ default: BlogPostData }>): Loader {
+  return () =>
+    Promise.all([import('./pages/BlogPostPage'), loadData()]).then(([template, data]) => ({
+      default: function Page() {
+        return createElement(template.BlogPostPage, { post: data.default });
+      },
+    }));
+}
+
+// One route per migrated blog post, kept at its original WordPress permalink (/<slug>)
+// so existing rankings and backlinks transfer with no redirect. Each post is its own
+// code-split chunk, loaded only when visited.
+const blogModules = import.meta.glob('./data/blog/posts/*.ts') as Record<
+  string,
+  () => Promise<{ default: BlogPostData }>
+>;
+const blogRoutes: ReadonlyArray<readonly [string, Loader]> = Object.entries(blogModules).map(([file, load]) => {
+  const slug = file.slice(file.lastIndexOf('/') + 1, -3);
+  return [`/${slug}`, blogPost(load)] as const;
+});
 
 const table: ReadonlyArray<readonly [string, Loader]> = [
   ['/', () => import('./pages/HomePage')],
@@ -53,7 +76,11 @@ const table: ReadonlyArray<readonly [string, Loader]> = [
   ['/disclaimer', () => import('./pages/legal/DisclaimerPage')],
 ];
 
-export const routes: readonly RouteDef[] = table.map(([path, load]) => ({ path, load, Component: lazy(load) }));
+export const routes: readonly RouteDef[] = [...table, ...blogRoutes].map(([path, load]) => ({
+  path,
+  load,
+  Component: lazy(load),
+}));
 
 export const NotFound = lazy(() => import('./pages/NotFoundPage'));
 

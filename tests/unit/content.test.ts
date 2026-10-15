@@ -6,8 +6,19 @@ import programsPage from '../../src/data/pages/programs';
 import { primaryNav, site } from '../../src/data/site';
 import { findRoute } from '../../src/routes';
 
-/** Content decisions from the client's change list (Fixes.pdf) that must not regress. */
-const allData = JSON.stringify(Object.values(import.meta.glob('../../src/data/**/*.ts', { eager: true })));
+/**
+ * Content decisions from the client's change list (Fixes.pdf) that must not regress.
+ * Scope: the site's own hand-authored marketing copy. The migrated blog archive
+ * (src/data/blog/** and the listing derived from it in posts.ts) is historical content
+ * kept verbatim, so these marketing-copy rules — e.g. "say Australia not Sydney",
+ * British spelling, not naming HDFC Credila — are not applied to old articles that
+ * legitimately mention the city of Sydney, use US spelling, or recap a past seminar.
+ */
+const allData = JSON.stringify(
+  Object.values(
+    import.meta.glob(['../../src/data/**/*.ts', '!../../src/data/blog/**', '!../../src/data/posts.ts'], { eager: true }),
+  ),
+);
 const navLabels = [primaryNav, primaryNav.flatMap((item) => item.children ?? [])].flat().map((link) => link.label);
 
 describe('partner institution figures', () => {

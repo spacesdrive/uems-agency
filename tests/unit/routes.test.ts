@@ -1,6 +1,11 @@
 import { describe, expect, it } from 'vitest';
+import { blogIndex } from '../../src/data/blog';
+import { pastEvents, upcomingEvents } from '../../src/data/events';
 import { footerNav, primaryNav } from '../../src/data/site';
 import { findRoute, preloadRoute, routes } from '../../src/routes';
+
+/** Static page routes carried over from the original site (excludes migrated blog posts). */
+const CORE_PAGE_COUNT = 30;
 
 describe('route table', () => {
   it('has unique, normalised paths', () => {
@@ -11,8 +16,22 @@ describe('route table', () => {
     }
   });
 
-  it('includes every page of the original site map', () => {
-    expect(routes).toHaveLength(30);
+  it('includes every page of the original site map plus one route per migrated blog post', () => {
+    expect(blogIndex.length).toBeGreaterThan(0);
+    expect(routes).toHaveLength(CORE_PAGE_COUNT + blogIndex.length);
+  });
+
+  it('serves each migrated blog post at its original root permalink', () => {
+    for (const post of blogIndex) {
+      expect(findRoute(`/${post.slug}`)?.path).toBe(`/${post.slug}`);
+    }
+  });
+
+  it('links every seminar/event to a page on this site, never the old domain', () => {
+    for (const event of [...upcomingEvents, ...pastEvents]) {
+      expect(event.url.startsWith('/')).toBe(true);
+      expect(findRoute(event.url)?.path).toBe(event.url);
+    }
   });
 });
 

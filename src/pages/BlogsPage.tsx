@@ -1,11 +1,10 @@
-import { Button } from '../components/Button';
 import { PageHero } from '../components/PageHero';
 import { PostCard } from '../components/PostCard';
 import { Reveal } from '../components/Reveal';
 import { Section } from '../components/Section';
 import { SectionHeading } from '../components/SectionHeading';
 import { Seo } from '../components/Seo';
-import { blogArchiveUrl, blogPosts } from '../data/posts';
+import { blogPosts } from '../data/posts';
 import s from './ListingPage.module.css';
 
 const path = '/blogs';
@@ -54,10 +53,6 @@ export default function BlogsPage() {
             </Reveal>
           ))}
         </ul>
-        <div className={s.more}>
-          <p>Full articles open on the UEMS Ventures blog.</p>
-          <Button to={blogArchiveUrl} label="Older articles" variant="dark" />
-        </div>
       </Section>
     </>
   );

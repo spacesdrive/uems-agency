@@ -494,13 +494,18 @@ export function createFluidGlass(canvas: HTMLCanvasElement, options: FluidGlassO
     }
   };
 
-  // Full rate while ink is on screen, ~30fps for the slow ambient drift.
+  // Full rate while ink is on screen, ~30fps as it fades, then a full stop when idle
+  // so the main thread isn't pinned by a perpetual render loop (it wakes on pointer move).
   let skip = false;
   const loop = (now: number) => {
     frame = 0;
     if (!running) return;
     skip = energy < 0.01 ? !skip : false;
     if (!skip) draw(now);
+    if (energy < 0.004 && !pointer.moved) {
+      sleep();
+      return;
+    }
     frame = requestAnimationFrame(loop);
   };
 
