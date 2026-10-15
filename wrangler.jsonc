@@ -24,7 +24,13 @@
   // on spacesdrive.cc). Delivery starts once the inbox clicks Cloudflare's verification email;
   // until then sends are refused and the site opens the visitor's mail app instead.
   "send_email": [{ "name": "ENQUIRY_EMAIL", "destination_address": "info@uemsventures.com" }],
-  "routes": [{ "pattern": "uems-agency.spacesdrive.cc", "custom_domain": true }],
+  // Zone routes: the Worker intercepts all traffic on the zone and serves the new site,
+  // bypassing the old origin. DNS records (incl. MX for email) are left untouched, so
+  // removing these routes instantly reverts to the previous origin.
+  "routes": [
+    { "pattern": "uemsventures.com/*", "zone_name": "uemsventures.com" },
+    { "pattern": "www.uemsventures.com/*", "zone_name": "uemsventures.com" }
+  ],
   // Serve only on the custom domain; no public *.workers.dev or preview URLs.
   "workers_dev": false,
   "preview_urls": false,
